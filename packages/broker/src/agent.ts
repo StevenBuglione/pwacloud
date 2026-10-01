@@ -8,10 +8,13 @@ export type AgentCall=Readonly<{id:string;tool:string;input:unknown}>;
 export type AgentApproval=(tool:Readonly<Tool>,input:unknown,signal:AbortSignal)=>Promise<boolean>;
 export type WriteAdmission=(call:AgentCall,perform:()=>Promise<unknown>,signal:AbortSignal)=>Promise<unknown>;
 export type AgentOptions={admitWrite?:WriteAdmission;timeoutMs?:number};
+export type AgentTurn=Readonly<{calls:readonly AgentCall[];results:readonly unknown[]}>;
+export type AgentSelector=(history:readonly AgentTurn[],signal:AbortSignal)=>Promise<unknown>;
 const ajv=new Ajv2020({strict:true,ownProperties:true});
 const identifier={type:'string',minLength:1,maxLength:120,pattern:'^[A-Za-z0-9._:-]+$'};
 const callsValid=ajv.compile<AgentCall[]>({type:'array',maxItems:64,items:{type:'object',additionalProperties:false,required:['id','tool','input'],properties:{id:identifier,tool:identifier,input:{}}}});
 const registrationValid=ajv.compile<{id:string;write:boolean}>({type:'object',additionalProperties:false,required:['id','write'],properties:{id:identifier,write:{type:'boolean'}}});
+const decisionValid=ajv.compile<{type:'done';output:unknown}|{type:'calls';calls:AgentCall[]}>({oneOf:[{type:'object',additionalProperties:false,required:['type','output'],properties:{type:{const:'done'},output:{}}},{type:'object',additionalProperties:false,required:['type','calls'],properties:{type:{const:'calls'},calls:{type:'array',minItems:1,maxItems:64,items:{type:'object',additionalProperties:false,required:['id','tool','input'],properties:{id:identifier,tool:identifier,input:{}}}}}}]});
 function active(signal:AbortSignal):void{if(signal.aborted)throw new PlatformError('cancelled');}
 function jsonSnapshot(value:unknown):unknown{
   const seen=new WeakSet<object>();let count=0,budget=0;const reserve=(bytes:number)=>{budget+=bytes;if(budget>262144)throw new PlatformError('tool-budget');};
@@ -40,6 +43,7 @@ export class ScopedAgent{
     this.tools=tools.map(tool=>{if(!registrationValid({id:tool.id,write:tool.write})||typeof tool.validate!=='function'||typeof tool.execute!=='function'||tool.validateOutput!==undefined&&typeof tool.validateOutput!=='function')throw new PlatformError('invalid-tool');return Object.freeze({...tool});});
     if(new Set(this.tools.map(tool=>tool.id)).size!==this.tools.length)throw new PlatformError('duplicate-tool');
   }
+  get stepLimit():number{return this.maxSteps;}
   async run(calls:unknown,approve:AgentApproval,signal:AbortSignal=new AbortController().signal):Promise<unknown[]>{
     active(signal);if(this.running)throw new PlatformError('busy');if(Array.isArray(calls)&&calls.length>this.maxSteps)throw new PlatformError('step-limit');
     const snapshot=jsonSnapshot(calls);if(!callsValid(snapshot))throw new PlatformError('invalid-tool-call');
@@ -58,6 +62,22 @@ export class ScopedAgent{
       return results;
     }finally{this.running=false;}
   }
+}
+
+/** Selectors supply untrusted decisions; execution always stays inside the existing scoped runner. */
+export async function runAgentLoop(agent:ScopedAgent,selectNext:AgentSelector,approve:AgentApproval,options:{signal?:AbortSignal;timeoutMs?:number}={}):Promise<{output:unknown;history:readonly AgentTurn[]}>{
+  const timeoutMs=options.timeoutMs??30000;if(!Number.isSafeInteger(timeoutMs)||timeoutMs<1||timeoutMs>120000)throw new PlatformError('invalid-agent-limit');
+  const signal=AbortSignal.any([options.signal??new AbortController().signal,AbortSignal.timeout(timeoutMs)]);const history:AgentTurn[]=[];let steps=0;
+  for(let turn=0;turn<=agent.stepLimit;turn++){
+    active(signal);const safeHistory=jsonSnapshot(history) as readonly AgentTurn[];
+    const decision=jsonSnapshot(await abortable(()=>selectNext(safeHistory,signal),signal));active(signal);
+    if(!decisionValid(decision))throw new PlatformError('invalid-tool-call');
+    if(decision.type==='done')return{output:decision.output,history:safeHistory};
+    if(steps+decision.calls.length>agent.stepLimit)throw new PlatformError('step-limit');
+    const results=await agent.run(decision.calls,approve,signal);steps+=decision.calls.length;
+    history.push({calls:decision.calls,results});
+  }
+  throw new PlatformError('step-limit');
 }
 
 type Board={zoom:number;panX:number;panY:number;objects:{id:string;x:number;y:number;text:string;color:'mint'|'sand'|'blue'}[]};

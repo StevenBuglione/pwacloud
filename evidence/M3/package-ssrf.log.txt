@@ -1,0 +1,13 @@
+✔ PKG-05 controlled redirect to a private target is denied before a second transport call (3.9314ms)
+✔ PKG-05 a same-origin redirect repeats DNS admission and blocks a rebound private answer (0.685ms)
+✔ PKG-05 public redirects recheck origin and drop cross-origin credential headers (1.3786ms)
+✔ PKG-05 a different public response peer is rejected despite a public DNS answer (0.3259ms)
+✔ PKG-05 native TLS observes an actual loopback socket and rejects it after synthetic public DNS (21.4646ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 413.4081

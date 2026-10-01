@@ -69,6 +69,6 @@ export class CapabilityBroker {
     }
   }
 }
-export {ScopedAgent,createSelectedDocumentAgent} from './agent.ts';
-export type {Tool,AgentCall,AgentApproval,AgentOptions,WriteAdmission} from './agent.ts';
+export {ScopedAgent,runAgentLoop,createSelectedDocumentAgent} from './agent.ts';
+export type {Tool,AgentCall,AgentApproval,AgentOptions,WriteAdmission,AgentTurn,AgentSelector} from './agent.ts';
 

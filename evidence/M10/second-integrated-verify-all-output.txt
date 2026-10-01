@@ -1,0 +1,432 @@
+$ pnpm lint && pnpm typecheck && pnpm build && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e
+$ tsx scripts/lint.ts
+TypeScript source and package dependency boundary lint passed
+$ tsc --noEmit
+$ tsx scripts/build.ts
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.17s
+
+  Transpiled JS Component Files:
+
+ - artifacts/guest/generated/guest.core.wasm                            97.4 KiB
+ - artifacts/guest/generated/guest.d.ts                                 0.26 KiB
+ - artifacts/guest/generated/guest.js                                    115 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-lifecycle.d.ts  0.47 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-types.d.ts      1.72 KiB
+
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.05s
+{"id":"notebook","archiveBytes":805665,"sha256":"a0cc9cf6c8259597c468269fb5b020e9fe2f096f8ea73643e0b6e8de60b09937","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"feed-reader","archiveBytes":487513,"sha256":"bc9bae46da498f9a7a9aaf6fbf32c337d9bddc0dfe95e37d0271ed992d947f37","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"canvas-board","archiveBytes":697515,"sha256":"85ee2e6c374f3aa84569fbdcde5408c6dd8b75b7aa4ab90307ea539020ac69cf","trust":"DEMO ONLY - no Sigstore attestation"}
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 399 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/shell/index.html                         0.77 kB │ gzip:   0.43 kB
+dist/shell/assets/index-C7pdC0ic.css         19.72 kB │ gzip:   4.74 kB
+dist/shell/assets/p-ZjP4CjeZ-DJ1DGIsW.js      0.09 kB │ gzip:   0.09 kB
+dist/shell/assets/p-BUVGbkSc-CBjJxJJR.js      0.45 kB │ gzip:   0.31 kB
+dist/shell/assets/p-yjLe0sN2-Bjhe8TY_.js      0.57 kB │ gzip:   0.41 kB
+dist/shell/assets/p-C_NQIzjP-CgPkMDnS.js      1.56 kB │ gzip:   0.79 kB
+dist/shell/assets/p-D4NOsSCE-L9_4hw6e.js      4.65 kB │ gzip:   2.02 kB
+dist/shell/assets/p-BriaEJK8-Bxir1Z1P.js     36.58 kB │ gzip:  13.87 kB
+dist/shell/assets/index-SzfOLcL4.js       1,653.06 kB │ gzip: 386.18 kB
+
+✓ built in 336ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 1000 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+{"status":"built","shell":"dist/shell","minimalHost":"dist/minimal","guest":"artifacts/guest/browser","fixtures":"artifacts/packages","shellRevision":"b405e3c0ffe5e497"}
+$ tsx --test tests/unit/*.test.ts tests/production/*.test.ts
+✔ agent cancellation during pending approval ignores late approval and never enters durable admission or executes a write (5.9422ms)
+✔ agent cancellation after a read stops subsequent write approval and execution (0.6568ms)
+✔ agent rechecks cancellation when a durable admission invokes its deferred write (0.5465ms)
+✔ agent validates a whole bounded batch before effects and refuses malformed IDs tool escalation and injected authority (0.9965ms)
+✔ agent denied approval leaves no admitted write and exact argument snapshots resist caller mutation (1.5793ms)
+✔ injected admission survives recreated runner instances and never retries an ambiguous failed write (0.9751ms)
+✔ agent deadlines stop hung approval and registration rejects duplicate tools and invalid budgets (17.0831ms)
+✔ agent payload and depth budgets reject hostile data before approval (0.583ms)
+✔ an admission callback cannot invoke the same write twice (0.3629ms)
+✔ strict RPC rejects identity injection, unknown params and oversize before dispatch (1.8178ms)
+✔ manifest compatibility and duplicate permissions fail closed (3.3529ms)
+✔ worker scheduler enforces two active tasks and fair waiting admission (4.06ms)
+✔ agent never executes denied writes, injected commands, replay or excessive steps (2.1598ms)
+✔ core memory validation requires declared finite maximum and refuses unsupported profiles (1.7835ms)
+✔ deterministic pack is independent of input ordering and round-trips exact bytes (15.6218ms)
+✔ actual P256 raw signatures and digest verification retain exact packet bytes (6.1699ms)
+✔ offline install accepts only valid cached explicit root and current receipt (3.4012ms)
+✔ trust root JSON boundary validates public P256 material (1.9997ms)
+✔ CLI scaffolds React and Lit without overwriting an existing directory (18.9049ms)
+✔ CLI packs inspectable actual plugin directory and rejects unknown manifest fields (11.3336ms)
+✔ CLI builds independent React and Lit bundled IIFEs (369.9342ms)
+✔ SBOM consumes actual pnpm leaf naming and locked Cargo dependency relationships and sanitizes license paths (9.1293ms)
+✔ public signing workflow contract pins actions and keeps signing authority out of readonly build (1.2318ms)
+✔ CLI developer server serves a real isolated watch preview and denies arbitrary file routes (252.3783ms)
+✔ AI-01 synthetic OAuth fixture binds issued ID, PKCE, nonce and one-use state (56.0395ms)
+✔ AI-01 missing issued client ID, expired state and denial consume no provider request (8.8573ms)
+✔ AI-01 signed synthetic token with wrong nonce is rejected (40.3898ms)
+✔ AI-01 signed synthetic token with wrong issuer is rejected (18.6144ms)
+✔ AI-01 signed synthetic token with wrong audience is rejected (85.9545ms)
+✔ AI-01 expired, missing-expiration and invalid-signature synthetic ID tokens are rejected (146.1554ms)
+✔ AI-01 returning registration rejects different issued ID and verified account (23.3255ms)
+✔ AI-02 protected local store encrypts synthetic credentials and round-trips via actual OS protection (525.6524ms)
+✔ AI-02 concurrent synthetic refreshes serialize and atomically retain rotating credentials (56.9448ms)
+✔ AI-02 disconnect during a synthetic refresh cannot restore cleared credentials (78.2438ms)
+✔ AI-02 changed identity on synthetic refresh cannot replace the selected credential record (35.8161ms)
+✔ AI-03 catalog preserves visible slugs and request shaper omits unsupported plan parameters (0.7937ms)
+✔ AI-08 identity-only token cannot enumerate inference models or silently select billing fallback (19.9224ms)
+✔ AI-07 provider fixtures decode UTF-8 fragmented SSE and require terminal completion (26.7227ms)
+✔ synthetic provider stream cancellation aborts before a completed event (20.7884ms)
+✔ AI-08 provider denial, revoked token, quota and routing failure remain typed with no other endpoint (173.9386ms)
+✔ provider SSE parser rejects invalid UTF-8, overlong and truncated events (0.315ms)
+✔ transport persists a known offline revocation and never restores the removed AI grant (41.9206ms)
+✔ transport discards an offline uninstall after a later local reinstall (4.8366ms)
+✔ transport retains a stale offline uninstall without targeting a newer remote approval (4.1298ms)
+✔ transport cannot apply queued consent to a different runtime session or account fence (4.9111ms)
+✔ transport with no observed remote baseline stays revoked until a later explicit permission review (4.5254ms)
+✔ transport replays multiple restrictive intents using only generations returned by its own CAS (5.5516ms)
+✔ transport requires a fresh review when the runtime session changes before pending approval (2.7345ms)
+✔ catalog preserves listed order and actual fields (2.3309ms)
+✔ generic API data shape is not plan catalog (0.4971ms)
+✔ duplicate catalog identity (0.9867ms)
+✔ invalid visible model (0.1978ms)
+✔ correct plan-only text shape (0.3981ms)
+✔ reject passthrough max_output_tokens (0.1984ms)
+✔ reject passthrough temperature (0.1375ms)
+✔ reject passthrough background (0.1229ms)
+✔ reject passthrough previous_response_id (0.2157ms)
+✔ reject passthrough tools (0.3206ms)
+✔ reject passthrough store (0.1329ms)
+✔ reject passthrough stream (0.1107ms)
+✔ reject passthrough metadata (0.1595ms)
+✔ reject passthrough apiKey (0.1138ms)
+✔ reject passthrough endpoint (0.1225ms)
+✔ missing direct plan scope (0.1777ms)
+✔ unavailable model (0.1635ms)
+✔ blank input (0.1726ms)
+✔ input byte bound (0.5688ms)
+✔ terminal completed (0.1857ms)
+✔ terminal disconnect (0.0686ms)
+✔ terminal failed (0.0648ms)
+✔ terminal incomplete (0.0611ms)
+✔ terminal conflicting terminals (0.0723ms)
+✔ admit and release concurrency (1.5891ms)
+✔ idempotency does not spend again (0.1921ms)
+✔ completion not a budget refund (0.1939ms)
+✔ new window resets count, retains active limit (0.1936ms)
+✔ completed duplicate is not resubmitted (0.1707ms)
+✔ clock rollback denied (0.172ms)
+✔ invalid limits denied (0.157ms)
+✔ unknown completion does not corrupt counts (0.1543ms)
+✔ well-shaped fixture passes logical gate only (3.1794ms)
+✔ missing cases block (0.2843ms)
+✔ pending is not passed (0.2086ms)
+✔ blocked is not passed (0.1222ms)
+✔ failed is not passed (0.1132ms)
+✔ wrong commit blocks (0.1458ms)
+✔ future evidence blocks (0.1553ms)
+✔ mock provider not real (0.3293ms)
+✔ emulation not physical (0.2727ms)
+✔ wrong device blocks (0.2897ms)
+✔ missing reviewer blocks (0.1452ms)
+✔ no artifacts blocks (0.2812ms)
+✔ unsafe artifact path blocks (0.1998ms)
+✔ duplicate case blocks (0.1685ms)
+✔ hosted authorization not a missing optional case (0.1837ms)
+✔ sentinel commit cannot release (0.1608ms)
+✔ SHA-256 known vector (8.1875ms)
+✔ exact digest and tampering (1.1663ms)
+✔ archive path rejected "../x" (0.3248ms)
+✔ archive path rejected "/etc/passwd" (0.2262ms)
+✔ archive path rejected "a/../x" (0.1287ms)
+✔ archive path rejected "a//b" (0.1183ms)
+✔ archive path rejected "a\\b" (0.1351ms)
+✔ archive path rejected "a/%2e%2e/b" (0.1199ms)
+✔ archive path rejected "a/./b" (0.1614ms)
+✔ archive path rejected "a/" (0.1878ms)
+✔ archive path rejected "x\u0000y" (0.1416ms)
+✔ archive path rejected "C:/x" (0.123ms)
+✔ archive path rejected "a./b" (0.0822ms)
+✔ valid archive entries (0.2277ms)
+✔ duplicate casefold file rejected (0.4796ms)
+✔ symlink rejected (0.1322ms)
+✔ expanded size limit (0.1459ms)
+✔ negative size (0.1492ms)
+✔ path file/directory collision (0.1479ms)
+✔ entry count (0.3257ms)
+✔ P256 exact-byte signature actual crypto (9.3465ms)
+✔ start on demand (1.4703ms)
+✔ idle without demand (0.1501ms)
+✔ suspend invisible (1.0167ms)
+✔ running healthy (0.1625ms)
+✔ disabled running (0.0902ms)
+✔ disabled absent (0.1294ms)
+✔ quarantined overrides all (0.0845ms)
+✔ consent before download (0.0714ms)
+✔ download stage (0.0924ms)
+✔ offline stage waits (0.1323ms)
+✔ verify before activation (0.083ms)
+✔ dependency before activation (0.0709ms)
+✔ safe write before activation (0.0545ms)
+✔ verified swap (0.1115ms)
+✔ stop stale runtime (0.1166ms)
+✔ restart backoff (0.1863ms)
+✔ dependency before starting (0.0524ms)
+✔ missing dependency stops running (0.0758ms)
+✔ invalid clock refused (0.4058ms)
+✔ network exact path (2.2416ms)
+✔ network child path (0.2838ms)
+✔ network prefix lookalike (0.182ms)
+✔ network default HTTPS port (0.1535ms)
+✔ network unapproved port (0.2116ms)
+✔ network lookalike host (0.1654ms)
+✔ network HTTP denied (0.1312ms)
+✔ network credentials denied (0.1556ms)
+✔ network write denied (0.1755ms)
+✔ network lowercase method denied (0.2228ms)
+✔ network raw dot traversal (0.1597ms)
+✔ network encoded dot traversal (0.1385ms)
+✔ network encoded separator (0.0932ms)
+✔ network double encoding (0.0569ms)
+✔ network backslash (0.0823ms)
+✔ network fragment (0.0784ms)
+✔ network line break (0.0556ms)
+✔ network invalid URL (0.0975ms)
+✔ literal/private name denied 127.0.0.1 (0.0927ms)
+✔ literal/private name denied 2130706433 (0.055ms)
+✔ literal/private name denied [::1] (0.0732ms)
+✔ literal/private name denied localhost (0.0515ms)
+✔ literal/private name denied host.local (0.0607ms)
+✔ literal/private name denied 10.0.0.1 (0.0463ms)
+✔ canonical origin required in rule (0.0871ms)
+✔ root prefix is allowed (0.1141ms)
+✔ matching live grant (0.1569ms)
+✔ principal mismatch workspace (0.1028ms)
+✔ principal mismatch plugin (0.0675ms)
+✔ principal mismatch digest (0.0781ms)
+✔ principal mismatch instance (0.0972ms)
+✔ stale generation (0.1137ms)
+✔ expiry boundary (0.094ms)
+✔ revoke (0.101ms)
+✔ capability mismatch (0.1042ms)
+✔ invalid clock fails closed (0.0878ms)
+✔ SSE basic fields (1.433ms)
+✔ all possible chunk splits including UTF-8 (2.4531ms)
+✔ byte-by-byte split (0.2306ms)
+✔ CR-only line endings (0.1178ms)
+✔ comments and id inheritance (0.1859ms)
+✔ invalid UTF-8 throws (0.2738ms)
+✔ truncated UTF-8 throws (0.1468ms)
+✔ unterminated data fails (0.2889ms)
+✔ size cap and fail-closed parser (0.3036ms)
+✔ size cap resets across events (0.1799ms)
+✔ finish closes parser (0.1453ms)
+ℹ tests 183
+ℹ suites 0
+ℹ pass 183
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1762.224
+$ tsx --test tests/integration/*.test.ts
+✔ production server negotiates real compressed critical assets with exact decoded bytes under transfer budgets (199.0997ms)
+✔ RUN-05 actual component transformation has no host imports and bounded real core memories (128.898ms)
+✔ RUN-05 real unknown-import component is detected before worker execution (19.8928ms)
+✔ GitHub resolver verifies release assets tag source and repository through same artifact boundary (24.3909ms)
+✔ OCI exact pinned manifest digest and five layers produce identical verified package (7.6476ms)
+✔ signed catalogue verifies exact bytes freshness publisher revocation and transparent filters (5.2084ms)
+✔ whole dependency graph requires explicit compatible selection and rejects cycles before activation (2.731ms)
+✔ fixture cryptography uses raw WebCrypto signatures rather than mocked success (2.2732ms)
+✔ verified same-account selection and new registration cannot reset durable account admission or revive disconnected selection (494.3415ms)
+✔ HTTPS signed installation prepares a real component using trusted Jco and refuses cached weaker limits or host imports (3479.6503ms)
+✔ local receipt issuer protects and reuses its own key but never admits missing public Sigstore evidence (536.7834ms)
+✔ runtime-owned trust endpoint requires app session and rejects null Origin (121.1133ms)
+✔ personal-mode public trust excludes demo authority and rejects private key material (11.0841ms)
+✔ runtime session enforces exact Origin, CSRF, null-origin denial and host-only HttpOnly cookie (149.7311ms)
+✔ runtime verifies signed package bytes before granting declared permission and rejects forged principal (33.9244ms)
+✔ AI-06 durable admission deduplicates concurrent submits and never refunds a cancelled request (441.4645ms)
+✔ AI-07 FND-04 real HTTP synthetic SSE reconnect replays journal without duplicate provider execution (4076.0205ms)
+✔ last SSE disconnect cancels after bounded grace and retains journal plus admitted usage (81.1064ms)
+✔ AI revocation stops delivery, stale generation, subscription and subsequent inference (16.6912ms)
+✔ delayed signed registration cannot restore AI consent after a concurrent revocation (80.0191ms)
+✔ registration CAS preserves uninstall tombstones and serializes competing consent approvals (23.1766ms)
+✔ local output delivery and elapsed limits retain durable admitted usage without claiming refunds (91.5505ms)
+✔ runtime restart preserves interrupted journal and refuses automatic resubmission (150.0047ms)
+✔ AI-10 hosted, VM, insecure phone and flag-only HTTPS modes fail closed (0.6254ms)
+✔ pairing uses real TLS listener, one-use expiry, attempt limits and only app session authority (151.9833ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6166.0653
+$ tsx --test tests/hostile/*.test.ts
+✔ boundary schema refuses authority fields at every packet position (1.3232ms)
+✔ malformed, oversized and unexpected-method corpus is rejected (0.3445ms)
+✔ traversal absolute Windows nested archives and prototype paths fail before extraction (1.3396ms)
+✔ case-normalized archive duplicate fails (1.0029ms)
+✔ central directory refuses symlinks and device types before decompression (0.9338ms)
+✔ encrypted and descriptor entries and wrong local names fail (0.5198ms)
+✔ file-count and compressed expanded individual budgets fail from metadata (157.4012ms)
+✔ dishonest declared inflate length cannot pass even with valid truncated-prefix CRC (1.1294ms)
+✔ trailing prefix zip64 and truncated archives fail (0.258ms)
+✔ tampered archive receipt and exact envelope bytes fail signature/digest checks (18.6581ms)
+✔ forged unknown trust wrong publisher stale revoked future and expired receipt all fail (4.4078ms)
+✔ extra unlisted files incorrect repository and unknown manifest data fail (3.5277ms)
+✔ packet rejects added authority fields malformed base64 and excessive sizes (0.5649ms)
+✔ private mapped IPv6 and reserved destinations fail including actual pre-socket resolution (7.3245ms)
+✔ Sigstore proof and production receipt issuance fail closed on fake attestations and demo roots (2.3203ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 668.263
+$ playwright test
+[WebServer] (node:12604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+[WebServer] (node:66688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:57420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 44 tests using 1 worker
+
+(node:68088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (567ms)
+  ok  2 [chromium] › tests\e2e\app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (3.1s)
+  ok  3 [chromium] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (10.9s)
+  ok  4 [chromium] › tests\e2e\app.spec.ts:71:1 › M1 real waiting service-worker update protects an unsaved edit before apply (1.9s)
+  ok  5 [chromium] › tests\e2e\app.spec.ts:81:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (2.4s)
+  ok  6 [chromium] › tests\e2e\app.spec.ts:92:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (2.5s)
+  ok  7 [chromium] › tests\e2e\app.spec.ts:104:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (2.1s)
+  ok  8 [chromium] › tests\e2e\app.spec.ts:115:1 › M9 minimal non-Ionic embedding uses independently verified package (837ms)
+  ok  9 [chromium] › tests\e2e\app.spec.ts:119:1 › M9 automated accessibility host 360px light/dark and enlarged text (2.1s)
+  ok 10 [chromium] › tests\e2e\app.spec.ts:125:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (3.3s)
+  ok 11 [chromium] › tests\e2e\app.spec.ts:140:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (6.1s)
+  ok 12 [chromium] › tests\e2e\app.spec.ts:156:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (542ms)
+  ok 13 [chromium] › tests\e2e\app.spec.ts:164:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (3.1s)
+  ok 14 [chromium] › tests\e2e\boundaries.spec.ts:2:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (332ms)
+  ok 15 [chromium] › tests\e2e\hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (592ms)
+  ok 16 [chromium] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (9.8s)
+  ok 17 [chromium] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (391ms)
+  ok 18 [chromium] › tests\e2e\lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (11.9s)
+  ok 19 [chromium] › tests\e2e\package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (3.0s)
+  ok 20 [chromium] › tests\e2e\package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (2.5s)
+  ok 21 [chromium] › tests\e2e\spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (1.1s)
+  ok 22 [chromium] › tests\e2e\spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.3s)
+(node:59444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 23 [webkit] › tests\e2e\agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (2.5s)
+  ok 24 [webkit] › tests\e2e\app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (6.9s)
+  ok 25 [webkit] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (17.8s)
+  ok 26 [webkit] › tests\e2e\app.spec.ts:71:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.3s)
+  ok 27 [webkit] › tests\e2e\app.spec.ts:81:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (8.6s)
+  ok 28 [webkit] › tests\e2e\app.spec.ts:92:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (10.2s)
+  ok 29 [webkit] › tests\e2e\app.spec.ts:104:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (8.5s)
+  ok 30 [webkit] › tests\e2e\app.spec.ts:115:1 › M9 minimal non-Ionic embedding uses independently verified package (2.9s)
+  ok 31 [webkit] › tests\e2e\app.spec.ts:119:1 › M9 automated accessibility host 360px light/dark and enlarged text (4.0s)
+  x  32 [webkit] › tests\e2e\app.spec.ts:125:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (4.3s)
+(node:49168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 33 [webkit] › tests\e2e\app.spec.ts:140:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (27.4s)
+  ok 34 [webkit] › tests\e2e\app.spec.ts:156:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (1.6s)
+  ok 35 [webkit] › tests\e2e\app.spec.ts:164:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (9.6s)
+  ok 36 [webkit] › tests\e2e\boundaries.spec.ts:2:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (1.3s)
+  ok 37 [webkit] › tests\e2e\hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (1.4s)
+  ok 38 [webkit] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (11.1s)
+  ok 39 [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (12.2s)
+  ok 40 [webkit] › tests\e2e\lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (14.2s)
+  ok 41 [webkit] › tests\e2e\package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (4.4s)
+  ok 42 [webkit] › tests\e2e\package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (3.5s)
+  ok 43 [webkit] › tests\e2e\spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (1.8s)
+  ok 44 [webkit] › tests\e2e\spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.6s)
+
+
+  1) [webkit] › tests\e2e\app.spec.ts:125:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 39
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure all page content is contained by landmarks",
+    +     "help": "All page content should be contained by landmarks",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=playwright",
+    +     "id": "region",
+    +     "impact": "moderate",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "isIframe": false,
+    +             },
+    +             "id": "region",
+    +             "impact": "moderate",
+    +             "message": "Some page content is not contained by landmarks",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Some page content is not contained by landmarks",
+    +         "html": "<span>An app update is ready.</span>",
+    +         "impact": "moderate",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".update-banner > span",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.keyboard",
+    +       "best-practice",
+    +       "RGAAv4",
+    +       "RGAA-9.2.1",
+    +     ],
+    +   },
+    + ]
+
+      129 |     await install(page,name);
+      130 |     const frame=page.frameLocator('iframe');await expect(frame.getByRole('heading',{name,exact:true})).toBeVisible();
+    > 131 |     const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);expect(result.incomplete.filter(item=>item.id==='frame-tested')).toEqual([]);
+          |                                                                                   ^
+      132 |     reports.push({plugin:name,violations:result.violations,incomplete:result.incomplete,passes:result.passes.map(item=>({id:item.id,nodes:item.nodes.map(node=>node.target)}))});
+      133 |     const child=page.frames().find(value=>value!==page.mainFrame());if(!child)throw new Error('Missing plugin frame');
+      134 |     expect(await child.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\app.spec.ts:131:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\app-M9-accessibility-insid-ebfdb-200-text-and-reduced-motion-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\app-M9-accessibility-insid-ebfdb-200-text-and-reduced-motion-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\app-M9-accessibility-insid-ebfdb-200-text-and-reduced-motion-webkit\trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results\app-M9-accessibility-insid-ebfdb-200-text-and-reduced-motion-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests\e2e\app.spec.ts:125:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion 
+  43 passed (3.9m)
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.

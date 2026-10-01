@@ -1,0 +1,1 @@
+Official CycloneDX 1.6 schema validation passed; components=490; urn:uuid:fa938c23-45cf-591a-81c1-7c0c9d4c1b19

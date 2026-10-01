@@ -1,0 +1,20 @@
+✔ agent cancellation during pending approval ignores late approval and never enters durable admission or executes a write (5.2437ms)
+✔ agent cancellation after a read stops subsequent write approval and execution (0.5383ms)
+✔ agent rechecks cancellation when a durable admission invokes its deferred write (0.4548ms)
+✔ agent validates a whole bounded batch before effects and refuses malformed IDs tool escalation and injected authority (0.7724ms)
+✔ agent denied approval leaves no admitted write and exact argument snapshots resist caller mutation (1.1864ms)
+✔ injected admission survives recreated runner instances and never retries an ambiguous failed write (0.807ms)
+✔ agent deadlines stop hung approval and registration rejects duplicate tools and invalid budgets (6.9255ms)
+✔ agent payload and depth budgets reject hostile data before approval (0.6284ms)
+✔ an admission callback cannot invoke the same write twice (0.3488ms)
+✔ iterative selection sees immutable correlated results and still requires scoped write approval (1.6922ms)
+✔ iterative selection counts calls across turns and rejects additional execution at its global limit (1.0766ms)
+✔ cancelled selector cannot execute a late returned tool call (0.9489ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 359.8615

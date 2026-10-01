@@ -28,6 +28,14 @@ Use `suspend` on visibility changes and `dispose` on shutdown. Durable installs 
 
 ## Scoped agent composition
 
+`runAgentLoop(agent, selectNext, approve, options)` repeatedly requests a schema-checked decision
+from a host-supplied selector. It passes immutable correlated call/results history, bounds the total
+tool calls across turns, and enforces an overall cancellation deadline. Decisions are either
+`{type: 'calls', calls: [...]}` or `{type: 'done', output: ...}`. Every call uses the existing scoped
+runner, including per-tool validation, principal binding, durable write admission and write approval.
+The selector cannot register tools or grant itself authority. Synthetic selectors cover this loop;
+connecting a real model requires explicit adapter capability validation and remains unverified.
+
 `ScopedAgent` runs an explicitly supplied list of host-owned tools. It validates and freezes the whole
 call batch before any effect, limits steps, input/output bytes and run time, and passes an `AbortSignal`
 to approval, admission and execution. Cancelling during approval or after a read prevents a subsequent

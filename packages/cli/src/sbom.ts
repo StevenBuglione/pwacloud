@@ -1,4 +1,5 @@
 import Ajv2020 from 'ajv/dist/2020.js';
+import { createHash } from 'node:crypto';
 import { PlatformError } from '../../contracts/src/index';
 type DependencyNode={name?:string;from?:string;version:string;path?:string;dependencies?:Record<string,DependencyNode>;devDependencies?:Record<string,DependencyNode>;optionalDependencies?:Record<string,DependencyNode>};
 const schema={$id:'urn:pwacloud:dependency-tree',type:'object',required:['version'],anyOf:[{required:['name'],properties:{name:{type:'string'}}},{required:['from'],properties:{from:{type:'string'}}}],properties:{name:{type:'string',minLength:1,maxLength:240},from:{type:'string',minLength:1,maxLength:240},version:{type:'string',minLength:1,maxLength:160},path:{type:'string'},dependencies:{type:'object',additionalProperties:{$ref:'urn:pwacloud:dependency-tree'}},devDependencies:{type:'object',additionalProperties:{$ref:'urn:pwacloud:dependency-tree'}},optionalDependencies:{type:'object',additionalProperties:{$ref:'urn:pwacloud:dependency-tree'}}}};
@@ -16,5 +17,10 @@ export function dependencySbom(value:unknown,licenses?:unknown,cargo?:unknown):u
   for(const node of value) visit(node,0);
   for(const component of components.values()) {const license=declared.find(d=>d.name===component.name&&d.version===component.version);if(license) component.licenses=[{license:{name:license.declaredLicense}}];}
   if(cargo!==undefined) {if(!cargoValidator(cargo)) throw new PlatformError('invalid-cargo-metadata');const ids=new Map<string,string>();for(const pkg of cargo.packages) {const purl=`pkg:cargo/${encodeURIComponent(pkg.name)}@${encodeURIComponent(pkg.version)}`;ids.set(pkg.id,purl);components.set(purl,{type:'library',name:pkg.name,version:pkg.version,purl,...(pkg.license?{licenses:[{license:{name:pkg.license}}]}:{})});}for(const node of cargo.resolve?.nodes??[]) {const id=ids.get(node.id);if(!id) throw new PlatformError('missing-cargo-component');const dependencies=new Set(node.dependencies.map(dependency=>{const target=ids.get(dependency);if(!target) throw new PlatformError('missing-cargo-component');return target;}));edges.set(id,dependencies);}}
-  return {bomFormat:'CycloneDX',specVersion:'1.6',version:1,components:[...components.values()].sort((a,b)=>a.purl.localeCompare(b.purl)).map(c=>({...c,'bom-ref':c.purl})),dependencies:[...edges].sort(([a],[b])=>a.localeCompare(b)).map(([ref,dependsOn])=>({ref,dependsOn:[...dependsOn].sort()}))};
+  const bom={$schema:'https://cyclonedx.org/schema/bom-1.6.schema.json',bomFormat:'CycloneDX',specVersion:'1.6',version:1,components:[...components.values()].sort((a,b)=>a.purl.localeCompare(b.purl)).map(c=>({...c,'bom-ref':c.purl})),dependencies:[...edges].sort(([a],[b])=>a.localeCompare(b)).map(([ref,dependsOn])=>({ref,dependsOn:[...dependsOn].sort()}))};
+  // UUIDv5 in the standard URL namespace identifies the exact inventory deterministically.
+  const uuid=createHash('sha1').update(Buffer.from('6ba7b8119dad11d180b400c04fd430c8','hex')).update(JSON.stringify(bom)).digest().subarray(0,16);
+  uuid[6]=(uuid[6]!&0x0f)|0x50;uuid[8]=(uuid[8]!&0x3f)|0x80;
+  const hex=uuid.toString('hex'),serialNumber=`urn:uuid:${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+  return {...bom,serialNumber};
 }

@@ -1,0 +1,11 @@
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	﻿2026-10-01T23:12:45.6464909Z ##[group]Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6465305Z with:
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6465582Z   subject-path: artifacts/release-packages/*/archive.zip
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6465976Z   sbom-path: artifacts/release-packages/sbom.cdx.json
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6466508Z   create-storage-record: false
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6466806Z   push-to-registry: false
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6467052Z   show-summary: true
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6469429Z   github-token: ***
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.6469906Z ##[endgroup]
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.9218787Z Attestation type: SBOM
+sign	Run actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6	2026-10-01T23:12:45.9440725Z ##[error]Error: Unsupported SBOM format. Must be valid SPDX or CycloneDX JSON.

@@ -44,8 +44,10 @@ Raw logs: `scoped-agent-test-output.txt` and `scoped-agent-browser-output.txt`. 
 `artifacts/private-evidence/M7`. The integration owner's complete browser suite performs the final source
 check after the last small callback-invocation guard (independently tested by the Node regression).
 
-Limits: this is a deterministic tool runner and host composition adapter. A real model selecting and
-sequencing tools remains unverified. Executors must cooperate with cancellation; an already committed
+Final integration adds `runAgentLoop` with iterative untrusted selector decisions and immutable
+correlated result history. Three additional tests prove multi-turn approved composition, global limits
+across turns, denied tool escalation, and cancellation before a late selector response. All12 agent
+tests pass; real model selection remains unverified. Executors must cooperate with cancellation; an already committed
 write is not undone. The host must pause the board editor during composition to prevent a concurrent
 editor update from replacing the same board state. No physical-device, always-on, provider-entitlement,
 secret-isolation or hosted-release result is inferred from these tests.

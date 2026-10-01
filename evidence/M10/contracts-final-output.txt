@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "scope": "JSON Schema and semantic fixture checks only",
+  "checks": 49,
+  "schemas": 5,
+  "manifestFixtures": 3
+}

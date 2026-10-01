@@ -1,5 +1,6 @@
 import { lookup } from 'node:dns/promises';
-import { request,Agent } from 'node:https';
+import { request,Agent,type RequestOptions } from 'node:https';
+import type { IncomingMessage } from 'node:http';
 import { isIP } from 'node:net';
 import { PlatformError } from '../../contracts/src/index';
 export function isPublicAddress(address:string):boolean {
@@ -11,16 +12,21 @@ export function isPublicAddress(address:string):boolean {
 }
 export type SecureFetchOptions={signal?:AbortSignal;maximumBytes?:number;allowedOrigins?:readonly string[];maximumRedirects?:number;method?:'GET'|'HEAD';headers?:Readonly<Record<string,string>>};
 export type SecureResponse={status:number;headers:Readonly<Record<string,string>>;bytes:Uint8Array;url:string};
-export async function secureFetch(input:string,options:SecureFetchOptions={}):Promise<SecureResponse> {
+interface RequestControl {end():unknown;setTimeout(milliseconds:number,listener:()=>void):unknown;destroy(error?:Error):unknown;on(event:'error',listener:(error:Error)=>void):unknown;on(event:'close',listener:()=>void):unknown;}
+export type SecureFetchDependencies={resolveAddresses:(hostname:string)=>Promise<readonly {address:string;family:number}[]>;request:(url:URL,options:RequestOptions,onResponse:(response:IncomingMessage)=>void)=>RequestControl};
+/** Trusted transport injection supports deterministic boundary tests; it never changes the destination policy. */
+export function createSecureFetch(dependencies:SecureFetchDependencies):(input:string,options?:SecureFetchOptions)=>Promise<SecureResponse> {
+  const resolveAddresses=dependencies.resolveAddresses,openRequest=dependencies.request;
+  return async(input:string,options:SecureFetchOptions={}):Promise<SecureResponse>=>{
   let url=new URL(input),headers={...options.headers};const maximum=options.maximumBytes??64*1024*1024;
   for(let hop=0;hop<=(options.maximumRedirects??5);hop++) {
     if(url.protocol!=='https:' || url.username || url.password || url.hash || url.port && url.port!=='443' || options.allowedOrigins && !options.allowedOrigins.includes(url.origin)) throw new PlatformError('blocked-destination');
-    const host=url.hostname.replace(/^\[|\]$/g,'');const addresses=await lookup(host,{all:true,verbatim:true});
+    const host=url.hostname.replace(/^\[|\]$/g,'');const addresses=await resolveAddresses(host);
     if(addresses.length===0 || addresses.some(a=>!isPublicAddress(a.address))) throw new PlatformError('blocked-destination');
     const pinned=addresses[0];if(!pinned) throw new PlatformError('blocked-destination');
     const response=await new Promise<SecureResponse>((resolve,reject)=>{
       const agent=new Agent({autoSelectFamily:false,family:pinned.family,lookup:(_hostname,_opts,cb)=>cb(null,pinned.address,pinned.family)});
-      const req=request(url,{method:options.method??'GET',headers:{'User-Agent':'PWACloud/0.1',...headers},signal:options.signal,agent},res=>{
+      const req=openRequest(url,{method:options.method??'GET',headers:{'User-Agent':'PWACloud/0.1',...headers},signal:options.signal,agent},res=>{
         const remote=res.socket.remoteAddress;
         if(!remote || !isPublicAddress(remote) || remote!==pinned.address) {res.destroy();reject(new PlatformError('blocked-peer'));return;}
         const chunks:Buffer[]=[];let bytes=0;const declared=Number(res.headers['content-length']);if(Number.isFinite(declared)&&declared>maximum) {res.destroy();reject(new PlatformError('response-budget'));return;}
@@ -30,4 +36,6 @@ export async function secureFetch(input:string,options:SecureFetchOptions={}):Pr
     if([301,302,303,307,308].includes(response.status)) {const location=response.headers['location'];if(!location) throw new PlatformError('invalid-redirect');const next=new URL(location,url);if(next.origin!==url.origin)headers=Object.fromEntries(Object.entries(headers).filter(([key])=>['accept','user-agent'].includes(key.toLowerCase())));url=next;continue;} return response;
   }
   throw new PlatformError('redirect-budget');
+  };
 }
+export const secureFetch=createSecureFetch({resolveAddresses:host=>lookup(host,{all:true,verbatim:true}),request});
