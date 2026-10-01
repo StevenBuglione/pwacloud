@@ -23,7 +23,7 @@
     "test:security": "tsx --test tests/hostile/*.test.ts",
     "test:a11y": "playwright test --grep accessibility",
     "test:spikes": "playwright test tests/e2e/spikes.spec.ts",
-    "verify:all": "pnpm lint && pnpm typecheck && pnpm build && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e",
+    "verify:all": "pnpm build && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e",
     "verify:release": "tsx scripts/verify-evidence.ts",
     "typecheck:reference": "tsc -p tsconfig.reference.json",
     "audit:handoff": "python -X utf8 scripts/audit_handoff.py",

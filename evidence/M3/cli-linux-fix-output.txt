@@ -1,0 +1,18 @@
+✔ deterministic pack is independent of input ordering and round-trips exact bytes (16.3922ms)
+✔ actual P256 raw signatures and digest verification retain exact packet bytes (6.0956ms)
+✔ offline install accepts only valid cached explicit root and current receipt (3.2619ms)
+✔ trust root JSON boundary validates public P256 material (1.9825ms)
+✔ CLI scaffolds React and Lit without overwriting an existing directory (11.0936ms)
+✔ CLI packs inspectable actual plugin directory and rejects unknown manifest fields (10.5922ms)
+✔ CLI builds independent React and Lit bundled IIFEs (347.8896ms)
+✔ SBOM consumes actual pnpm leaf naming and locked Cargo dependency relationships and sanitizes license paths (9.2805ms)
+✔ public signing workflow contract pins actions and keeps signing authority out of readonly build (1.0879ms)
+✔ CLI developer server serves a real isolated watch preview and denies arbitrary file routes (252.8853ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1144.7345
