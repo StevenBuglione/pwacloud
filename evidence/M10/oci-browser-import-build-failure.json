@@ -1,0 +1,10 @@
+{
+  "exitCode": 1,
+  "physicalDevice": false,
+  "startedAt": "2026-10-01T23:37:10.5589180Z",
+  "runtime": "Windows x64 Node24.19.0 pnpm11.19.0 Rust1.93.0",
+  "finishedAt": "2026-10-01T23:37:16.1340855Z",
+  "commit": "1797ec636ba3b4d6e9cf29b64193a42a4559aabe",
+  "command": "pnpm verify:all",
+  "provider": "synthetic"
+}

@@ -1,7 +1,7 @@
 import {PluginStorage} from '../../packages/storage/src/index.ts';
 import {createPluginHost} from '../../packages/controller/src/index.ts';
 import {createEnvelope,verifyPackage,exactBuffer,sha256,decodeInstallPacket,type VerifiedPackage,type TrustRoot} from '../../packages/package-verifier/src/index.ts';
-import {resolveOci} from '../../packages/registry-client/src/server.ts';
+import {resolveOciWithTransport as resolveOci} from '../../packages/registry-client/src/oci.ts';
 import {validateManifest,type Manifest,type Receipt} from '../../packages/contracts/src/index.ts';
 import feed from '../../examples/manifests/feed-reader.json';
 import notebook from '../../examples/manifests/notebook.json';
@@ -65,5 +65,6 @@ document.getElementById('run')!.addEventListener('click',async()=>{try{
  const expected=(await storage.getInstall(id))!,removalLease=await storage.acquireLease('install/'+id,'removal');await storage.mutateInstall(id,current=>current?{...current,generation:current.generation+1,revision:current.revision+1}:undefined);await storage.putJournal(id,{stage:'staging',fence:removalLease.fence});await denied(()=>storage.removeInstall(id,expected,{name:'install/'+id,owner:'removal',fence:removalLease.fence},true));assert(await storage.getInstall(id),'Stale uninstall removed newer pointer');assert(await storage.getJournal(id),'Stale uninstall deleted journal');assert(await storage.get(id,'document')==='before','Stale uninstall removed newer data');await storage.releaseLease('install/'+id,'removal',removalLease.fence);await host.recover();
  host.dispose();migration.dispose();resumed.dispose();storage.close();status.textContent='PASS: all5 cancellation stages, consent, atomic migration, rollback/edit preservation, generation tombstones, export/delete/restore, lease recovery, no external replay, persistent dependency locks';
 }catch(error){status.textContent='FAIL: '+String(error);}});
+
 
 

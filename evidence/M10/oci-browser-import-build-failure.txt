@@ -1,0 +1,64 @@
+$ pnpm build && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e
+$ tsx scripts/build.ts
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.26s
+
+  Transpiled JS Component Files:
+
+ - artifacts/guest/generated/guest.core.wasm                             108 KiB
+ - artifacts/guest/generated/guest.d.ts                                 0.26 KiB
+ - artifacts/guest/generated/guest.js                                    115 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-lifecycle.d.ts  0.47 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-types.d.ts      1.72 KiB
+
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.16s
+X [ERROR] Could not resolve "node:dns/promises"
+
+    packages/registry-client/src/secure-fetch.ts:1:23:
+      1 │ import { lookup } from 'node:dns/promises';
+        ╵                        ~~~~~~~~~~~~~~~~~~~
+
+  The package "node:dns/promises" wasn't found on the file system but is built into node. Are you trying to bundle for node? You can use "platform: 'node'" to do that, which will remove this error.
+
+X [ERROR] Could not resolve "node:https"
+
+    packages/registry-client/src/secure-fetch.ts:2:50:
+      2 │ import { request,Agent,type RequestOptions } from 'node:https';
+        ╵                                                   ~~~~~~~~~~~~
+
+  The package "node:https" wasn't found on the file system but is built into node. Are you trying to bundle for node? You can use "platform: 'node'" to do that, which will remove this error.
+
+X [ERROR] Could not resolve "node:net"
+
+    packages/registry-client/src/secure-fetch.ts:4:21:
+      4 │ import { isIP } from 'node:net';
+        ╵                      ~~~~~~~~~~
+
+  The package "node:net" wasn't found on the file system but is built into node. Are you trying to bundle for node? You can use "platform: 'node'" to do that, which will remove this error.
+
+D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1752
+  let error = new Error(text);
+              ^
+
+Error: Build failed with 3 errors:
+packages/registry-client/src/secure-fetch.ts:1:23: ERROR: Could not resolve "node:dns/promises"
+packages/registry-client/src/secure-fetch.ts:2:50: ERROR: Could not resolve "node:https"
+packages/registry-client/src/secure-fetch.ts:4:21: ERROR: Could not resolve "node:net"
+    at failureErrorWithLog (D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1752:15)
+    at D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1211:25
+    at D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1163:52
+    at buildResponseToResult (D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1209:7)
+    at D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:1236:16
+    at responseCallbacks.<computed> (D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:886:9)
+    at handleIncomingPacket (D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:941:12)
+    at Socket.readFromStdout (D:\Users\steve\Documents\ChatGPT\pwacloud\node_modules\.pnpm\esbuild@0.28.2\node_modules\esbuild\lib\main.js:864:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter]
+}
+
+Node.js v24.19.0
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.
