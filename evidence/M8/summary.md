@@ -1,0 +1,5 @@
+# M8 fenced lifecycle, update and recovery
+
+Implemented permission review; whole dependency selection/locks; lease-fenced install staging, freezing, consistent snapshots, atomic migration+pointer commit, failure recovery and rollback preserving later edits; generation tombstones; atomic fenced uninstall/data deletion. HTTP registrations use server CAS; deferred restrictive actions bind original local digest/generation, observed remote generation and hashed app-session fence. Stale actions cannot remove later installations or restore withdrawn consent.
+
+Observed seven removal protocol fixtures pass with fresh transport instances and changed consent/session/generation. Actual page termination at staging, artifact, snapshot, migration and commit passed in Chromium and WebKit. Expanded browser cases cover cancellation, migration quota failure, stale cleanup, dependency disabling, export/recovery and actual hanging-guest quarantine; final corrected fixture rerun pending. Recovery does not claim protection from OS storage eviction or provider refunds.

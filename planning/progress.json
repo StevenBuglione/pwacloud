@@ -73,9 +73,11 @@
     },
     {
       "id": "M9",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-physical-device-gates-blocked",
+      "implementationCommit": "c781617a1b0ed464e4c1ac4c4fd80e05811f4624",
+      "evidence": [
+        "evidence/M9/summary.md"
+      ]
     },
     {
       "id": "M10",

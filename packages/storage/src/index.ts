@@ -76,6 +76,12 @@ export class PluginStorage {
     await tx.objectStore('installs').put(next,id);await tx.objectStore('generations').put(next.generation,id);await tx.objectStore('journal').delete(id);await tx.done;
   }
   async releaseLease(name:string,owner:string,fence:number){const tx=this.db.transaction('leases','readwrite');const lease=await tx.store.get(name);if(lease?.owner===owner&&lease.fence===fence){lease.expires=0;await tx.store.put(lease,name);}await tx.done;}
+  async removeInstall(id:string,expected:InstalledPlugin,lease:{name:string;owner:string;fence:number},deleteData:boolean){
+    const tx=this.db.transaction(['installs','generations','journal','leases','values'],'readwrite');const current=await tx.objectStore('installs').get(id),held=await tx.objectStore('leases').get(lease.name);
+    if(!current||current.generation!==expected.generation||current.digest!==expected.digest||current.revision!==expected.revision||held?.owner!==lease.owner||held.fence!==lease.fence||held.expires<=Date.now()){tx.abort();throw new PlatformError('stale-fence');}
+    await tx.objectStore('installs').delete(id);await tx.objectStore('generations').put(current.generation+1,id);await tx.objectStore('journal').delete(id);
+    if(deleteData)for(const key of await tx.objectStore('values').index('namespace').getAllKeys(id))await tx.objectStore('values').delete(key);await tx.done;
+  }
   async exportNamespace(namespace:string){return JSON.stringify({format:'pwacloud.backup.v1',namespace,records:await this.list(namespace)},null,2);}
   async restoreNamespace(namespace:string,text:string,quota:number){
     const records=this.backupRecords(namespace,text,quota);
