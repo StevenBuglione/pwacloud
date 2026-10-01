@@ -18,5 +18,6 @@ export class GuestWorker {
     if(this.waiting.size>=32)return Promise.reject(new PlatformError('quota-exceeded'));
     return new Promise((resolve,reject)=>{const id=++this.serial;const timer=setTimeout(()=>this.close('timeout'),this.deadline);this.waiting.set(id,{resolve,reject,timer});const message={id,method,payload};if(this.ready)this.worker.postMessage(message);else this.queue.push(message);});
   }
-  close(code='cancelled'){if(this.closed)return;this.closed=true;this.worker.terminate();for(const p of this.waiting.values()){clearTimeout(p.timer);p.reject(new PlatformError(code));}this.waiting.clear();}
+  close(code='cancelled'){if(this.closed)return;this.closed=true;this.worker.terminate();for(const p of this.waiting.values()){clearTimeout(p.timer);p.reject(new PlatformError(code));}this.waiting.clear();this.queue=[];}
 }
+

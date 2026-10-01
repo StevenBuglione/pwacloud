@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-01",
-  "productStatus": "not-implemented",
+  "productStatus": "implemented-development-build-verification-in-progress",
   "repositoryPublished": false,
   "milestones": [
     {
@@ -23,9 +23,12 @@
     },
     {
       "id": "M3",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-live-publication-pending",
+      "implementationCommit": "f03ab3897028aa79192b3efb6b4fe8f6bd282971",
+      "evidence": [
+        "evidence/M3/summary.md",
+        "evidence/package-verifier/summary.md"
+      ]
     },
     {
       "id": "M4",
