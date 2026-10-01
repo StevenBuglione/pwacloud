@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "v": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{1,80}$"
+    },
+    "type": {
+      "const": "request"
+    },
+    "method": {
+      "enum": [
+        "storage.get",
+        "storage.put",
+        "storage.delete",
+        "network.request",
+        "ai.start",
+        "ai.cancel",
+        "services.invoke",
+        "ui.navigate",
+        "ui.announce",
+        "ai.subscribe",
+        "ai.unsubscribe",
+        "commands.invoke",
+        "ui.setTitle",
+        "ui.checkpoint"
+      ]
+    },
+    "params": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "v",
+    "id",
+    "type",
+    "method",
+    "params"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pwacloud:schema:rpc-request:1"
+}

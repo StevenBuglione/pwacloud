@@ -1,0 +1,185 @@
+{
+  "researchedAt": "2026-10-01",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Sign in with ChatGPT quickstart",
+      "url": "https://developers.openai.com/siwc/quickstart",
+      "note": "Integration availability and separation of identity from plan use."
+    },
+    {
+      "id": "S02",
+      "title": "OSS plan-usage overview",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source",
+      "note": "Client registration, host identity and hosted-program boundary."
+    },
+    {
+      "id": "S03",
+      "title": "Models and inference",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/models-and-inference",
+      "note": "Account-specific models and documented inference transport."
+    },
+    {
+      "id": "S04",
+      "title": "Sign in with ChatGPT Terms",
+      "url": "https://openai.com/policies/sign-in-with-chatgpt-terms/",
+      "note": "September 29, 2026 terms; custody and connected-app restrictions require attention."
+    },
+    {
+      "id": "S05",
+      "title": "Self-hosted VMs",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/self-hosted-vms",
+      "note": "Personal VM credential-transfer guidance; compare with terms before deployment."
+    },
+    {
+      "id": "S06",
+      "title": "Accounts and sessions",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/profiles-and-sessions",
+      "note": "Account isolation, refresh, sign-out and credential handling."
+    },
+    {
+      "id": "S07",
+      "title": "Registration and sign-in",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/sign-in",
+      "note": "Supported OSS authorization and returned registration identity."
+    },
+    {
+      "id": "S08",
+      "title": "SIWC UI/UX guidance",
+      "url": "https://developers.openai.com/siwc/ui-ux-guidelines",
+      "note": "User-facing plan-use onboarding and approved sign-in presentation."
+    },
+    {
+      "id": "S09",
+      "title": "Ionic React PWA",
+      "url": "https://ionicframework.com/docs/react/pwa",
+      "note": "Reference shell framework and PWA integration."
+    },
+    {
+      "id": "S10",
+      "title": "Vite PWA injectManifest",
+      "url": "https://vite-pwa-org.netlify.app/guide/inject-manifest.html",
+      "note": "Custom service-worker build integration."
+    },
+    {
+      "id": "S11",
+      "title": "WebKit storage policy",
+      "url": "https://webkit.org/blog/14403/updates-to-storage-policy/",
+      "note": "Browser quotas and persistence constraints; do not promise reserved plugin space."
+    },
+    {
+      "id": "S12",
+      "title": "Component Model Jco",
+      "url": "https://component-model.bytecodealliance.org/running-components/jco.html",
+      "note": "Component tooling and JavaScript transformation."
+    },
+    {
+      "id": "S13",
+      "title": "Jco transpiling",
+      "url": "https://bytecodealliance.github.io/jco/transpiling.html",
+      "note": "Browser transformation and import mapping."
+    },
+    {
+      "id": "S14",
+      "title": "HTML iframe reference",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe",
+      "note": "Sandbox attributes and origin boundaries."
+    },
+    {
+      "id": "S15",
+      "title": "Sigstore verification",
+      "url": "https://docs.sigstore.dev/cosign/verifying/verify/",
+      "note": "Signer identity/issuer verification, not a claim of code safety."
+    },
+    {
+      "id": "S16",
+      "title": "Content Security Policy Level 3",
+      "url": "https://www.w3.org/TR/CSP3/",
+      "note": "Resource policy primitives; not a universal egress firewall."
+    },
+    {
+      "id": "S17",
+      "title": "WCAG 2.2 target size",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "note": "Accessibility baseline; the project chooses larger primary targets."
+    },
+    {
+      "id": "S18",
+      "title": "ServiceWorkerGlobalScope",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope",
+      "note": "Idle termination and state reconstruction."
+    },
+    {
+      "id": "S19",
+      "title": "CSP embedded enforcement",
+      "url": "https://www.w3.org/TR/csp-embedded-enforcement/",
+      "note": "Do not depend on experimental embedding policy as the only sandbox."
+    },
+    {
+      "id": "S20",
+      "title": "CORS",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+      "note": "Host fetch remains subject to browser cross-origin rules."
+    },
+    {
+      "id": "S21",
+      "title": "Website SIWC",
+      "url": "https://developers.openai.com/siwc/website",
+      "note": "Registered website identity integration and backend transaction flow."
+    },
+    {
+      "id": "S22",
+      "title": "SIWC preview limitations",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/preview-limitations",
+      "note": "Supported request shape, unsupported options/tools and continuation limits."
+    },
+    {
+      "id": "S23",
+      "title": "Codex app-server with SIWC",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/codex-app-server",
+      "note": "Optional personal-runtime integration, not a browser service."
+    },
+    {
+      "id": "S24",
+      "title": "Using a ChatGPT plan in apps/sites",
+      "url": "https://help.openai.com/en/articles/20001542-using-your-chatgpt-plan-in-other-apps-and-sites",
+      "note": "End-user eligibility and usage controls."
+    },
+    {
+      "id": "S25",
+      "title": "SIWC errors and recovery",
+      "url": "https://developers.openai.com/siwc/token-sharing-open-source/errors-and-recovery",
+      "note": "Permission checks, admission errors and explicit recovery."
+    },
+    {
+      "id": "S26",
+      "title": "Wasm packaging in OCI",
+      "url": "https://wasmcloud.com/docs/overview/packaging/",
+      "note": "OCI artifact distribution as an adapter."
+    },
+    {
+      "id": "S27",
+      "title": "Playwright emulation",
+      "url": "https://playwright.dev/docs/emulation",
+      "note": "Emulated device parameters; retain separate real-device acceptance."
+    },
+    {
+      "id": "S28",
+      "title": "WIT reference",
+      "url": "https://component-model.bytecodealliance.org/design/wit.html",
+      "note": "Interface type syntax and versioned contracts."
+    },
+    {
+      "id": "S29",
+      "title": "GitHub CLI repo create",
+      "url": "https://cli.github.com/manual/gh_repo_create",
+      "note": "Authorized repository creation from a local checkout."
+    },
+    {
+      "id": "S30",
+      "title": "Playwright browsers",
+      "url": "https://playwright.dev/docs/browsers",
+      "note": "Browser engine testing and version pinning."
+    }
+  ]
+}

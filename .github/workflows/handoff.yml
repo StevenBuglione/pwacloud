@@ -1,0 +1,36 @@
+name: Handoff reference checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: handoff-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Bootstrap references only. M0 must resolve/review maintained versions and pin action commit SHAs.
+      # This workflow has no provider, deployment or signing secrets and is NOT release CI.
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Reference unit tests
+        run: npm test
+      - name: Reference TypeScript typecheck
+        run: npm exec --yes --package typescript@5.8.3 -- tsc -p tsconfig.reference.json
+      - name: Contract validator dependency
+        run: python -m pip install -r requirements-dev.txt
+      - name: Contract fixtures
+        run: python scripts/validate_contracts.py
+      - name: Handoff structure and SQLite
+        run: python scripts/audit_handoff.py

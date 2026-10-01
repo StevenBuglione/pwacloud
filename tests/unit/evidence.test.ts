@@ -1,0 +1,24 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {evidenceProblems} from '../../src/reference/evidence.ts';import type {Requirement,Report,EvidenceCase} from '../../src/reference/evidence.ts';
+const commit='a'.repeat(40);const now=Date.parse('2026-10-01T20:00:00Z');
+const requirements:Requirement[]=[{id:'T-1',requiredFor:['local-alpha','hosted'],requiresRealProvider:true,requiresPhysicalDevice:true,requiresExternalAuthorization:false,deviceClass:'iphone'}];
+const item:EvidenceCase={caseId:'T-1',status:'passed',commit,testedAt:'2026-10-01T19:00:00Z',environment:{runtime:'test fixture',provider:'real',physicalDevice:true,deviceClass:'iphone',details:'Synthetic evidence for gate unit test, not actual test results'},steps:['fixture step'],observed:'fixture result',artifacts:[{path:'evidence/example.txt',sha256:'b'.repeat(64)}],reviewer:'fixture reviewer',externalAuthorizationVerified:false};
+const report:Report={version:1,target:'local-alpha',commit,cases:[item]};
+const problems=(patch:Partial<EvidenceCase>)=>evidenceProblems(requirements,{...report,cases:[{...item,...patch}]},commit,now);
+test('well-shaped fixture passes logical gate only',()=>assert.deepEqual(evidenceProblems(requirements,report,commit,now),[]));
+test('missing cases block',()=>assert.ok(evidenceProblems(requirements,{...report,cases:[]},commit,now).includes('T-1:MISSING')));
+for(const status of ['pending','blocked','failed'])test(status+' is not passed',()=>assert.ok(problems({status}).includes('T-1:NOT_PASSED')));
+test('wrong commit blocks',()=>assert.ok(problems({commit:'c'.repeat(40)}).includes('T-1:COMMIT_MISMATCH')));
+test('future evidence blocks',()=>assert.ok(problems({testedAt:'2027-01-01T00:00:00Z'}).includes('T-1:INVALID_TIME')));
+test('mock provider not real',()=>assert.ok(problems({environment:{...item.environment,provider:'mock'}}).includes('T-1:REAL_PROVIDER_REQUIRED')));
+test('emulation not physical',()=>assert.ok(problems({environment:{...item.environment,physicalDevice:false}}).includes('T-1:PHYSICAL_DEVICE_REQUIRED')));
+test('wrong device blocks',()=>assert.ok(problems({environment:{...item.environment,deviceClass:'android'}}).includes('T-1:WRONG_DEVICE')));
+test('missing reviewer blocks',()=>assert.ok(problems({reviewer:null}).includes('T-1:REVIEWER_REQUIRED')));
+test('no artifacts blocks',()=>assert.ok(problems({artifacts:[]}).includes('T-1:ARTIFACT_REQUIRED')));
+test('unsafe artifact path blocks',()=>assert.ok(problems({artifacts:[{path:'../secret',sha256:'b'.repeat(64)}]}).includes('T-1:INVALID_ARTIFACT')));
+test('duplicate case blocks',()=>assert.ok(evidenceProblems(requirements,{...report,cases:[item,item]},commit,now).includes('DUPLICATE:T-1')));
+test('hosted authorization not a missing optional case',()=>{
+ const reqs=[{...requirements[0]!,requiresExternalAuthorization:true}];
+ assert.ok(evidenceProblems(reqs,{...report,target:'hosted'},commit,now).includes('T-1:AUTHORIZATION_REQUIRED'));
+});
+test('sentinel commit cannot release',()=>assert.ok(evidenceProblems(requirements,report,'0'.repeat(40),now).includes('INVALID_EXPECTED_COMMIT')));

@@ -1,0 +1,25 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {sha256,verifyDigest,safeArchivePath,checkArchiveEntries,verifyReceiptSignature} from '../../src/reference/integrity.ts';
+const enc=new TextEncoder();
+test('SHA-256 known vector',async()=>assert.equal(await sha256(enc.encode('abc')),'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'));
+test('exact digest and tampering',async()=>{const b=enc.encode('package');const d=await sha256(b);assert.equal(await verifyDigest(b,d),true);assert.equal(await verifyDigest(enc.encode('changed'),d),false);assert.equal(await verifyDigest(b,'nonsense'),false);});
+for(const path of ['../x','/etc/passwd','a/../x','a//b','a\\b','a/%2e%2e/b','a/./b','a/','x\0y','C:/x','a./b'])test('archive path rejected '+JSON.stringify(path),()=>assert.equal(safeArchivePath(path),false));
+test('valid archive entries',()=>assert.equal(checkArchiveEntries([{path:'ui/app.js',size:5,kind:'file'},{path:'service/main.wasm',size:10,kind:'file'}]),15));
+test('duplicate casefold file rejected',()=>assert.throws(()=>checkArchiveEntries([{path:'a.js',size:1,kind:'file'},{path:'A.js',size:1,kind:'file'}]),/DUPLICATE/));
+test('symlink rejected',()=>assert.throws(()=>checkArchiveEntries([{path:'a',size:0,kind:'symlink'}]),/UNSAFE/));
+test('expanded size limit',()=>assert.throws(()=>checkArchiveEntries([{path:'a',size:11,kind:'file'}],10),/EXPANDED/));
+test('negative size',()=>assert.throws(()=>checkArchiveEntries([{path:'a',size:-1,kind:'file'}]),/INVALID_SIZE/));
+test('path file/directory collision',()=>assert.throws(()=>checkArchiveEntries([{path:'a',size:1,kind:'file'},{path:'a/b',size:1,kind:'file'}]),/COLLISION/));
+test('entry count',()=>assert.throws(()=>checkArchiveEntries(Array.from({length:513},(_,i)=>({path:`f${i}`,size:0,kind:'file' as const}))),/ENTRY_COUNT/));
+test('P256 exact-byte signature actual crypto',async()=>{
+ const key=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);
+ const other=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);
+ const bytes=enc.encode('{"digest":"example"}');
+ const signature=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},key.privateKey,bytes));
+ assert.equal(signature.length,64);
+ assert.equal(await verifyReceiptSignature(key.publicKey,bytes,signature),true);
+ assert.equal(await verifyReceiptSignature(other.publicKey,bytes,signature),false);
+ assert.equal(await verifyReceiptSignature(key.publicKey,enc.encode('{ "digest":"example"}'),signature),false);
+ assert.equal(await verifyReceiptSignature(key.publicKey,bytes,signature.slice(1)),false);
+ assert.equal(await verifyReceiptSignature(key.privateKey,bytes,signature),false);
+});

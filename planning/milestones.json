@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Feasibility and repository foundation",
+      "dependsOn": [],
+      "modules": [
+        "workspace",
+        "spikes"
+      ],
+      "acceptanceCases": [
+        "FND-01",
+        "FND-02",
+        "FND-03",
+        "FND-04"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M0"
+    },
+    {
+      "id": "M1",
+      "title": "Mobile shell and offline baseline",
+      "dependsOn": [
+        "M0"
+      ],
+      "modules": [
+        "apps/shell",
+        "packages/ui-kit",
+        "packages/storage"
+      ],
+      "acceptanceCases": [
+        "UI-01",
+        "UI-02",
+        "UI-03"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M1"
+    },
+    {
+      "id": "M2",
+      "title": "Contracts, scopes and transport",
+      "dependsOn": [
+        "M0"
+      ],
+      "modules": [
+        "packages/contracts",
+        "packages/broker",
+        "packages/runtime-ui",
+        "packages/sdk"
+      ],
+      "acceptanceCases": [
+        "RPC-01",
+        "RPC-02",
+        "RPC-03",
+        "RPC-04",
+        "RPC-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M2"
+    },
+    {
+      "id": "M3",
+      "title": "Signed Git installation",
+      "dependsOn": [
+        "M1",
+        "M2"
+      ],
+      "modules": [
+        "packages/cli",
+        "packages/package-verifier",
+        "packages/registry-client"
+      ],
+      "acceptanceCases": [
+        "PKG-01",
+        "PKG-02",
+        "PKG-03",
+        "PKG-04",
+        "PKG-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M3"
+    },
+    {
+      "id": "M4",
+      "title": "Wasm and lifecycle",
+      "dependsOn": [
+        "M2",
+        "M3"
+      ],
+      "modules": [
+        "packages/runtime-web",
+        "packages/controller"
+      ],
+      "acceptanceCases": [
+        "RUN-01",
+        "RUN-02",
+        "RUN-03",
+        "RUN-04",
+        "RUN-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M4"
+    },
+    {
+      "id": "M5",
+      "title": "Expressive examples",
+      "dependsOn": [
+        "M1",
+        "M3",
+        "M4"
+      ],
+      "modules": [
+        "examples/plugins",
+        "packages/storage"
+      ],
+      "acceptanceCases": [
+        "APP-01",
+        "APP-02",
+        "APP-03",
+        "APP-04",
+        "APP-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M5"
+    },
+    {
+      "id": "M6",
+      "title": "Personal ChatGPT integration",
+      "dependsOn": [
+        "M2",
+        "M4",
+        "M5"
+      ],
+      "modules": [
+        "apps/personal-runtime",
+        "packages/provider-chatgpt"
+      ],
+      "acceptanceCases": [
+        "AI-01",
+        "AI-02",
+        "AI-03",
+        "AI-04",
+        "AI-05",
+        "AI-06",
+        "AI-07",
+        "AI-08",
+        "AI-09",
+        "AI-10"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M6"
+    },
+    {
+      "id": "M7",
+      "title": "Scoped agent composition",
+      "dependsOn": [
+        "M5",
+        "M6"
+      ],
+      "modules": [
+        "packages/broker",
+        "packages/sdk"
+      ],
+      "acceptanceCases": [
+        "AGT-01",
+        "AGT-02",
+        "AGT-03"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M7"
+    },
+    {
+      "id": "M8",
+      "title": "Updates, marketplace and OCI",
+      "dependsOn": [
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "modules": [
+        "apps/catalogue",
+        "packages/registry-client",
+        "packages/controller"
+      ],
+      "acceptanceCases": [
+        "UPD-01",
+        "UPD-02",
+        "UPD-03",
+        "UPD-04",
+        "UPD-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M8"
+    },
+    {
+      "id": "M9",
+      "title": "Embedding and device polish",
+      "dependsOn": [
+        "M5",
+        "M7",
+        "M8"
+      ],
+      "modules": [
+        "packages/sdk-react",
+        "packages/sdk-lit",
+        "examples/minimal-host"
+      ],
+      "acceptanceCases": [
+        "FWK-01",
+        "DEV-01",
+        "DEV-02",
+        "DEV-03",
+        "DEV-04",
+        "DEV-05"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M9"
+    },
+    {
+      "id": "M10",
+      "title": "Local alpha release",
+      "dependsOn": [
+        "M6",
+        "M9"
+      ],
+      "modules": [
+        "infra/ci",
+        "evidence"
+      ],
+      "acceptanceCases": [
+        "REL-01",
+        "REL-02",
+        "REL-03"
+      ],
+      "externalGate": false,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M10"
+    },
+    {
+      "id": "M11",
+      "title": "Approved hosted launch",
+      "dependsOn": [
+        "M10"
+      ],
+      "modules": [
+        "apps/personal-runtime",
+        "infra/deployment"
+      ],
+      "acceptanceCases": [
+        "HST-01",
+        "HST-02",
+        "HST-03"
+      ],
+      "externalGate": true,
+      "instructions": "docs/13-IMPLEMENTATION.md",
+      "section": "M11"
+    }
+  ]
+}

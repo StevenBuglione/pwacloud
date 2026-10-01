@@ -1,0 +1,57 @@
+{
+  "apiVersion": "pwacloud.dev/v0.1",
+  "kind": "Plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "hostApi": {
+    "major": 1,
+    "minimumMinor": 0
+  },
+  "provides": [],
+  "requires": [],
+  "id": "dev.stevenbuglione.canvas-board",
+  "name": "Canvas Board",
+  "description": "Responsive canvas editing with explicitly selected note inputs.",
+  "source": {
+    "repository": "https://github.com/StevenBuglione/pwacloud",
+    "directory": "examples/plugins/canvas-board"
+  },
+  "ui": {
+    "profile": "isolated-web",
+    "entry": "ui/app.js",
+    "style": "ui/style.css",
+    "minWidthCssPx": 360,
+    "contributes": [
+      {
+        "type": "library-entry",
+        "id": "canvas-board",
+        "title": "Canvas Board"
+      },
+      {
+        "type": "route",
+        "id": "main",
+        "title": "Canvas Board"
+      }
+    ]
+  },
+  "permissions": [
+    {
+      "id": "boards",
+      "capability": "storage.kv",
+      "required": true,
+      "scope": {
+        "quotaBytes": 52428800
+      }
+    },
+    {
+      "id": "selected-note",
+      "capability": "services.invoke",
+      "required": false,
+      "scope": {
+        "interfaces": [
+          "pwacloud:documents/selected@1.0.0"
+        ]
+      }
+    }
+  ]
+}

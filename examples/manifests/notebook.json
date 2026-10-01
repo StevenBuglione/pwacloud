@@ -1,0 +1,65 @@
+{
+  "apiVersion": "pwacloud.dev/v0.1",
+  "kind": "Plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "hostApi": {
+    "major": 1,
+    "minimumMinor": 0
+  },
+  "provides": [
+    "pwacloud:documents/selected@1.0.0"
+  ],
+  "requires": [],
+  "id": "dev.stevenbuglione.notebook",
+  "name": "Notebook",
+  "description": "Rich local notes with a Wasm analyzer and optional authorized AI.",
+  "source": {
+    "repository": "https://github.com/StevenBuglione/pwacloud",
+    "directory": "examples/plugins/notebook"
+  },
+  "ui": {
+    "profile": "isolated-web",
+    "entry": "ui/app.js",
+    "style": "ui/style.css",
+    "minWidthCssPx": 360,
+    "contributes": [
+      {
+        "type": "library-entry",
+        "id": "notebook",
+        "title": "Notebook"
+      },
+      {
+        "type": "route",
+        "id": "main",
+        "title": "Notebook"
+      }
+    ]
+  },
+  "permissions": [
+    {
+      "id": "notes",
+      "capability": "storage.kv",
+      "required": true,
+      "scope": {
+        "quotaBytes": 52428800
+      }
+    },
+    {
+      "id": "summarize",
+      "capability": "ai.respond",
+      "required": false,
+      "scope": {
+        "context": "selected-resources",
+        "requestsPerHour": 20,
+        "concurrency": 1,
+        "background": false
+      }
+    }
+  ],
+  "service": {
+    "entry": "service/component.wasm",
+    "world": "pwacloud:plugin/guest@0.1.0",
+    "maxLinearMemoryMiB": 64
+  }
+}

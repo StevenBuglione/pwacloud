@@ -1,0 +1,17 @@
+{
+  "name":"pwacloud-implementation-handoff",
+  "version":"0.0.0-handoff",
+  "private":true,
+  "type":"module",
+  "description":"Executable reference contracts and mobile-first implementation handoff. Not the PWA application.",
+  "license":"MIT",
+  "engines":{"node":">=22.16.0"},
+  "scripts":{
+    "test":"node --experimental-strip-types --test tests/unit/*.test.ts",
+    "typecheck:reference":"tsc -p tsconfig.reference.json",
+    "audit:handoff":"python scripts/audit_handoff.py",
+    "validate:contracts":"python scripts/validate_contracts.py",
+    "verify:release-evidence":"node --experimental-strip-types scripts/verify-evidence.ts",
+    "publish:handoff":"node --experimental-strip-types scripts/publish-github.ts --publish"
+  }
+}

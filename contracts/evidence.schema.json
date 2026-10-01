@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "target": {
+      "enum": [
+        "local-alpha",
+        "hosted"
+      ]
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "blocked",
+              "failed",
+              "passed"
+            ]
+          },
+          "commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "testedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "environment": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "runtime": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider": {
+                "enum": [
+                  "none",
+                  "mock",
+                  "real"
+                ]
+              },
+              "physicalDevice": {
+                "type": "boolean"
+              },
+              "deviceClass": {
+                "enum": [
+                  "none",
+                  "iphone",
+                  "android",
+                  "any"
+                ]
+              },
+              "details": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "runtime",
+              "provider",
+              "physicalDevice",
+              "deviceClass",
+              "details"
+            ]
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "observed": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "path",
+                "sha256"
+              ]
+            },
+            "minItems": 1
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "externalAuthorizationVerified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "caseId",
+          "status",
+          "commit",
+          "testedAt",
+          "environment",
+          "steps",
+          "observed",
+          "artifacts",
+          "reviewer",
+          "externalAuthorizationVerified"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "target",
+    "commit",
+    "cases"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pwacloud:schema:evidence:1"
+}

@@ -1,0 +1,5 @@
+Dry run only. From this extracted handoff, an authenticated StevenBuglione environment may run:
+node --experimental-strip-types scripts/publish-github.ts --publish
+This creates StevenBuglione/pwacloud PUBLIC only when absent. It refuses an existing repo and never force-pushes.
+(node:1976) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

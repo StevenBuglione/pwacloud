@@ -1,0 +1,65 @@
+{
+  "apiVersion": "pwacloud.dev/v0.1",
+  "kind": "Plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "hostApi": {
+    "major": 1,
+    "minimumMinor": 0
+  },
+  "provides": [],
+  "requires": [],
+  "id": "dev.stevenbuglione.feed-reader",
+  "name": "Feed Reader",
+  "description": "Mobile reading with a Lit UI and scoped HTTP.",
+  "source": {
+    "repository": "https://github.com/StevenBuglione/pwacloud",
+    "directory": "examples/plugins/feed-reader"
+  },
+  "ui": {
+    "profile": "isolated-web",
+    "entry": "ui/app.js",
+    "style": "ui/style.css",
+    "minWidthCssPx": 360,
+    "contributes": [
+      {
+        "type": "library-entry",
+        "id": "feed-reader",
+        "title": "Feed Reader"
+      },
+      {
+        "type": "route",
+        "id": "main",
+        "title": "Feed Reader"
+      }
+    ]
+  },
+  "permissions": [
+    {
+      "id": "cache",
+      "capability": "storage.kv",
+      "required": true,
+      "scope": {
+        "quotaBytes": 20971520
+      }
+    },
+    {
+      "id": "feeds",
+      "capability": "network.http",
+      "required": false,
+      "scope": {
+        "rules": [
+          {
+            "origin": "https://feeds.example.com",
+            "methods": [
+              "GET"
+            ],
+            "pathPrefixes": [
+              "/public"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

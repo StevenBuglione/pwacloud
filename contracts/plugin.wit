@@ -1,0 +1,54 @@
+package pwacloud:plugin@0.1.0;
+
+interface types {
+  record error-info { code: string, message: string }
+  record user-action { action: string, body-json: string }
+  record effect-result { request-id: string, body: result<list<u8>, error-info> }
+  variant event {
+    action(user-action),
+    completed(effect-result),
+    resumed,
+    suspend,
+  }
+  record kv-read { request-id: string, key: string }
+  record kv-write { request-id: string, key: string, value: list<u8> }
+  record network-request {
+    request-id: string,
+    url: string,
+    method: string,
+    body: option<list<u8>>,
+  }
+  record ai-request {
+    request-id: string,
+    model: string,
+    prompt: string,
+    document-handles: list<string>,
+  }
+  record service-call {
+    request-id: string,
+    binding-id: string,
+    method: string,
+    args-json: string,
+  }
+  record ui-update { channel: string, body-json: string }
+  variant effect {
+    read(kv-read),
+    write(kv-write),
+    network(network-request),
+    ai(ai-request),
+    service(service-call),
+    render(ui-update),
+  }
+}
+
+interface lifecycle {
+  use types.{event, effect, error-info};
+  activate: func(config-json: string, checkpoint: option<list<u8>>) -> result<_, error-info>;
+  handle: func(message: event) -> result<list<effect>, error-info>;
+  snapshot: func() -> result<list<u8>, error-info>;
+  shutdown: func();
+}
+
+world guest {
+  export lifecycle;
+}

@@ -1,0 +1,32 @@
+{
+  "validatedAt": "2026-10-01T20:53:47Z",
+  "environment": {
+    "node": "v22.16.0",
+    "typescript": "Version 5.8.3",
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "referenceTests": {
+    "tests": 135,
+    "passed": 135,
+    "failed": 0,
+    "skipped": 0
+  },
+  "structuralAudit": {
+    "status": "passed",
+    "scope": "handoff structure and SQLite constraints only",
+    "checks": 347,
+    "acceptanceCases": 57,
+    "milestones": 12,
+    "sources": 30
+  },
+  "contractValidation": {
+    "status": "passed",
+    "scope": "JSON Schema and semantic fixture checks only",
+    "checks": 49,
+    "schemas": 5,
+    "manifestFixtures": 3
+  },
+  "releaseGate": "expected rejection of pending report; exit 1",
+  "publication": "dry run and syntax checks only; no repository created"
+}

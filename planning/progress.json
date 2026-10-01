@@ -1,0 +1,97 @@
+{
+  "updatedAt": "2026-10-01",
+  "productStatus": "not-implemented",
+  "repositoryPublished": false,
+  "milestones": [
+    {
+      "id": "M0",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M1",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M2",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M3",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M4",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M5",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M6",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M7",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M8",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M9",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M10",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    },
+    {
+      "id": "M11",
+      "status": "pending",
+      "implementationCommit": null,
+      "evidence": []
+    }
+  ],
+  "externalPrerequisites": [
+    {
+      "id": "github-write",
+      "status": "unavailable-in-authoring-session"
+    },
+    {
+      "id": "real-user-oauth",
+      "status": "not-performed"
+    },
+    {
+      "id": "physical-device-qa",
+      "status": "not-performed"
+    },
+    {
+      "id": "hosted-approval-and-plugin-scope",
+      "status": "unresolved"
+    }
+  ]
+}

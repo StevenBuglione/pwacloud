@@ -1,0 +1,834 @@
+TAP version 13
+# (node:1860) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: catalog preserves listed order and actual fields
+ok 1 - catalog preserves listed order and actual fields
+  ---
+  duration_ms: 2.205415
+  type: 'test'
+  ...
+# Subtest: generic API data shape is not plan catalog
+ok 2 - generic API data shape is not plan catalog
+  ---
+  duration_ms: 0.44212
+  type: 'test'
+  ...
+# Subtest: duplicate catalog identity
+ok 3 - duplicate catalog identity
+  ---
+  duration_ms: 0.16986
+  type: 'test'
+  ...
+# Subtest: invalid visible model
+ok 4 - invalid visible model
+  ---
+  duration_ms: 0.192203
+  type: 'test'
+  ...
+# Subtest: correct plan-only text shape
+ok 5 - correct plan-only text shape
+  ---
+  duration_ms: 0.421951
+  type: 'test'
+  ...
+# Subtest: reject passthrough max_output_tokens
+ok 6 - reject passthrough max_output_tokens
+  ---
+  duration_ms: 0.16335
+  type: 'test'
+  ...
+# Subtest: reject passthrough temperature
+ok 7 - reject passthrough temperature
+  ---
+  duration_ms: 0.181176
+  type: 'test'
+  ...
+# Subtest: reject passthrough background
+ok 8 - reject passthrough background
+  ---
+  duration_ms: 1.324879
+  type: 'test'
+  ...
+# Subtest: reject passthrough previous_response_id
+ok 9 - reject passthrough previous_response_id
+  ---
+  duration_ms: 0.329174
+  type: 'test'
+  ...
+# Subtest: reject passthrough tools
+ok 10 - reject passthrough tools
+  ---
+  duration_ms: 0.422462
+  type: 'test'
+  ...
+# Subtest: reject passthrough store
+ok 11 - reject passthrough store
+  ---
+  duration_ms: 0.177581
+  type: 'test'
+  ...
+# Subtest: reject passthrough stream
+ok 12 - reject passthrough stream
+  ---
+  duration_ms: 0.094919
+  type: 'test'
+  ...
+# Subtest: reject passthrough metadata
+ok 13 - reject passthrough metadata
+  ---
+  duration_ms: 0.078115
+  type: 'test'
+  ...
+# Subtest: reject passthrough apiKey
+ok 14 - reject passthrough apiKey
+  ---
+  duration_ms: 0.070494
+  type: 'test'
+  ...
+# Subtest: reject passthrough endpoint
+ok 15 - reject passthrough endpoint
+  ---
+  duration_ms: 0.070383
+  type: 'test'
+  ...
+# Subtest: missing direct plan scope
+ok 16 - missing direct plan scope
+  ---
+  duration_ms: 0.166585
+  type: 'test'
+  ...
+# Subtest: unavailable model
+ok 17 - unavailable model
+  ---
+  duration_ms: 0.124092
+  type: 'test'
+  ...
+# Subtest: blank input
+ok 18 - blank input
+  ---
+  duration_ms: 0.110533
+  type: 'test'
+  ...
+# Subtest: input byte bound
+ok 19 - input byte bound
+  ---
+  duration_ms: 0.469691
+  type: 'test'
+  ...
+# Subtest: terminal completed
+ok 20 - terminal completed
+  ---
+  duration_ms: 0.194536
+  type: 'test'
+  ...
+# Subtest: terminal disconnect
+ok 21 - terminal disconnect
+  ---
+  duration_ms: 0.063062
+  type: 'test'
+  ...
+# Subtest: terminal failed
+ok 22 - terminal failed
+  ---
+  duration_ms: 0.052177
+  type: 'test'
+  ...
+# Subtest: terminal incomplete
+ok 23 - terminal incomplete
+  ---
+  duration_ms: 0.05467
+  type: 'test'
+  ...
+# Subtest: terminal conflicting terminals
+ok 24 - terminal conflicting terminals
+  ---
+  duration_ms: 0.051957
+  type: 'test'
+  ...
+# (node:1861) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: admit and release concurrency
+ok 25 - admit and release concurrency
+  ---
+  duration_ms: 1.464395
+  type: 'test'
+  ...
+# Subtest: idempotency does not spend again
+ok 26 - idempotency does not spend again
+  ---
+  duration_ms: 0.181157
+  type: 'test'
+  ...
+# Subtest: completion not a budget refund
+ok 27 - completion not a budget refund
+  ---
+  duration_ms: 0.219963
+  type: 'test'
+  ...
+# Subtest: new window resets count, retains active limit
+ok 28 - new window resets count, retains active limit
+  ---
+  duration_ms: 0.193825
+  type: 'test'
+  ...
+# Subtest: completed duplicate is not resubmitted
+ok 29 - completed duplicate is not resubmitted
+  ---
+  duration_ms: 0.160596
+  type: 'test'
+  ...
+# Subtest: clock rollback denied
+ok 30 - clock rollback denied
+  ---
+  duration_ms: 0.162328
+  type: 'test'
+  ...
+# Subtest: invalid limits denied
+ok 31 - invalid limits denied
+  ---
+  duration_ms: 0.25143
+  type: 'test'
+  ...
+# Subtest: unknown completion does not corrupt counts
+ok 32 - unknown completion does not corrupt counts
+  ---
+  duration_ms: 0.151603
+  type: 'test'
+  ...
+# (node:1862) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: well-shaped fixture passes logical gate only
+ok 33 - well-shaped fixture passes logical gate only
+  ---
+  duration_ms: 1.756415
+  type: 'test'
+  ...
+# Subtest: missing cases block
+ok 34 - missing cases block
+  ---
+  duration_ms: 0.185062
+  type: 'test'
+  ...
+# Subtest: pending is not passed
+ok 35 - pending is not passed
+  ---
+  duration_ms: 0.209909
+  type: 'test'
+  ...
+# Subtest: blocked is not passed
+ok 36 - blocked is not passed
+  ---
+  duration_ms: 0.101198
+  type: 'test'
+  ...
+# Subtest: failed is not passed
+ok 37 - failed is not passed
+  ---
+  duration_ms: 0.220645
+  type: 'test'
+  ...
+# Subtest: wrong commit blocks
+ok 38 - wrong commit blocks
+  ---
+  duration_ms: 0.134077
+  type: 'test'
+  ...
+# Subtest: future evidence blocks
+ok 39 - future evidence blocks
+  ---
+  duration_ms: 1.112337
+  type: 'test'
+  ...
+# Subtest: mock provider not real
+ok 40 - mock provider not real
+  ---
+  duration_ms: 0.117904
+  type: 'test'
+  ...
+# Subtest: emulation not physical
+ok 41 - emulation not physical
+  ---
+  duration_ms: 0.25155
+  type: 'test'
+  ...
+# Subtest: wrong device blocks
+ok 42 - wrong device blocks
+  ---
+  duration_ms: 0.350696
+  type: 'test'
+  ...
+# Subtest: missing reviewer blocks
+ok 43 - missing reviewer blocks
+  ---
+  duration_ms: 0.186484
+  type: 'test'
+  ...
+# Subtest: no artifacts blocks
+ok 44 - no artifacts blocks
+  ---
+  duration_ms: 0.086878
+  type: 'test'
+  ...
+# Subtest: unsafe artifact path blocks
+ok 45 - unsafe artifact path blocks
+  ---
+  duration_ms: 0.081089
+  type: 'test'
+  ...
+# Subtest: duplicate case blocks
+ok 46 - duplicate case blocks
+  ---
+  duration_ms: 0.070844
+  type: 'test'
+  ...
+# Subtest: hosted authorization not a missing optional case
+ok 47 - hosted authorization not a missing optional case
+  ---
+  duration_ms: 0.078295
+  type: 'test'
+  ...
+# Subtest: sentinel commit cannot release
+ok 48 - sentinel commit cannot release
+  ---
+  duration_ms: 0.061771
+  type: 'test'
+  ...
+# (node:1893) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: SHA-256 known vector
+ok 49 - SHA-256 known vector
+  ---
+  duration_ms: 7.719598
+  type: 'test'
+  ...
+# Subtest: exact digest and tampering
+ok 50 - exact digest and tampering
+  ---
+  duration_ms: 4.144618
+  type: 'test'
+  ...
+# Subtest: archive path rejected "../x"
+ok 51 - archive path rejected "../x"
+  ---
+  duration_ms: 0.256908
+  type: 'test'
+  ...
+# Subtest: archive path rejected "/etc/passwd"
+ok 52 - archive path rejected "/etc/passwd"
+  ---
+  duration_ms: 0.096703
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a/../x"
+ok 53 - archive path rejected "a/../x"
+  ---
+  duration_ms: 0.175749
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a//b"
+ok 54 - archive path rejected "a//b"
+  ---
+  duration_ms: 0.058656
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a\\\\b"
+ok 55 - archive path rejected "a\\\\b"
+  ---
+  duration_ms: 0.103282
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a/%2e%2e/b"
+ok 56 - archive path rejected "a/%2e%2e/b"
+  ---
+  duration_ms: 0.050344
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a/./b"
+ok 57 - archive path rejected "a/./b"
+  ---
+  duration_ms: 0.195207
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a/"
+ok 58 - archive path rejected "a/"
+  ---
+  duration_ms: 0.260343
+  type: 'test'
+  ...
+# Subtest: archive path rejected "x\\u0000y"
+ok 59 - archive path rejected "x\\u0000y"
+  ---
+  duration_ms: 0.129842
+  type: 'test'
+  ...
+# Subtest: archive path rejected "C:/x"
+ok 60 - archive path rejected "C:/x"
+  ---
+  duration_ms: 0.049443
+  type: 'test'
+  ...
+# Subtest: archive path rejected "a./b"
+ok 61 - archive path rejected "a./b"
+  ---
+  duration_ms: 0.043034
+  type: 'test'
+  ...
+# Subtest: valid archive entries
+ok 62 - valid archive entries
+  ---
+  duration_ms: 0.173986
+  type: 'test'
+  ...
+# Subtest: duplicate casefold file rejected
+ok 63 - duplicate casefold file rejected
+  ---
+  duration_ms: 0.338939
+  type: 'test'
+  ...
+# Subtest: symlink rejected
+ok 64 - symlink rejected
+  ---
+  duration_ms: 0.107979
+  type: 'test'
+  ...
+# Subtest: expanded size limit
+ok 65 - expanded size limit
+  ---
+  duration_ms: 0.112015
+  type: 'test'
+  ...
+# Subtest: negative size
+ok 66 - negative size
+  ---
+  duration_ms: 0.08859
+  type: 'test'
+  ...
+# Subtest: path file/directory collision
+ok 67 - path file/directory collision
+  ---
+  duration_ms: 1.229679
+  type: 'test'
+  ...
+# Subtest: entry count
+ok 68 - entry count
+  ---
+  duration_ms: 0.240033
+  type: 'test'
+  ...
+# Subtest: P256 exact-byte signature actual crypto
+ok 69 - P256 exact-byte signature actual crypto
+  ---
+  duration_ms: 9.296578
+  type: 'test'
+  ...
+# (node:1894) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: start on demand
+ok 70 - start on demand
+  ---
+  duration_ms: 0.950468
+  type: 'test'
+  ...
+# Subtest: idle without demand
+ok 71 - idle without demand
+  ---
+  duration_ms: 0.08828
+  type: 'test'
+  ...
+# Subtest: suspend invisible
+ok 72 - suspend invisible
+  ---
+  duration_ms: 0.064895
+  type: 'test'
+  ...
+# Subtest: running healthy
+ok 73 - running healthy
+  ---
+  duration_ms: 0.060699
+  type: 'test'
+  ...
+# Subtest: disabled running
+ok 74 - disabled running
+  ---
+  duration_ms: 0.118475
+  type: 'test'
+  ...
+# Subtest: disabled absent
+ok 75 - disabled absent
+  ---
+  duration_ms: 0.055902
+  type: 'test'
+  ...
+# Subtest: quarantined overrides all
+ok 76 - quarantined overrides all
+  ---
+  duration_ms: 0.140737
+  type: 'test'
+  ...
+# Subtest: consent before download
+ok 77 - consent before download
+  ---
+  duration_ms: 0.060919
+  type: 'test'
+  ...
+# Subtest: download stage
+ok 78 - download stage
+  ---
+  duration_ms: 0.217791
+  type: 'test'
+  ...
+# Subtest: offline stage waits
+ok 79 - offline stage waits
+  ---
+  duration_ms: 1.663117
+  type: 'test'
+  ...
+# Subtest: verify before activation
+ok 80 - verify before activation
+  ---
+  duration_ms: 0.119626
+  type: 'test'
+  ...
+# Subtest: dependency before activation
+ok 81 - dependency before activation
+  ---
+  duration_ms: 0.049653
+  type: 'test'
+  ...
+# Subtest: safe write before activation
+ok 82 - safe write before activation
+  ---
+  duration_ms: 0.035712
+  type: 'test'
+  ...
+# Subtest: verified swap
+ok 83 - verified swap
+  ---
+  duration_ms: 0.031326
+  type: 'test'
+  ...
+# Subtest: stop stale runtime
+ok 84 - stop stale runtime
+  ---
+  duration_ms: 0.031716
+  type: 'test'
+  ...
+# Subtest: restart backoff
+ok 85 - restart backoff
+  ---
+  duration_ms: 0.02708
+  type: 'test'
+  ...
+# Subtest: dependency before starting
+ok 86 - dependency before starting
+  ---
+  duration_ms: 0.026379
+  type: 'test'
+  ...
+# Subtest: missing dependency stops running
+ok 87 - missing dependency stops running
+  ---
+  duration_ms: 0.026098
+  type: 'test'
+  ...
+# Subtest: invalid clock refused
+ok 88 - invalid clock refused
+  ---
+  duration_ms: 0.343545
+  type: 'test'
+  ...
+# (node:1895) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: network exact path
+ok 89 - network exact path
+  ---
+  duration_ms: 2.342837
+  type: 'test'
+  ...
+# Subtest: network child path
+ok 90 - network child path
+  ---
+  duration_ms: 0.189199
+  type: 'test'
+  ...
+# Subtest: network prefix lookalike
+ok 91 - network prefix lookalike
+  ---
+  duration_ms: 0.091685
+  type: 'test'
+  ...
+# Subtest: network default HTTPS port
+ok 92 - network default HTTPS port
+  ---
+  duration_ms: 0.163561
+  type: 'test'
+  ...
+# Subtest: network unapproved port
+ok 93 - network unapproved port
+  ---
+  duration_ms: 0.103122
+  type: 'test'
+  ...
+# Subtest: network lookalike host
+ok 94 - network lookalike host
+  ---
+  duration_ms: 0.169149
+  type: 'test'
+  ...
+# Subtest: network HTTP denied
+ok 95 - network HTTP denied
+  ---
+  duration_ms: 0.06823
+  type: 'test'
+  ...
+# Subtest: network credentials denied
+ok 96 - network credentials denied
+  ---
+  duration_ms: 0.066027
+  type: 'test'
+  ...
+# Subtest: network write denied
+ok 97 - network write denied
+  ---
+  duration_ms: 0.231611
+  type: 'test'
+  ...
+# Subtest: network lowercase method denied
+ok 98 - network lowercase method denied
+  ---
+  duration_ms: 3.557284
+  type: 'test'
+  ...
+# Subtest: network raw dot traversal
+ok 99 - network raw dot traversal
+  ---
+  duration_ms: 0.140757
+  type: 'test'
+  ...
+# Subtest: network encoded dot traversal
+ok 100 - network encoded dot traversal
+  ---
+  duration_ms: 0.065076
+  type: 'test'
+  ...
+# Subtest: network encoded separator
+ok 101 - network encoded separator
+  ---
+  duration_ms: 0.049643
+  type: 'test'
+  ...
+# Subtest: network double encoding
+ok 102 - network double encoding
+  ---
+  duration_ms: 0.042924
+  type: 'test'
+  ...
+# Subtest: network backslash
+ok 103 - network backslash
+  ---
+  duration_ms: 0.038307
+  type: 'test'
+  ...
+# Subtest: network fragment
+ok 104 - network fragment
+  ---
+  duration_ms: 0.038396
+  type: 'test'
+  ...
+# Subtest: network line break
+ok 105 - network line break
+  ---
+  duration_ms: 0.027791
+  type: 'test'
+  ...
+# Subtest: network invalid URL
+ok 106 - network invalid URL
+  ---
+  duration_ms: 0.065927
+  type: 'test'
+  ...
+# Subtest: literal/private name denied 127.0.0.1
+ok 107 - literal/private name denied 127.0.0.1
+  ---
+  duration_ms: 0.097594
+  type: 'test'
+  ...
+# Subtest: literal/private name denied 2130706433
+ok 108 - literal/private name denied 2130706433
+  ---
+  duration_ms: 0.047019
+  type: 'test'
+  ...
+# Subtest: literal/private name denied [::1]
+ok 109 - literal/private name denied [::1]
+  ---
+  duration_ms: 0.037936
+  type: 'test'
+  ...
+# Subtest: literal/private name denied localhost
+ok 110 - literal/private name denied localhost
+  ---
+  duration_ms: 0.036343
+  type: 'test'
+  ...
+# Subtest: literal/private name denied host.local
+ok 111 - literal/private name denied host.local
+  ---
+  duration_ms: 0.033499
+  type: 'test'
+  ...
+# Subtest: literal/private name denied 10.0.0.1
+ok 112 - literal/private name denied 10.0.0.1
+  ---
+  duration_ms: 0.03383
+  type: 'test'
+  ...
+# Subtest: canonical origin required in rule
+ok 113 - canonical origin required in rule
+  ---
+  duration_ms: 0.084955
+  type: 'test'
+  ...
+# Subtest: root prefix is allowed
+ok 114 - root prefix is allowed
+  ---
+  duration_ms: 0.084674
+  type: 'test'
+  ...
+# Subtest: matching live grant
+ok 115 - matching live grant
+  ---
+  duration_ms: 0.095661
+  type: 'test'
+  ...
+# Subtest: principal mismatch workspace
+ok 116 - principal mismatch workspace
+  ---
+  duration_ms: 0.065536
+  type: 'test'
+  ...
+# Subtest: principal mismatch plugin
+ok 117 - principal mismatch plugin
+  ---
+  duration_ms: 0.067319
+  type: 'test'
+  ...
+# Subtest: principal mismatch digest
+ok 118 - principal mismatch digest
+  ---
+  duration_ms: 0.085156
+  type: 'test'
+  ...
+# Subtest: principal mismatch instance
+ok 119 - principal mismatch instance
+  ---
+  duration_ms: 0.043014
+  type: 'test'
+  ...
+# Subtest: stale generation
+ok 120 - stale generation
+  ---
+  duration_ms: 0.059207
+  type: 'test'
+  ...
+# Subtest: expiry boundary
+ok 121 - expiry boundary
+  ---
+  duration_ms: 0.053308
+  type: 'test'
+  ...
+# Subtest: revoke
+ok 122 - revoke
+  ---
+  duration_ms: 0.083303
+  type: 'test'
+  ...
+# Subtest: capability mismatch
+ok 123 - capability mismatch
+  ---
+  duration_ms: 0.052066
+  type: 'test'
+  ...
+# Subtest: invalid clock fails closed
+ok 124 - invalid clock fails closed
+  ---
+  duration_ms: 0.049203
+  type: 'test'
+  ...
+# (node:1926) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: SSE basic fields
+ok 125 - SSE basic fields
+  ---
+  duration_ms: 1.634625
+  type: 'test'
+  ...
+# Subtest: all possible chunk splits including UTF-8
+ok 126 - all possible chunk splits including UTF-8
+  ---
+  duration_ms: 1.739099
+  type: 'test'
+  ...
+# Subtest: byte-by-byte split
+ok 127 - byte-by-byte split
+  ---
+  duration_ms: 0.199523
+  type: 'test'
+  ...
+# Subtest: CR-only line endings
+ok 128 - CR-only line endings
+  ---
+  duration_ms: 0.096922
+  type: 'test'
+  ...
+# Subtest: comments and id inheritance
+ok 129 - comments and id inheritance
+  ---
+  duration_ms: 0.130943
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 throws
+ok 130 - invalid UTF-8 throws
+  ---
+  duration_ms: 0.255105
+  type: 'test'
+  ...
+# Subtest: truncated UTF-8 throws
+ok 131 - truncated UTF-8 throws
+  ---
+  duration_ms: 0.118785
+  type: 'test'
+  ...
+# Subtest: unterminated data fails
+ok 132 - unterminated data fails
+  ---
+  duration_ms: 0.247354
+  type: 'test'
+  ...
+# Subtest: size cap and fail-closed parser
+ok 133 - size cap and fail-closed parser
+  ---
+  duration_ms: 0.294283
+  type: 'test'
+  ...
+# Subtest: size cap resets across events
+ok 134 - size cap resets across events
+  ---
+  duration_ms: 0.333791
+  type: 'test'
+  ...
+# Subtest: finish closes parser
+ok 135 - finish closes parser
+  ---
+  duration_ms: 0.171693
+  type: 'test'
+  ...
+1..135
+# tests 135
+# suites 0
+# pass 135
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 378.095322

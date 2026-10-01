@@ -1,0 +1,1313 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "FND-01",
+      "milestone": "M0",
+      "title": "Clean workspace, compatible frozen toolchains and public-repository safety",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "A clean checkout builds all feasibility spikes; existing repository history and visibility are never overwritten.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "FND-02",
+      "milestone": "M0",
+      "title": "Opaque-frame feasibility in Chromium and WebKit",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Bundled React UI renders with real CSP; host DOM access fails; self-navigation residual is explicitly demonstrated.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "FND-03",
+      "milestone": "M0",
+      "title": "Real Component Model guest in a Worker",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Pinned Rust/WIT/Jco build produces a real artifact, executes in a dedicated Worker, and returns a checked value.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "FND-04",
+      "milestone": "M0",
+      "title": "Mock protocol labeled as mock",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Stream reconnect works against a synthetic server; every UI and evidence record says mock, not ChatGPT connected.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UI-01",
+      "milestone": "M1",
+      "title": "360-pixel mobile navigation and route restoration",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Home, Library, Discover, Activity and Settings work with Back, safe areas and independent tab histories.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UI-02",
+      "milestone": "M1",
+      "title": "Offline production-build relaunch and durable edit",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "A note survives reload/offline relaunch from actual IndexedDB; unsaved and unavailable states are accurate.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UI-03",
+      "milestone": "M1",
+      "title": "Accessible basic navigation and update prompt",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Keyboard order, names and contrast checks pass; shell update does not discard an active edit.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RPC-01",
+      "milestone": "M2",
+      "title": "Principal-bound port and request authentication",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Forged plugin ID, copied nonce, wrong window, old generation and replayed channel cannot act as another installation.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RPC-02",
+      "milestone": "M2",
+      "title": "Payload limits, cancellation and teardown",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Oversized and duplicate messages, too many in-flight calls and messages after revoke fail closed.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RPC-03",
+      "milestone": "M2",
+      "title": "Two independent UI frameworks",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Separately built React and Lit packages render, persist data through grants, and unmount without leaving handlers.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RPC-04",
+      "milestone": "M2",
+      "title": "Host DOM and browser API isolation",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Iframe host DOM access and unauthenticated broker requests are denied at actual boundaries, not mocked wrappers.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RPC-05",
+      "milestone": "M2",
+      "title": "Direct egress and self-navigation risk",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Fetch, image and WebSocket routes are observed against controlled targets; residual navigation is documented with honest limits.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "PKG-01",
+      "milestone": "M3",
+      "title": "Deterministic pack and strict manifest",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Repeat pack has identical bytes; unknown fields, traversal, symlinks, duplicates and compressed/expanded size bombs fail.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "PKG-02",
+      "milestone": "M3",
+      "title": "Signature, identity, provenance and receipt verification",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Actual test signatures pass only for approved issuer/identity and digest; tamper, wrong identity and expired receipt fail.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "PKG-03",
+      "milestone": "M3",
+      "title": "Actual public GitHub release installation",
+      "kind": "external",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Paste a real public repository URL and install its signed compatible artifact without rebuilding the host.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "PKG-04",
+      "milestone": "M3",
+      "title": "Interrupted install is recoverable",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Cancel, offline transition and termination at each journal stage leave either old/absent install or a valid new one.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "PKG-05",
+      "milestone": "M3",
+      "title": "Resolver and network SSRF boundary",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Private, loopback, IPv6, mapped, redirect and DNS-rebinding targets are blocked including actual socket peer enforcement.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RUN-01",
+      "milestone": "M4",
+      "title": "Guest effect/event async bridge",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Real guest requests HTTP/storage via effects and receives correlated completion; no Promise is passed to a synchronous WIT import.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RUN-02",
+      "milestone": "M4",
+      "title": "Timeout, memory growth and crash backoff",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Endless guest terminates while host remains recoverable; linear-memory growth fails as expected; crash loop backs off.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RUN-03",
+      "milestone": "M4",
+      "title": "Lazy mobile scheduling and demand",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Inactive plugins do not poll or execute; default limits of one rich UI and two guest workers are observed.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RUN-04",
+      "milestone": "M4",
+      "title": "Checkpoint and multitab fencing",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Leader replacement increments fence; stale actor cannot commit; resume restores checkpoint without repeating external writes.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "RUN-05",
+      "milestone": "M4",
+      "title": "Quarantine and unknown imports",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Unknown WIT imports and publisher JavaScript worker glue never execute; quarantine revokes ports and stops instances.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "APP-01",
+      "milestone": "M5",
+      "title": "Notebook is a real mobile plugin",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Actual isolated editor saves offline, displays actual Wasm analysis and has undo/error states; no hard-coded success.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "APP-02",
+      "milestone": "M5",
+      "title": "Feed Reader is a real Lit plugin",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Controlled real HTTP feed, virtualization, refresh, offline snapshot and network revocation all work.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "APP-03",
+      "milestone": "M5",
+      "title": "Canvas Board expressive and accessible UI",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "SVG/canvas editing, non-drag alternative, zoom and keyboard actions work at 360 pixels and persisted state reloads.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "APP-04",
+      "milestone": "M5",
+      "title": "Quota, handles and storage isolation",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Concurrent writes respect quota; plugin B cannot read plugin A or unselected documents; revoke invalidates prior handles.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "APP-05",
+      "milestone": "M5",
+      "title": "Revocation blocks the next request",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Observe controlled server logs: after grant revocation no new brokered request is emitted; cancellation has documented races.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-01",
+      "milestone": "M6",
+      "title": "OAuth protocol and account binding",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "State, nonce, PKCE, issued client ID, workspace and direct-plan scope enforced; stale or wrong-account callbacks rejected.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-02",
+      "milestone": "M6",
+      "title": "Protected local credential custody",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Tokens absent from page, frames, logs, exports, IndexedDB, caches and SQL metadata; local protected store and refresh race tested.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-03",
+      "milestone": "M6",
+      "title": "Provider catalog and supported request encoding",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Catalog parses models with visibility/slug/display_name; request is stream=true/store=false without unsupported parameters/tools.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-04",
+      "milestone": "M6",
+      "title": "Actual authorized ChatGPT-plan completion",
+      "kind": "provider",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": true,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "User completes official sign-in on their local runtime; a synthetic short prompt gets a real terminal completed response.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "AI-05",
+      "milestone": "M6",
+      "title": "Actual provider cancellation and disconnect",
+      "kind": "provider",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": true,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Real user-authorized request cancellation and subsequent reconnect show truthful interrupted/cancelled state without duplicate execution.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "AI-06",
+      "milestone": "M6",
+      "title": "Budget, idempotency and admission race",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Concurrent calls respect per-plugin limits; duplicate client submission does not create another provider request; counts survive restart.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-07",
+      "milestone": "M6",
+      "title": "Durable stream replay on phone",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Drop stream connection, resume from last event ID and receive journaled events without another model call or duplicated text.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-08",
+      "milestone": "M6",
+      "title": "Identity-only, no entitlement and provider errors",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Scope denial, unavailable model, limits, refresh failure and sign-out produce actionable states and never paid fallback.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AI-09",
+      "milestone": "M6",
+      "title": "Local runtime pairing from a real phone",
+      "kind": "physical",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Pair actual phone to the personal runtime over authenticated HTTPS; browser gets only app session; revoked pairing no longer works.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "AI-10",
+      "milestone": "M6",
+      "title": "Shared and remote token modes fail closed",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Hosted/VM persistent-token paths cannot be enabled by an ordinary user flag without verified release authorization.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AGT-01",
+      "milestone": "M7",
+      "title": "Explicit inter-plugin service binding",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Notebook exports only selected document through approved binding; Canvas Board consumes it with bounded inputs.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AGT-02",
+      "milestone": "M7",
+      "title": "Prompt-injection and tool authority",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Malicious content cannot expand grants, choose a stronger principal, expose secrets, install code, or bypass write approval.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "AGT-03",
+      "milestone": "M7",
+      "title": "Step limits, cancellation and human write approval",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Agent stops at configured limit; denied write never executes; replay does not duplicate confirmed actions.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UPD-01",
+      "milestone": "M8",
+      "title": "Permission-expanding update requires new consent",
+      "kind": "browser",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Old grant does not authorize new release permissions; denied expansion keeps the usable old version.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UPD-02",
+      "milestone": "M8",
+      "title": "Staged migration, interruption and safe rollback",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Power/termination injection at each migration step preserves consistent data; incompatible downgrade is refused or restored from snapshot.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UPD-03",
+      "milestone": "M8",
+      "title": "Signed catalog, revocation and stale metadata",
+      "kind": "security",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Wrong identity, revoked package and expired install metadata rejected; installed offline mode displays revocation freshness honestly.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UPD-04",
+      "milestone": "M8",
+      "title": "OCI transport equivalent to release transport",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Same envelope/digest from OCI installs under identical checks; authentication/CORS never bypass policy.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "UPD-05",
+      "milestone": "M8",
+      "title": "Dependencies and uninstall/export",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Cycles/conflicts rejected before install; shared dependency preserved; export/delete are explicit, consistent and recoverable.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "FWK-01",
+      "milestone": "M9",
+      "title": "Second independent embedding host",
+      "kind": "integration",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "A minimal non-Ionic host consumes released workspace packages and loads the same plugins without copied shell internals.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "DEV-01",
+      "milestone": "M9",
+      "title": "Physical iPhone installation and keyboard",
+      "kind": "physical-iphone",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "iphone",
+      "passCriterion": "Home Screen install/relaunch, safe areas, software keyboard, Back and app switching tested with named iPhone/iOS version.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "DEV-02",
+      "milestone": "M9",
+      "title": "Physical Android installation and keyboard",
+      "kind": "physical-android",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "android",
+      "passCriterion": "Installed Chrome PWA, keyboard, system Back, offline/resume and permissions tested with named phone/OS/browser.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "DEV-03",
+      "milestone": "M9",
+      "title": "VoiceOver and TalkBack critical flows",
+      "kind": "physical",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "On real devices, screen readers complete install, plugin operation, consent, cancel and recovery without unlabeled traps.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "DEV-04",
+      "milestone": "M9",
+      "title": "Phone performance and repeated open/close",
+      "kind": "physical",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Record target budgets, 20-run latency distribution and repeated plugin mount cycles on named hardware; no unbounded accumulation.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "DEV-05",
+      "milestone": "M9",
+      "title": "OS eviction and long background recovery",
+      "kind": "physical",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": true,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Actual app switch/sleep/relaunch plus controlled storage-pressure tests preserve/export data or clearly report recovery limits.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "REL-01",
+      "milestone": "M10",
+      "title": "Clean clone production build and tests",
+      "kind": "release",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Frozen install, lint, typecheck, production build and complete tests pass from a clean commit without local secrets.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "REL-02",
+      "milestone": "M10",
+      "title": "Release evidence completeness",
+      "kind": "release",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Every local-alpha mandatory case has matching-commit artifacts, correct environment and honest pass status; blocked/mocked evidence rejected.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    },
+    {
+      "id": "REL-03",
+      "milestone": "M10",
+      "title": "Signed public alpha and recovery drill",
+      "kind": "external",
+      "requiredFor": [
+        "local-alpha",
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Public release, signed artifacts, SBOM/licenses and redacted evidence accessible; clean user installs and restores a backup.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "HST-01",
+      "milestone": "M11",
+      "title": "Hosted authorization and credential-scope clarification",
+      "kind": "authorization",
+      "requiredFor": [
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": true,
+      "deviceClass": "any",
+      "passCriterion": "Owner records applicable authorization including storage rules and third-party plugin scope; reviewers verify it, not merely a flag.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "HST-02",
+      "milestone": "M11",
+      "title": "Real mobile hosted sign-in and inference",
+      "kind": "provider",
+      "requiredFor": [
+        "hosted"
+      ],
+      "requiresRealProvider": true,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Approved hosted flow works on phone with actual eligible plan and terminal response; no desktop-loopback assumptions.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": false
+    },
+    {
+      "id": "HST-03",
+      "milestone": "M11",
+      "title": "Hosted tenant isolation, revoke and retention",
+      "kind": "security",
+      "requiredFor": [
+        "hosted"
+      ],
+      "requiresRealProvider": false,
+      "requiresPhysicalDevice": false,
+      "requiresExternalAuthorization": false,
+      "deviceClass": "any",
+      "passCriterion": "Verified hosted terms reflected in implementation; cross-tenant requests blocked, grants revoked, retention and deletion tested.",
+      "evidenceRequired": [
+        "implementation commit",
+        "UTC timestamp",
+        "actual environment",
+        "observed result",
+        "artifact with SHA-256"
+      ],
+      "automatable": true
+    }
+  ]
+}

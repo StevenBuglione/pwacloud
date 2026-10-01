@@ -1,0 +1,126 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "pwacloud.release.v1"
+    },
+    "pluginId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceCommit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 67108864
+        }
+      },
+      "required": [
+        "sha256",
+        "bytes"
+      ]
+    },
+    "manifestSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 512,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20971520
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "bytes"
+        ]
+      }
+    },
+    "sourceRepository": {
+      "type": "string",
+      "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "componentWorld": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "browserTransform": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "version",
+            "buildReportSha256"
+          ],
+          "properties": {
+            "name": {
+              "const": "jco"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "buildReportSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "format",
+    "pluginId",
+    "version",
+    "sourceCommit",
+    "archive",
+    "manifestSha256",
+    "files",
+    "sourceRepository",
+    "componentWorld",
+    "browserTransform"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pwacloud:schema:release-envelope:1"
+}
