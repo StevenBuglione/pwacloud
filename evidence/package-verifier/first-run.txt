@@ -1,0 +1,85 @@
+✓ Lockfile passes supply-chain policies (verified 7m ago)
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 228, reused 147, downloaded 0, added 0
+Packages: +1
++
+Progress: resolved 430, reused 284, downloaded 1, added 0
+Progress: resolved 430, reused 284, downloaded 1, added 1, done
+
+Done in 2.7s using pnpm v11.19.0
+✔ traversal absolute Windows nested archives and prototype paths fail before extraction (1.3103ms)
+✔ case-normalized archive duplicate fails (0.9598ms)
+✔ central directory refuses symlinks and device types before decompression (0.9617ms)
+✔ encrypted and descriptor entries and wrong local names fail (0.537ms)
+✔ file-count and compressed expanded individual budgets fail from metadata (168.9267ms)
+✔ dishonest declared inflate length cannot pass CRC checks (1.1294ms)
+✔ trailing prefix zip64 and truncated archives fail (0.2852ms)
+✔ tampered archive receipt and exact envelope bytes fail signature/digest checks (16.4227ms)
+✔ forged unknown trust wrong publisher stale revoked future and expired receipt all fail (4.9467ms)
+✔ extra unlisted files incorrect repository and unknown manifest data fail (3.8938ms)
+✔ packet rejects added authority fields malformed base64 and excessive sizes (0.59ms)
+✔ private mapped IPv6 and reserved destinations fail including actual pre-socket resolution (7.5269ms)
+✔ deterministic pack is independent of input ordering and round-trips exact bytes (17.5324ms)
+✔ actual P256 raw signatures and digest verification retain exact packet bytes (7.1667ms)
+✔ offline install accepts only valid cached explicit root and current receipt (3.1171ms)
+✔ trust root JSON boundary validates public P256 material (2.0433ms)
+✖ CLI scaffolds React and Lit without overwriting an existing directory (1.8502ms)
+✖ CLI packs inspectable actual plugin directory and rejects unknown manifest fields (16.7895ms)
+✖ CLI builds independent React and Lit bundled IIFEs (1.9699ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 16
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 602.7119
+
+✖ failing tests:
+
+test at tests\production\package.test.ts:13:1
+✖ CLI scaffolds React and Lit without overwriting an existing directory (1.8502ms)
+  Error: data/source/directory must match pattern "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+      at validateManifest (<workspace>\packages\contracts\src\index.ts:35:32)
+      at createPlugin (<workspace>\packages\cli\src\index.ts:17:535)
+      at async TestContext.<anonymous> (<workspace>\tests\production\package.test.ts:13:242)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'invalid-manifest'
+  }
+
+test at tests\production\package.test.ts:14:1
+✖ CLI packs inspectable actual plugin directory and rejects unknown manifest fields (16.7895ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /invalid-manifest/. Input:
+  
+  'Error: data must NOT have additional properties'
+  
+      at async TestContext.<anonymous> (<workspace>\tests\production\package.test.ts:14:674)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: data must NOT have additional properties
+        at validateManifest (<workspace>\packages\contracts\src\index.ts:35:32)
+        at validateDirectory (<workspace>\packages\cli\src\index.ts:13:131)
+        at async runCli (<workspace>\packages\cli\src\index.ts:25:56)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (<workspace>\tests\production\package.test.ts:14:674)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: /invalid-manifest/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\production\package.test.ts:15:1
+✖ CLI builds independent React and Lit bundled IIFEs (1.9699ms)
+  Error: data/source/directory must match pattern "^[A-Za-z0-9][A-Za-z0-9._/-]*$"
+      at validateManifest (<workspace>\packages\contracts\src\index.ts:35:32)
+      at createPlugin (<workspace>\packages\cli\src\index.ts:17:535)
+      at async TestContext.<anonymous> (<workspace>\tests\production\package.test.ts:15:266)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'invalid-manifest'
+  }

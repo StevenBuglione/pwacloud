@@ -1,0 +1,6 @@
+Observed whole-workspace typecheck during concurrent task UI implementation, exit 1:
+apps/shell/src/main.tsx(86,9): error TS6198: All destructured elements are unused.
+apps/shell/src/main.tsx(87,10): error TS6133: 'tasks' is declared but its value is never read.
+apps/shell/src/main.tsx(88,9): error TS6198: All destructured elements are unused.
+apps/shell/src/main.tsx(114,9): error TS6133: 'refreshTasks' is declared but its value is never read.
+examples/plugins/notebook/src/index.tsx(46,9): error TS6133: 'navigateView' is declared but its value is never read.

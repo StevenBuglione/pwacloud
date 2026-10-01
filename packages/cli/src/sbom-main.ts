@@ -1,0 +1,3 @@
+import { readFile,writeFile } from 'node:fs/promises';
+import { dependencySbom,licenseInventory } from './sbom';
+const [input,output,licensesPath,cargoPath]=process.argv.slice(2);if(!input||!output) throw new Error('Usage: sbom-main tree.json output.cdx.json [licenses.json] [cargo.json]');const tree:unknown=JSON.parse(await readFile(input,'utf8')),licenses:unknown=licensesPath?JSON.parse(await readFile(licensesPath,'utf8')):undefined,cargo:unknown=cargoPath?JSON.parse(await readFile(cargoPath,'utf8')):undefined;await writeFile(output,JSON.stringify(dependencySbom(tree,licenses,cargo),null,2));if(licensesPath) await writeFile(licensesPath.replace(/\.json$/,'.sanitized.json'),JSON.stringify(licenseInventory(licenses),null,2));

@@ -1,0 +1,3 @@
+{"id":"notebook","archiveBytes":786284,"sha256":"deec3618f088e8a5fff6eaa88bb60d864a04a0a810d9fd1ed69f24dec58eb0fe","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"feed-reader","archiveBytes":485789,"sha256":"49194dc6b94d38258845d07f1812c267ee19cfe7f424c3f8f51d2ee0e46aa5de","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"canvas-board","archiveBytes":695841,"sha256":"a62b6aeec85758a515e6ed71beba664e624cca8e08b5f756327eca1daa7836aa","trust":"DEMO ONLY - no Sigstore attestation"}
