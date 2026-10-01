@@ -65,13 +65,12 @@ def refused(sql,params=()):
 check(refused("INSERT INTO installs VALUES('missing','x','p','d',1,'ready','{}')"),'unknown workspace rejected')
 check(refused("INSERT INTO installs VALUES('w1','x','p','d',0,'ready','{}')"),'zero generation rejected')
 check(refused("INSERT INTO grants VALUES('w2','i1','g','ai.respond','{}',1,0,NULL)"),'cross-workspace grant FK rejected')
-row=('r1','w1','i1',None,1,'idem','reserved','mock',100,0)
-# Schema has 10 columns, deliberately use explicit column count.
-run_sql="INSERT INTO runs VALUES(?,?,?,?,?,?,?,?,?,?)"
+row=('r1','w1','i1',None,1,1,'synthetic-account','idem','reserved','demo',100,0)
+run_sql="INSERT INTO runs(id,workspace_id,install_id,registration_id,generation,account_generation,account_key,idempotency_key,state,provider_mode,created_at,last_sequence) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)"
 db.execute(run_sql,row)
 check(refused(run_sql,('r2',*row[1:])),'duplicate idempotency key rejected')
-check(refused(run_sql,('r3','w2','i1',None,1,'other','reserved','mock',100,0)),'cross-workspace run rejected')
-check(refused(run_sql,('r4','w1','i1',None,1,'other','faked-success','mock',100,0)),'unknown run state rejected')
+check(refused(run_sql,('r3','w2','i1',None,1,1,'synthetic-account','other','reserved','demo',100,0)),'cross-workspace run rejected')
+check(refused(run_sql,('r4','w1','i1',None,1,1,'synthetic-account','other','faked-success','demo',100,0)),'unknown run state rejected')
 db.execute("INSERT INTO run_events VALUES('r1',1,'started','{}')")
 check(refused("INSERT INTO run_events VALUES('r1',1,'again','{}')"),'duplicate event sequence rejected')
 check(refused("INSERT INTO run_events VALUES('missing',1,'started','{}')"),'orphan event rejected')

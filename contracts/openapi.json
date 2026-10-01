@@ -965,7 +965,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "appSession": []
+          }
+        ]
       }
     },
     "/v1/installs/{installId}/registration": {
@@ -1044,7 +1049,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "appSession": []
+          }
+        ]
       }
     },
     "/v1/installs/{installId}": {
@@ -1134,7 +1144,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "appSession": []
+          }
+        ]
       }
     }
   },
