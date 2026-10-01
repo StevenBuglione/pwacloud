@@ -1,0 +1,316 @@
+$ pnpm build && pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e
+$ tsx scripts/build.ts
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.25s
+
+  Transpiled JS Component Files:
+
+ - artifacts/guest/generated/guest.core.wasm                             108 KiB
+ - artifacts/guest/generated/guest.d.ts                                 0.26 KiB
+ - artifacts/guest/generated/guest.js                                    115 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-lifecycle.d.ts  0.47 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-types.d.ts      1.72 KiB
+
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.17s
+{"id":"notebook","archiveBytes":816045,"sha256":"c2476b5341c80fc23b254c7605ee45e935771b7eb349ec42ec8a41e12f200157","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"feed-reader","archiveBytes":487513,"sha256":"9b25c4c6668116df57f38fd70ce5b8f874a9b8d61d94aa9272ce2ab108a5fb4d","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"canvas-board","archiveBytes":697515,"sha256":"c8e0a979e2f62c84216d08f857bca708f06075f04905a3216e69d49fa7b26bf5","trust":"DEMO ONLY - no Sigstore attestation"}
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 399 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/shell/index.html                         0.77 kB │ gzip:   0.43 kB
+dist/shell/assets/index-C7pdC0ic.css         19.72 kB │ gzip:   4.74 kB
+dist/shell/assets/p-ZjP4CjeZ-DJ1DGIsW.js      0.09 kB │ gzip:   0.09 kB
+dist/shell/assets/p-BUVGbkSc-DH8CuLiF.js      0.45 kB │ gzip:   0.31 kB
+dist/shell/assets/p-yjLe0sN2-UMMDay7q.js      0.57 kB │ gzip:   0.41 kB
+dist/shell/assets/p-C_NQIzjP-Dlq6oEIm.js      1.56 kB │ gzip:   0.79 kB
+dist/shell/assets/p-D4NOsSCE-B3tmFeT8.js      4.65 kB │ gzip:   2.02 kB
+dist/shell/assets/p-BriaEJK8-Bxir1Z1P.js     36.58 kB │ gzip:  13.87 kB
+dist/shell/assets/index-DnJlIl6I.js       1,654.77 kB │ gzip: 386.64 kB
+
+✓ built in 345ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 1000 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+{"status":"built","shell":"dist/shell","minimalHost":"dist/minimal","guest":"artifacts/guest/browser","fixtures":"artifacts/packages","shellRevision":"38ed5c41139cdf6f"}
+$ tsx scripts/lint.ts
+TypeScript source and package dependency boundary lint passed
+$ tsc --noEmit
+$ tsx --test tests/unit/*.test.ts tests/production/*.test.ts
+✔ agent cancellation during pending approval ignores late approval and never enters durable admission or executes a write (7.4745ms)
+✔ agent cancellation after a read stops subsequent write approval and execution (0.605ms)
+✔ agent rechecks cancellation when a durable admission invokes its deferred write (0.521ms)
+✔ agent validates a whole bounded batch before effects and refuses malformed IDs tool escalation and injected authority (0.8434ms)
+✔ agent denied approval leaves no admitted write and exact argument snapshots resist caller mutation (1.2614ms)
+✔ injected admission survives recreated runner instances and never retries an ambiguous failed write (1.1372ms)
+✔ agent deadlines stop hung approval and registration rejects duplicate tools and invalid budgets (8.706ms)
+✔ agent payload and depth budgets reject hostile data before approval (0.6771ms)
+✔ an admission callback cannot invoke the same write twice (0.3995ms)
+✔ iterative selection sees immutable correlated results and still requires scoped write approval (2.1397ms)
+✔ iterative selection counts calls across turns and rejects additional execution at its global limit (1.3268ms)
+✔ cancelled selector cannot execute a late returned tool call (1.3402ms)
+✔ strict RPC rejects identity injection, unknown params and oversize before dispatch (1.9349ms)
+✔ manifest compatibility and duplicate permissions fail closed (2.7606ms)
+✔ worker scheduler enforces two active tasks and fair waiting admission (6.0267ms)
+✔ agent never executes denied writes, injected commands, replay or excessive steps (2.0816ms)
+✔ core memory validation requires declared finite maximum and refuses unsupported profiles (1.2483ms)
+✔ deterministic pack is independent of input ordering and round-trips exact bytes (15.4342ms)
+✔ actual P256 raw signatures and digest verification retain exact packet bytes (6.6558ms)
+✔ offline install accepts only valid cached explicit root and current receipt (3.3841ms)
+✔ trust root JSON boundary validates public P256 material (2.0032ms)
+✔ CLI scaffolds React and Lit without overwriting an existing directory (12.8833ms)
+✔ CLI packs inspectable actual plugin directory and rejects unknown manifest fields (12.9029ms)
+✔ CLI refuses actual hard-linked source files while permitting ordinary nested directories (5.5637ms)
+✔ CLI builds independent React and Lit bundled IIFEs (376.2145ms)
+✔ SBOM consumes actual pnpm leaf naming and locked Cargo dependency relationships and sanitizes license paths (9.5425ms)
+✔ public signing workflow contract pins actions and keeps signing authority out of readonly build (1.3508ms)
+✔ attestation SBOM has a stable RFC UUID serial identifying the inventory (0.5982ms)
+✔ CLI developer server serves a real isolated watch preview and denies arbitrary file routes (260.0763ms)
+✔ AI-01 synthetic OAuth fixture binds issued ID, PKCE, nonce and one-use state (51.9714ms)
+✔ AI-01 missing issued client ID, expired state and denial consume no provider request (35.45ms)
+✔ AI-01 signed synthetic token with wrong nonce is rejected (29.4679ms)
+✔ AI-01 signed synthetic token with wrong issuer is rejected (92.5452ms)
+✔ AI-01 signed synthetic token with wrong audience is rejected (48.4464ms)
+✔ AI-01 expired, missing-expiration and invalid-signature synthetic ID tokens are rejected (122.6882ms)
+✔ AI-01 returning registration rejects different issued ID and verified account (32.4455ms)
+✔ AI-02 protected local store encrypts synthetic credentials and round-trips via actual OS protection (553.8586ms)
+✔ AI-02 concurrent synthetic refreshes serialize and atomically retain rotating credentials (88.4787ms)
+✔ AI-02 disconnect during a synthetic refresh cannot restore cleared credentials (124.3054ms)
+✔ AI-02 changed identity on synthetic refresh cannot replace the selected credential record (53.181ms)
+✔ AI-03 catalog preserves visible slugs and request shaper omits unsupported plan parameters (0.9112ms)
+✔ AI-08 identity-only token cannot enumerate inference models or silently select billing fallback (58.0032ms)
+✔ AI-07 provider fixtures decode UTF-8 fragmented SSE and require terminal completion (40.1225ms)
+✔ synthetic provider stream cancellation aborts before a completed event (39.5737ms)
+✔ AI-08 provider denial, revoked token, quota and routing failure remain typed with no other endpoint (162.3768ms)
+✔ provider SSE parser rejects invalid UTF-8, overlong and truncated events (0.3651ms)
+✔ transport persists a known offline revocation and never restores the removed AI grant (45.2763ms)
+✔ transport discards an offline uninstall after a later local reinstall (5.2243ms)
+✔ transport retains a stale offline uninstall without targeting a newer remote approval (4.5227ms)
+✔ transport cannot apply queued consent to a different runtime session or account fence (6.4298ms)
+✔ transport with no observed remote baseline stays revoked until a later explicit permission review (4.7064ms)
+✔ transport replays multiple restrictive intents using only generations returned by its own CAS (5.6426ms)
+✔ transport requires a fresh review when the runtime session changes before pending approval (2.9688ms)
+✔ catalog preserves listed order and actual fields (2.3817ms)
+✔ generic API data shape is not plan catalog (1.3718ms)
+✔ duplicate catalog identity (0.1591ms)
+✔ invalid visible model (0.1682ms)
+✔ correct plan-only text shape (0.3357ms)
+✔ reject passthrough max_output_tokens (0.1324ms)
+✔ reject passthrough temperature (0.0963ms)
+✔ reject passthrough background (0.0836ms)
+✔ reject passthrough previous_response_id (0.106ms)
+✔ reject passthrough tools (0.1913ms)
+✔ reject passthrough store (0.1685ms)
+✔ reject passthrough stream (0.1662ms)
+✔ reject passthrough metadata (0.1627ms)
+✔ reject passthrough apiKey (0.1479ms)
+✔ reject passthrough endpoint (0.0984ms)
+✔ missing direct plan scope (0.1714ms)
+✔ unavailable model (0.1498ms)
+✔ blank input (0.158ms)
+✔ input byte bound (0.631ms)
+✔ terminal completed (0.1503ms)
+✔ terminal disconnect (0.0819ms)
+✔ terminal failed (0.0591ms)
+✔ terminal incomplete (0.0653ms)
+✔ terminal conflicting terminals (0.096ms)
+✔ admit and release concurrency (1.7243ms)
+✔ idempotency does not spend again (0.247ms)
+✔ completion not a budget refund (0.3927ms)
+✔ new window resets count, retains active limit (0.2654ms)
+✔ completed duplicate is not resubmitted (0.1805ms)
+✔ clock rollback denied (0.179ms)
+✔ invalid limits denied (0.1537ms)
+✔ unknown completion does not corrupt counts (0.1414ms)
+✔ well-shaped fixture passes logical gate only (2.5259ms)
+✔ missing cases block (0.2943ms)
+✔ pending is not passed (0.2857ms)
+✔ blocked is not passed (0.1439ms)
+✔ failed is not passed (0.1635ms)
+✔ wrong commit blocks (0.2017ms)
+✔ future evidence blocks (0.2078ms)
+✔ mock provider not real (0.1825ms)
+✔ emulation not physical (0.263ms)
+✔ wrong device blocks (0.3317ms)
+✔ missing reviewer blocks (0.2188ms)
+✔ no artifacts blocks (0.1577ms)
+✔ unsafe artifact path blocks (0.15ms)
+✔ duplicate case blocks (0.3024ms)
+✔ hosted authorization not a missing optional case (0.2007ms)
+✔ sentinel commit cannot release (0.1231ms)
+✔ SHA-256 known vector (8.7387ms)
+✔ exact digest and tampering (1.6199ms)
+✔ archive path rejected "../x" (0.3353ms)
+✔ archive path rejected "/etc/passwd" (0.1493ms)
+✔ archive path rejected "a/../x" (0.1314ms)
+✔ archive path rejected "a//b" (0.1476ms)
+✔ archive path rejected "a\\b" (0.1598ms)
+✔ archive path rejected "a/%2e%2e/b" (0.1271ms)
+✔ archive path rejected "a/./b" (0.2301ms)
+✔ archive path rejected "a/" (0.1735ms)
+✔ archive path rejected "x\u0000y" (0.1344ms)
+✔ archive path rejected "C:/x" (0.0863ms)
+✔ archive path rejected "a./b" (0.0762ms)
+✔ valid archive entries (0.1761ms)
+✔ duplicate casefold file rejected (0.3392ms)
+✔ symlink rejected (0.1023ms)
+✔ expanded size limit (0.0901ms)
+✔ negative size (0.0998ms)
+✔ path file/directory collision (0.1092ms)
+✔ entry count (0.1801ms)
+✔ P256 exact-byte signature actual crypto (9.5781ms)
+✔ start on demand (0.9718ms)
+✔ idle without demand (0.0933ms)
+✔ suspend invisible (0.0821ms)
+✔ running healthy (0.0843ms)
+✔ disabled running (0.1132ms)
+✔ disabled absent (0.1134ms)
+✔ quarantined overrides all (0.0934ms)
+✔ consent before download (0.0725ms)
+✔ download stage (0.0797ms)
+✔ offline stage waits (0.1324ms)
+✔ verify before activation (0.0719ms)
+✔ dependency before activation (0.0794ms)
+✔ safe write before activation (0.0589ms)
+✔ verified swap (0.0462ms)
+✔ stop stale runtime (0.0804ms)
+✔ restart backoff (0.0695ms)
+✔ dependency before starting (0.0541ms)
+✔ missing dependency stops running (0.0672ms)
+✔ invalid clock refused (0.6286ms)
+✔ network exact path (1.9145ms)
+✔ network child path (0.2267ms)
+✔ network prefix lookalike (0.2885ms)
+✔ network default HTTPS port (0.1546ms)
+✔ network unapproved port (0.1663ms)
+✔ network lookalike host (0.1785ms)
+✔ network HTTP denied (0.1369ms)
+✔ network credentials denied (0.0865ms)
+✔ network write denied (0.1339ms)
+✔ network lowercase method denied (0.1433ms)
+✔ network raw dot traversal (0.1095ms)
+✔ network encoded dot traversal (0.0901ms)
+✔ network encoded separator (0.073ms)
+✔ network double encoding (0.0882ms)
+✔ network backslash (0.057ms)
+✔ network fragment (0.0845ms)
+✔ network line break (0.0454ms)
+✔ network invalid URL (0.0833ms)
+✔ literal/private name denied 127.0.0.1 (0.1043ms)
+✔ literal/private name denied 2130706433 (0.0793ms)
+✔ literal/private name denied [::1] (0.0687ms)
+✔ literal/private name denied localhost (0.0731ms)
+✔ literal/private name denied host.local (0.0477ms)
+✔ literal/private name denied 10.0.0.1 (0.0639ms)
+✔ canonical origin required in rule (0.1305ms)
+✔ root prefix is allowed (0.1364ms)
+✔ matching live grant (0.1361ms)
+✔ principal mismatch workspace (0.096ms)
+✔ principal mismatch plugin (0.0715ms)
+✔ principal mismatch digest (0.0475ms)
+✔ principal mismatch instance (0.0406ms)
+✔ stale generation (0.0649ms)
+✔ expiry boundary (0.0771ms)
+✔ revoke (0.1068ms)
+✔ capability mismatch (0.1198ms)
+✔ invalid clock fails closed (0.1011ms)
+✔ SSE basic fields (2.2788ms)
+✔ all possible chunk splits including UTF-8 (2.4732ms)
+✔ byte-by-byte split (0.3265ms)
+✔ CR-only line endings (0.2112ms)
+✔ comments and id inheritance (0.2206ms)
+✔ invalid UTF-8 throws (0.3133ms)
+✔ truncated UTF-8 throws (0.1869ms)
+✔ unterminated data fails (0.3574ms)
+✔ size cap and fail-closed parser (0.3205ms)
+✔ size cap resets across events (0.2728ms)
+✔ finish closes parser (0.2855ms)
+ℹ tests 188
+ℹ suites 0
+ℹ pass 188
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1999.0842
+$ tsx --test tests/integration/*.test.ts
+✔ production server negotiates real compressed critical assets with exact decoded bytes under transfer budgets (205.1886ms)
+✔ RUN-05 actual component transformation has no host imports and bounded real core memories (130.6313ms)
+✔ RUN-05 real unknown-import component is detected before worker execution (19.8008ms)
+✔ GitHub resolver verifies release assets tag source and repository through same artifact boundary (26.1904ms)
+✔ OCI exact pinned manifest digest and five layers produce identical verified package (6.6328ms)
+✔ signed catalogue verifies exact bytes freshness publisher revocation and transparent filters (5.0847ms)
+✔ whole dependency graph requires explicit compatible selection and rejects cycles before activation (2.468ms)
+✔ fixture cryptography uses raw WebCrypto signatures rather than mocked success (1.443ms)
+✔ verified same-account selection and new registration cannot reset durable account admission or revive disconnected selection (474.961ms)
+✔ HTTPS signed installation prepares a real component using trusted Jco and refuses cached weaker limits or host imports (3499.2191ms)
+✔ local receipt issuer protects and reuses its own key but never admits missing public Sigstore evidence (565.5316ms)
+✔ runtime-owned trust endpoint requires app session and rejects null Origin (137.6122ms)
+✔ personal-mode public trust excludes demo authority and rejects private key material (15.5311ms)
+✔ runtime session enforces exact Origin, CSRF, null-origin denial and host-only HttpOnly cookie (151.3221ms)
+✔ runtime verifies signed package bytes before granting declared permission and rejects forged principal (32.8925ms)
+✔ AI-06 durable admission deduplicates concurrent submits and never refunds a cancelled request (444.9668ms)
+✔ AI-07 FND-04 real HTTP synthetic SSE reconnect replays journal without duplicate provider execution (4081.0099ms)
+✔ last SSE disconnect cancels after bounded grace and retains journal plus admitted usage (80.0989ms)
+✔ AI revocation stops delivery, stale generation, subscription and subsequent inference (15.8654ms)
+✔ delayed signed registration cannot restore AI consent after a concurrent revocation (84.462ms)
+✔ registration CAS preserves uninstall tombstones and serializes competing consent approvals (22.8666ms)
+✔ local output delivery and elapsed limits retain durable admitted usage without claiming refunds (75.5229ms)
+✔ runtime restart preserves interrupted journal and refuses automatic resubmission (137.8515ms)
+✔ AI-10 hosted, VM, insecure phone and flag-only HTTPS modes fail closed (0.6168ms)
+✔ pairing uses real TLS listener, one-use expiry, attempt limits and only app session authority (253.687ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6286.4447
+$ tsx --test tests/hostile/*.test.ts
+✔ boundary schema refuses authority fields at every packet position (1.3034ms)
+✔ malformed, oversized and unexpected-method corpus is rejected (0.3428ms)
+✔ PKG-05 controlled redirect to a private target is denied before a second transport call (4.0309ms)
+✔ PKG-05 a same-origin redirect repeats DNS admission and blocks a rebound private answer (0.7344ms)
+✔ PKG-05 public redirects recheck origin and drop cross-origin credential headers (1.4617ms)
+✔ PKG-05 a different public response peer is rejected despite a public DNS answer (0.3301ms)
+✔ PKG-05 native TLS observes an actual loopback socket and rejects it after synthetic public DNS (20.2695ms)
+✔ traversal absolute Windows nested archives and prototype paths fail before extraction (1.2719ms)
+✔ case-normalized archive duplicate fails (1.0167ms)
+✔ central directory refuses symlinks and device types before decompression (0.9146ms)
+✔ encrypted and descriptor entries and wrong local names fail (0.4796ms)
+✔ file-count and compressed expanded individual budgets fail from metadata (156.4052ms)
+✔ dishonest declared inflate length cannot pass even with valid truncated-prefix CRC (1.0762ms)
+✔ trailing prefix zip64 and truncated archives fail (0.2348ms)
+✔ tampered archive receipt and exact envelope bytes fail signature/digest checks (17.4909ms)
+✔ forged unknown trust wrong publisher stale revoked future and expired receipt all fail (4.8743ms)
+✔ extra unlisted files incorrect repository and unknown manifest data fail (4.7369ms)
+✔ packet rejects added authority fields malformed base64 and excessive sizes (0.7765ms)
+✔ private mapped IPv6 and reserved destinations fail including actual pre-socket resolution (9.0145ms)
+✔ Sigstore proof and production receipt issuance fail closed on fake attestations and demo roots (2.6444ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 664.9651
+$ playwright test
+[WebServer] (node:12984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+[WebServer] (node:64792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:6932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+TypeError: Module "file:///D:/Users/steve/Documents/ChatGPT/pwacloud/contracts/plugin-manifest.schema.json" needs an import attribute of "type: json"
+    at eval (<anonymous>:1:1)
+
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.

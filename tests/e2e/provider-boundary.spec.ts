@@ -5,14 +5,12 @@ import {join} from 'node:path';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {createServer} from 'node:net';
 import {setTimeout} from 'node:timers/promises';
-import {createRuntime} from '../../apps/personal-runtime/src/index.ts';
-import {prepareGuestComponent} from '../../packages/runtime-web/src/transform.ts';
-import {validateTrustRoots} from '../../packages/package-verifier/src/index.ts';
-import {ChatGptPlanProvider,LocalChatGptOAuth,ProtectedFileCredentialStore,OPENAI_ISSUER,OPENAI_RESOURCE,registrationId,type CredentialRecord,type AiInput,type ProviderEvent} from '../../packages/provider-chatgpt/src/index.ts';
+import {tsImport} from 'tsx/esm/api';
+import type {ChatGptPlanProvider,CredentialRecord,AiInput,ProviderEvent} from '../../packages/provider-chatgpt/src/index.ts';
 
 class SyntheticCredentialProvider{
- readonly mode='demo';private readonly adapter:ChatGptPlanProvider;
- constructor(oauth:LocalChatGptOAuth,transport:typeof fetch){this.adapter=new ChatGptPlanProvider(oauth,transport);}
+ readonly mode='demo';
+ constructor(private readonly adapter:ChatGptPlanProvider){}
  select(id:string){this.adapter.select(id,'ready');}
  status(){return{...this.adapter.status(),mode:this.mode,label:'SYNTHETIC credential-custody protocol fixture; no ChatGPT account'};}
  models(signal?:AbortSignal){return this.adapter.models(signal);}
@@ -21,6 +19,10 @@ class SyntheticCredentialProvider{
 async function freePort(){const socket=createServer();await new Promise<void>(resolve=>socket.listen(0,'127.0.0.1',resolve));const address=socket.address();if(!address||typeof address==='string')throw new Error('No fixture port');await new Promise<void>((resolve,reject)=>socket.close(error=>error?reject(error):resolve()));return address.port;}
 
 test('AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call',async({page})=>{
+ const {createRuntime}:typeof import('../../apps/personal-runtime/src/index.ts')=await tsImport('../../apps/personal-runtime/src/index.ts',import.meta.url);
+ const {prepareGuestComponent}:typeof import('../../packages/runtime-web/src/transform.ts')=await tsImport('../../packages/runtime-web/src/transform.ts',import.meta.url);
+ const {validateTrustRoots}:typeof import('../../packages/package-verifier/src/index.ts')=await tsImport('../../packages/package-verifier/src/index.ts',import.meta.url);
+ const {ChatGptPlanProvider,LocalChatGptOAuth,ProtectedFileCredentialStore,OPENAI_ISSUER,OPENAI_RESOURCE,registrationId}:typeof import('../../packages/provider-chatgpt/src/index.ts')=await tsImport('../../packages/provider-chatgpt/src/index.ts',import.meta.url);
  const directory=await mkdtemp(join(tmpdir(),'pwacloud-browser-custody-')),port=await freePort(),origin=`http://127.0.0.1:${port}`;
  const canaries=['access','refresh','id'].map(kind=>`SYNTHETIC_PRIVATE_${kind.toUpperCase()}_${randomUUID()}`);
  const keyPath=join(directory,'separate-key');await writeFile(keyPath,randomBytes(32),{mode:0o600});
@@ -31,7 +33,7 @@ test('AI-02 AI-07 synthetic private credentials stay server-side while an existi
  const transport:typeof fetch=async(input,init)=>{const url=String(input);expect(new Headers(init?.headers).get('authorization')).toBe('Bearer '+record.accessToken);if(url===OPENAI_RESOURCE+'/models')return Response.json({models:[{slug:'synthetic-custody',display_name:'SYNTHETIC custody fixture',visibility:'list'}]});if(url!==OPENAI_RESOURCE+'/responses')throw new Error('Unexpected synthetic provider route');providerCalls++;
   const stream=new ReadableStream<Uint8Array>({start(controller){void(async()=>{try{for(const chunk of chunks){await setTimeout(100,undefined,{signal:init?.signal??undefined});controller.enqueue(new TextEncoder().encode('data: '+JSON.stringify({type:'response.output_text.delta',delta:chunk})+'\n\n'));}controller.enqueue(new TextEncoder().encode('data: {"type":"response.completed"}\n\n'));controller.close();}catch(error){controller.error(error);}})();}});return new Response(stream,{headers:{'content-type':'text/event-stream'}});
  };
- const oauth=new LocalChatGptOAuth({hostId:record.hostId,store,fetch:transport}),provider=new SyntheticCredentialProvider(oauth,transport);provider.select(id);
+ const oauth=new LocalChatGptOAuth({hostId:record.hostId,store,fetch:transport}),provider=new SyntheticCredentialProvider(new ChatGptPlanProvider(oauth,transport));provider.select(id);
  const roots=validateTrustRoots(JSON.parse(await readFile('artifacts/packages/trust.json','utf8')));
  const runtime=await createRuntime({mode:'demo',port,origin,demoInsecureCookie:true,databasePath:join(directory,'metadata.sqlite'),provider,trustRoots:roots,prepareGuest:prepareGuestComponent});
  const browserObserved:string[]=[],responses:Promise<void>[]=[];page.on('console',message=>browserObserved.push(message.text()));page.on('request',request=>{browserObserved.push(request.url(),request.postData()??'',JSON.stringify(request.headers()));});page.on('response',response=>{if(new URL(response.url()).pathname.startsWith('/v1/'))responses.push(response.text().then(body=>{browserObserved.push(body);}).catch(()=>{}));});
