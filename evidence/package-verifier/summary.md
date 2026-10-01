@@ -49,7 +49,7 @@ with explicit synthetic P-256 roots, verify and install through the actual contr
 mount the production opaque loader, edit the rendered textarea, assert frame DOM access denial and
 360-pixel width, then verify the CLI development preview and rebuild after changing source. They are
 desktop engine observations, not physical iOS or Android results. Original machine-path-bearing
-Playwright JSON remains under ignored `artifacts/evidence/package-verifier`.
+Playwright JSON is excluded from public evidence; the public copy removes machine paths.
 
 Honest limits: unit/integration package signatures use newly generated explicit demo/test keys, and
 are real P-256 signatures; they are not Sigstore publisher attestations. The transport tests use
