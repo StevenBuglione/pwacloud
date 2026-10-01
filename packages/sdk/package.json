@@ -1,0 +1,11 @@
+{
+  "name": "@pwacloud/sdk",
+  "version": "0.1.0-dev",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {}
+}

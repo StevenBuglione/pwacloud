@@ -1,0 +1,3 @@
+import {mountIsolatedUI} from '../../packages/runtime-ui/src/index.ts';
+const container=document.getElementById('frame')!,status=document.getElementById('status')!;let writes=0;
+document.getElementById('mount')!.onclick=async()=>{writes=0;status.textContent='Mounted';const bundle=await(await fetch('/spikes/hostile.js')).text();mountIsolatedUI(container,{bundle,css:'body{font:16px system-ui}button{min-height:48px}',title:'Hostile UI',principal:{workspace:'local',plugin:'hostile',digest:'a'.repeat(64),generation:1,instance:crypto.randomUUID(),connection:crypto.randomUUID()},dispatch:async()=>{writes++;return null;},onClose:()=>{status.textContent=`Revoked; writes=${writes}`;}});};

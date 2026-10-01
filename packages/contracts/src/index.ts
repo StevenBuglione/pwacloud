@@ -12,7 +12,7 @@ export type Permission =
   | {id:string;capability:'services.invoke';required:boolean;scope:{interfaces:string[];methods?:string[]}};
 export type Manifest = {apiVersion:'pwacloud.dev/v0.1';kind:'Plugin';id:string;name:string;version:string;description:string;license:string;
   hostApi:{major:number;minimumMinor:number};source:{repository:string;directory:string};permissions:Permission[];provides:string[];
-  requires:{interface:string;optional:boolean}[];
+  requires:string[];
   ui?:{profile:'isolated-web'|'host-rendered';entry:string;style?:string;minWidthCssPx:number;contributes:{type:string;id:string;title:string}[]};
   service?:{entry:string;world:string;maxLinearMemoryMiB:number}};
 export type ReleaseEnvelope = {format:'pwacloud.release.v1';pluginId:string;version:string;sourceCommit:string;sourceRepository:string;

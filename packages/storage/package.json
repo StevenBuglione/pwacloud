@@ -1,0 +1,13 @@
+{
+  "name": "@pwacloud/storage",
+  "version": "0.1.0-dev",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "idb": "8.0.3"
+  }
+}
