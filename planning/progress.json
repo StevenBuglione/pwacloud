@@ -1,13 +1,15 @@
 {
-  "updatedAt": "2026-10-01",
-  "productStatus": "implemented-development-build-verification-in-progress",
+  "updatedAt": "2026-10-01T23:04:26.1437411Z",
+  "productStatus": "implemented-development-build-final-validation-in-progress",
   "repositoryPublished": false,
   "milestones": [
     {
       "id": "M0",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "spikes-passed-clean-clone-pending",
+      "implementationCommit": "84919613fef4bb1e8af39e11762bafe8d5269980",
+      "evidence": [
+        "evidence/M0/spikes.json"
+      ]
     },
     {
       "id": "M1",
@@ -61,9 +63,11 @@
     },
     {
       "id": "M7",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "deterministic-tool-composition-implemented-real-model-sequencing-unverified",
+      "implementationCommit": "d0307fc8d65d976063496578c7d0f9fed80ad9e1",
+      "evidence": [
+        "evidence/M7/summary.md"
+      ]
     },
     {
       "id": "M8",
@@ -83,13 +87,13 @@
     },
     {
       "id": "M10",
-      "status": "pending",
+      "status": "clean-ci-and-live-publication-pending-product-alpha-blocked",
       "implementationCommit": null,
       "evidence": []
     },
     {
       "id": "M11",
-      "status": "pending",
+      "status": "external-authorization-blocked-hosted-disabled",
       "implementationCommit": null,
       "evidence": []
     }
@@ -97,15 +101,15 @@
   "externalPrerequisites": [
     {
       "id": "github-write",
-      "status": "unavailable-in-authoring-session"
+      "status": "authenticated-target-created-public-source-push-pending"
     },
     {
       "id": "real-user-oauth",
-      "status": "not-performed"
+      "status": "deferred-user-selected-automated-checks"
     },
     {
       "id": "physical-device-qa",
-      "status": "not-performed"
+      "status": "deferred-user-selected-automated-checks"
     },
     {
       "id": "hosted-approval-and-plugin-scope",

@@ -1,0 +1,434 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\steve\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/lifecycle.spec.ts",
+      "tests/e2e/app.spec.ts",
+      "--grep",
+      "hanging guest|lifecycle recovery|Notebook rich|waiting service"
+    ],
+    "configFile": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\playwright.config.ts",
+    "rootDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm start",
+      "url": "http://127.0.0.1:4173/health",
+      "reuseExistingServer": false,
+      "env": {
+        "PWACLOUD_MODE": "demo",
+        "PORT": "4173",
+        "PWACLOUD_DATA_DIRECTORY": "runtime-data/browser-test-49104-1790895565486"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "app.spec.ts",
+      "file": "app.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9507,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T22:59:28.013Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-da8cef289861f616d8c6",
+          "file": "app.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "M1 real waiting service-worker update protects an unsaved edit before apply",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1956,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T22:59:37.622Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-7609ac6973e87ea81f31",
+          "file": "app.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17958,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T22:59:50.432Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-6a3c41851a6aee9b8b2f",
+          "file": "app.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "M1 real waiting service-worker update protects an unsaved edit before apply",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2195,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:00:08.457Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-a28195ca987816ad6ad6",
+          "file": "app.spec.ts",
+          "line": 71,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 25000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T22:59:39.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-c93efa15fb2d12a16fe8",
+          "file": "lifecycle.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T22:59:49.435Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-e5ca7cafcfb35b007a62",
+          "file": "lifecycle.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 25000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11533,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:00:10.678Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-bb5ad4e2b1f8bd592d39",
+          "file": "lifecycle.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5543,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#status')\nExpected substring: \u001b[32m\"PASS: all5 cancellation stages\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#status')\u001b[22m\n\u001b[2m    14 × locator resolved to <output id=\"status\"></output>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#status')\nExpected substring: \u001b[32m\"PASS: all5 cancellation stages\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#status')\u001b[22m\n\u001b[2m    14 × locator resolved to <output id=\"status\"></output>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\lifecycle.spec.ts:3:246",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\lifecycle.spec.ts",
+                      "column": 246,
+                      "line": 3
+                    },
+                    "snippet": "  1 | import {test,expect} from '@playwright/test';\n  2 | test('RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin',async({page})=>{test.setTimeout(25000);await page.goto('/spikes/lifecycle.html?mode=crash');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: three real hanging Workers',{timeout:20000});await expect(page.locator('iframe')).toHaveCount(0);});\n> 3 | test('PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery',async({page})=>{await page.goto('/spikes/lifecycle.html');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: all5 cancellation stages');});\n    |                                                                                                                                                                                                                                                      ^\n  4 | test('PKG-04 UPD-02 actual page termination at every journal stage restores the old installation',async({context})=>{\n  5 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'];const databases=stages.map(()=>crypto.randomUUID());\n  6 |  await Promise.all(stages.map(async(stage,index)=>{const page=await context.newPage();await page.goto(`/spikes/lifecycle.html?mode=terminate&stage=${stage}&database=${databases[index]}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('STALLED: '+stage);await page.close();}));"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\lifecycle.spec.ts",
+                        "column": 246,
+                        "line": 3
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#status')\nExpected substring: \u001b[32m\"PASS: all5 cancellation stages\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#status')\u001b[22m\n\u001b[2m    14 × locator resolved to <output id=\"status\"></output>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n  1 | import {test,expect} from '@playwright/test';\n  2 | test('RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin',async({page})=>{test.setTimeout(25000);await page.goto('/spikes/lifecycle.html?mode=crash');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: three real hanging Workers',{timeout:20000});await expect(page.locator('iframe')).toHaveCount(0);});\n> 3 | test('PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery',async({page})=>{await page.goto('/spikes/lifecycle.html');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: all5 cancellation stages');});\n    |                                                                                                                                                                                                                                                      ^\n  4 | test('PKG-04 UPD-02 actual page termination at every journal stage restores the old installation',async({context})=>{\n  5 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'];const databases=stages.map(()=>crypto.randomUUID());\n  6 |  await Promise.all(stages.map(async(stage,index)=>{const page=await context.newPage();await page.goto(`/spikes/lifecycle.html?mode=terminate&stage=${stage}&database=${databases[index]}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('STALLED: '+stage);await page.close();}));\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\lifecycle.spec.ts:3:246"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:00:22.219Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\lifecycle.spec.ts",
+                    "column": 246,
+                    "line": 3
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1f1785dee40219527314-82a45c428a5d7a4213c7",
+          "file": "lifecycle.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-01T22:59:25.490Z",
+    "duration": 62619.367,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

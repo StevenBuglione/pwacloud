@@ -1,0 +1,24 @@
+$ tsx --test tests/hostile/*.test.ts
+✔ boundary schema refuses authority fields at every packet position (1.3767ms)
+✔ malformed, oversized and unexpected-method corpus is rejected (0.3326ms)
+✔ traversal absolute Windows nested archives and prototype paths fail before extraction (2.1376ms)
+✔ case-normalized archive duplicate fails (1.0496ms)
+✔ central directory refuses symlinks and device types before decompression (0.9706ms)
+✔ encrypted and descriptor entries and wrong local names fail (0.5248ms)
+✔ file-count and compressed expanded individual budgets fail from metadata (174.0874ms)
+✔ dishonest declared inflate length cannot pass even with valid truncated-prefix CRC (1.3361ms)
+✔ trailing prefix zip64 and truncated archives fail (0.3075ms)
+✔ tampered archive receipt and exact envelope bytes fail signature/digest checks (23.3139ms)
+✔ forged unknown trust wrong publisher stale revoked future and expired receipt all fail (5.1866ms)
+✔ extra unlisted files incorrect repository and unknown manifest data fail (4.1527ms)
+✔ packet rejects added authority fields malformed base64 and excessive sizes (0.6611ms)
+✔ private mapped IPv6 and reserved destinations fail including actual pre-socket resolution (7.5404ms)
+✔ Sigstore proof and production receipt issuance fail closed on fake attestations and demo roots (3.3227ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 777.0794

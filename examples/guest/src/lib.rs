@@ -16,6 +16,8 @@ impl Guest for Analyzer {
     }
     fn handle(event: Event) -> Result<Vec<Effect>, ErrorInfo> {
         match event {
+            #[cfg(feature = "fault-injection")]
+            Event::Action(a) if a.action == "analyze" => { loop { std::hint::black_box(1); } },
             Event::Action(a) if a.action == "hang" => { loop { std::hint::black_box(1); } },
             Event::Action(a) if a.action == "read" => Ok(vec![Effect::Read(KvRead { request_id: "guest-read".into(), key: a.body_json })]),
             Event::Action(a) if a.action == "grow" => {

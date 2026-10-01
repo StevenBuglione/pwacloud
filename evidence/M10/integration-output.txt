@@ -1,0 +1,28 @@
+$ tsx --test tests/integration/*.test.ts
+✔ RUN-05 actual component transformation has no host imports and bounded real core memories (122.6573ms)
+✔ RUN-05 real unknown-import component is detected before worker execution (23.9368ms)
+✔ GitHub resolver verifies release assets tag source and repository through same artifact boundary (24.6164ms)
+✔ OCI exact pinned manifest digest and five layers produce identical verified package (8.2241ms)
+✔ signed catalogue verifies exact bytes freshness publisher revocation and transparent filters (5.6912ms)
+✔ whole dependency graph requires explicit compatible selection and rejects cycles before activation (2.9791ms)
+✔ fixture cryptography uses raw WebCrypto signatures rather than mocked success (1.8469ms)
+✔ HTTPS signed installation prepares a real component using trusted Jco and refuses cached weaker limits or host imports (2664.339ms)
+✔ local receipt issuer protects and reuses its own key but never admits missing public Sigstore evidence (641.8543ms)
+✔ runtime-owned trust endpoint requires app session and rejects null Origin (1068.847ms)
+✔ runtime session enforces exact Origin, CSRF, null-origin denial and host-only HttpOnly cookie (1467.1582ms)
+✔ runtime verifies signed package bytes before granting declared permission and rejects forged principal (33.0147ms)
+✔ AI-06 durable admission deduplicates concurrent submits and never refunds a cancelled request (471.2836ms)
+✔ AI-07 FND-04 real HTTP synthetic SSE reconnect replays journal without duplicate provider execution (4083.142ms)
+✔ AI revocation stops delivery, stale generation, subscription and subsequent inference (18.2023ms)
+✔ local output delivery and elapsed limits retain durable admitted usage without claiming refunds (119.0991ms)
+✔ runtime restart preserves interrupted journal and refuses automatic resubmission (172.4217ms)
+✔ AI-10 hosted, VM, insecure phone and flag-only HTTPS modes fail closed (0.759ms)
+✔ pairing uses real TLS listener, one-use expiry, attempt limits and only app session authority (263.3808ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10292.1609

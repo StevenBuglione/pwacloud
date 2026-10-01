@@ -1,29 +1,33 @@
 #!/usr/bin/env python3
 """Structural handoff/SQLite audit, not product validation. No third-party dependencies."""
 from pathlib import Path
-import json,re,sqlite3
+import json,re,sqlite3,os
 R=Path(__file__).resolve().parents[1]
 checks=[]
 def check(ok,label):
     if not ok:raise AssertionError(label)
     checks.append(label)
-def load(p):return json.loads((R/p).read_text())
+def load(p):return json.loads((R/p).read_text(encoding='utf-8'))
 required=['README.md','AGENTS.md','CODEX_START.md','PUBLICATION_STATUS.md','LICENSE',
  'contracts/plugin-manifest.schema.json','contracts/plugin.wit','contracts/runtime.sql','contracts/openapi.json',
  'contracts/rpc-request.schema.json','contracts/evidence.schema.json','contracts/release-envelope.schema.json',
  'contracts/verification-receipt.schema.json','planning/acceptance-cases.json','planning/progress.json',
  'planning/milestones.json','planning/sources.json','scripts/publish-github.ts','scripts/verify-evidence.ts']
 for p in required:check((R/p).is_file(),'required '+p)
-for p in R.rglob('*.json'):
+for parent,dirs,files in os.walk(R):
+    dirs[:]=[name for name in dirs if name not in {'node_modules','.git','.cache','artifacts','dist','target','test-results','playwright-report','runtime-data'}]
+    for filename in files:
+        if not filename.endswith('.json'):continue
+        p=Path(parent)/filename
     # Exclude generated authoring reports, including this command's redirected stdout.
-    if 'node_modules' not in p.parts and not p.is_relative_to(R/'evidence/authoring'):
-        json.loads(p.read_text());checks.append('JSON parses '+str(p.relative_to(R)))
+        if not p.is_relative_to(R/'evidence/authoring'):
+            json.loads(p.read_text(encoding='utf-8'));checks.append('JSON parses '+str(p.relative_to(R)))
 sources=load('planning/sources.json')['sources'];ids={s['id'] for s in sources}
 check(len(ids)==len(sources),'unique source IDs')
 for p in (R/'docs').rglob('*.md'):
-    for match in re.finditer(r'\[(S\d{2}(?:,\s*S\d{2})*)\]',p.read_text()):
+    for match in re.finditer(r'\[(S\d{2}(?:,\s*S\d{2})*)\]',p.read_text(encoding='utf-8')):
         for sid in re.findall(r'S\d{2}',match.group()):check(sid in ids,'source exists '+sid)
-    check('contracts/openapi.yaml' not in p.read_text(),'current API path '+p.name)
+    check('contracts/openapi.yaml' not in p.read_text(encoding='utf-8'),'current API path '+p.name)
 ms=load('planning/milestones.json')['milestones'];case_list=load('planning/acceptance-cases.json')['cases']
 cases={c['id']:c for c in case_list};mids={m['id'] for m in ms}
 check(len(cases)==len(case_list),'unique acceptance IDs')
@@ -48,7 +52,7 @@ for path,methods in api['paths'].items():
         if path!='/health':check(op.get('security')==[{'appSession':[]}],'API session required '+path)
 check(len(ops)==len(set(ops)),'unique API operation IDs')
 # SQLite actual execution and isolation constraints.
-db=sqlite3.connect(':memory:');db.executescript((R/'contracts/runtime.sql').read_text())
+db=sqlite3.connect(':memory:');db.executescript((R/'contracts/runtime.sql').read_text(encoding='utf-8'))
 check(db.execute('PRAGMA foreign_keys').fetchone()[0]==1,'SQLite foreign keys enabled')
 check(db.execute('SELECT version FROM schema_migrations').fetchone()[0]==1,'SQLite migration applied')
 db.execute("INSERT INTO workspaces VALUES('w1','One',0)");db.execute("INSERT INTO workspaces VALUES('w2','Two',0)")

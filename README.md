@@ -1,87 +1,68 @@
 # PWACloud
-## Mobile-first, installable applications with a permissioned plugin ecosystem
 
-**Status: implementation handoff and tested reference primitives, not a completed PWA.**
-Prepared 2026-10-01 for Steven Buglione. Intended public repository: `StevenBuglione/pwacloud`.
-No remote repository was created from the authoring session. See `PUBLICATION_STATUS.md`.
+An implemented mobile PWA and reusable plugin host with independently bundled React and Lit apps, real Rust Component Model services, principal-bound UI ports, signed packages, and a local personal runtime.
 
-PWACloud combines a phone-first application shell, expressive isolated plugin UIs,
-WebAssembly services, a declarative lifecycle controller, signed Git-to-package distribution,
-and a central AI capability. Eligible ChatGPT-plan usage is a core integration, not an API-key
-upsell. Local functionality remains useful without an account or AI connection.
+**Development build. Product alpha release remains blocked by real ChatGPT and physical-device acceptance.** Synthetic AI is visibly labelled. Hosted credential storage and shared plan inference remain disabled. See [verification](evidence/VERIFICATION.md), [publication status](PUBLICATION_STATUS.md), and the unchanged [57 acceptance contracts](planning/acceptance-cases.json).
 
-## Start here
+## Run the production build
 
-1. Read `CODEX_START.md` and `AGENTS.md`.
-2. Read `docs/00-PRODUCT.md`, `docs/01-DECISIONS.md`, and `docs/06-OPENAI.md` before writing application code.
-3. Execute the dependency-ordered work in `planning/milestones.json` and `docs/13-IMPLEMENTATION.md`.
-4. Publish the handoff with `scripts/publish-github.ts` only from an authenticated developer environment.
-5. Implement, run, and preserve real evidence. Do not stop at a UI mockup or this documentation.
-
-## What already exists here
-
-Original TypeScript reference primitives for policy checks, an on-demand reconciler, immutable
-package integrity, ChatGPT request shaping, stream parsing, local request admission, and release
-evidence validation. Unit tests run with Node's built-in test runner. JSON Schema contracts,
-SQL persistence contracts, fixtures, and a structural audit are supplied as executable specifications.
-These primitives are deliberately small; they are not production security middleware.
+Requires Node **24.19.0**, pnpm **11.19.0**, Rust **1.93.0**, and Git. Python with `requirements-dev.txt` is needed only for handoff schema audits.
 
 ```sh
-# Node 22.16+ for this dependency-free reference harness; use a maintained patched LTS for deployment.
-node --experimental-strip-types --test tests/unit/*.test.ts
-python scripts/audit_handoff.py
-# jsonschema is required only for the schema audit:
-python scripts/validate_contracts.py
+pnpm install --frozen-lockfile
+rustup target add --toolchain 1.93.0 wasm32-unknown-unknown
+pnpm build
+pnpm start
 ```
 
-`evidence/AUTHORING-VALIDATION.md` records exactly what was run. No browser, real-device,
-OAuth, hosted deployment, or real model call is claimed by those checks.
+Open `http://127.0.0.1:4173`. `pnpm start` explicitly starts synthetic demo mode. Runtime data stays in `~/.pwacloud`; plugin documents stay in this browser's IndexedDB. On this Windows workspace, [Start-Demo.ps1](Start-Demo.ps1) selects the installed compatible Node runtime and checks the build before launching.
 
-## Target product stack
+Install Notebook, Feed Reader, and Canvas Board from Discover. Review required storage and optional network, AI, and selected-note grants before activation. Notebook offers formatting, undo, durable saves, and real Wasm text counts. Feed Reader offers brokered requests, a bounded list and an offline snapshot. Canvas Board supports SVG cards, zoom, keyboard movement, and a one-use host-approved selected-note import. Library provides permission revocation, export, rollback, reset and explicit data deletion.
 
-React + Ionic React + Vite + TypeScript for the phone-first shell; a framework-neutral
-iframe/RPC contract for full plugin apps; Rust/WIT WebAssembly components transformed with
-pinned Jco tooling; dedicated Workers; IndexedDB/OPFS; a small TypeScript/Fastify personal
-runtime; GitHub Releases first, OCI transport next. See the locked decisions for exceptions.
-Do not add Backstage, Module Federation, single-spa, Kubernetes, Redis, or a general workflow
-engine merely because earlier discussion mentioned them.
+Discover also accepts `https://github.com/StevenBuglione/pwacloud`. The local verifier checks exact public release bytes, Sigstore publisher identity, source commit, provenance and TUF trust before issuing an expiring local receipt. The browser independently verifies that receipt. Local fixtures display **DEMO ONLY** identities and do not claim public publisher attestations.
 
-## Critical limitations
+`pnpm dev` serves Vite on 5173 with the runtime on 4173. Its local development proxy rewrites API Origin to loopback; production keeps exact Origin and CSRF checks. A separate non-Ionic embedding host is at `/minimal/`.
 
-Hosted ChatGPT-plan launch requires an approved integration and clarified credential custody.
-The reference local route uses the user's own runtime and supported OAuth, never private
-ChatGPT endpoints or copied Codex credentials. A public source repository is not approval.
-Arbitrary JavaScript UI is not a perfect no-egress sandbox. A mobile browser is not an
-always-on server. These are product constraints, not TODOs that can be hidden.
+## Verify
 
-## Main documents
+```sh
+pnpm exec playwright install chromium webkit
+pnpm verify:all
+pnpm audit:handoff
+pnpm validate:contracts
+pnpm verify:release
+```
 
-| Document | Purpose |
-|---|---|
-| `docs/02-ARCHITECTURE.md` | Components, transport, trust boundaries, placement |
-| `docs/03-MOBILE-UX.md` | Screen-by-screen phone UX and interaction contract |
-| `docs/04-PLUGIN-PACKAGE.md` | Manifest, build profile, signatures, compatibility |
-| `docs/05-SECURITY.md` | Threat model and hard security rules |
-| `docs/06-OPENAI.md` | Verified integration, permissions, restrictions, gates |
-| `docs/07-LIFECYCLE.md` | Install, update, rollback, resume, uninstall |
-| `docs/08-SDK-RPC.md` | TypeScript SDK, WIT effects, RPC and agent tools |
-| `docs/09-MARKETPLACE.md` | Distribution, discovery, moderation and publisher UX |
-| `docs/10-DATA.md` | Persistence, ownership and migrations |
-| `docs/11-PERFORMANCE.md` | Phone budgets, instrumentation and accessibility |
-| `docs/12-TESTING.md` | Unit, integration, hostile-plugin and device acceptance |
-| `docs/13-IMPLEMENTATION.md` | Ordered milestones with exit conditions |
-| `docs/14-OPERATIONS.md` | Bootstrap, environments, release and recovery |
-| `docs/15-RISKS.md` | Explicit unresolved external decisions |
-| `docs/16-DEMO.md` | End-to-end proof scenarios |
-| `docs/REFERENCES.md` | Dated primary-source research |
+Browser binaries use `.cache/browsers`. Clean-checkout CI builds the actual shell, packages and Wasm and retains reports tied to its commit. The release gate deliberately exits nonzero while mandatory provider, physical-device or publication evidence is missing. Automated and synthetic checks cannot satisfy those gates.
 
-License: MIT. Working name and package namespace require a public-name collision review
-before branding or publishing npm packages.
+## Personal ChatGPT runtime
 
-## Reference harness dependencies
-Unit tests use Node built-ins and do not need `npm install`. Reference typechecking was tested with
-TypeScript 5.8.3; `npm run typecheck:reference` needs `tsc` installed, or run
-`npm exec --yes --package typescript@5.8.3 -- tsc -p tsconfig.reference.json` in a networked environment.
-Install schema-test dependencies with `python -m pip install -r requirements-dev.txt`.
-These are authoring-harness versions, not a recommendation to deploy an unpatched historical runtime.
-M0 selects the maintained production toolchain and adds its real lockfiles.
+The implemented supported flow uses fresh PKCE/state/nonce, callback-issued client IDs, protected local credentials, provider model catalogues, and direct Responses streaming. It never reads another application's credentials or falls back to paid API billing. The account owner must complete sign-in; installed-plugin inference additionally requires the applicable scope authorization. Hosted and VM modes cannot be enabled with a flag.
+
+```powershell
+$env:PWACLOUD_MODE = 'chatgpt-plan-local'
+pnpm start:personal
+```
+
+Review [runtime setup](apps/personal-runtime/README.md) and [provider prerequisites](packages/provider-chatgpt/README.md). Phone pairing requires trusted HTTPS, a one-use invitation and an app session. Provider tokens never enter the browser, plugin, SQLite metadata or export.
+
+## Author and embed
+
+Workspace exports include `@pwacloud/contracts`, `sdk`, `sdk-react`, `sdk-lit`, `runtime-ui`, `runtime-web`, `storage`, `broker`, `controller`, `package-verifier`, `registry-client`, `provider-chatgpt`, `ui-kit` and `cli`. These are source workspace packages; no npm namespace is claimed or published. The minimal host uses the same exports without shell internals.
+
+```sh
+pnpm cli create-plugin ./my-plugin dev.example.my-plugin react
+pnpm cli build ./my-plugin
+pnpm cli validate ./my-plugin
+pnpm cli pack ./my-plugin/package ./my-plugin/release
+```
+
+See [SDK and embedding](docs/SDK.md), [publication](docs/PACKAGE-PUBLISHING.md), and [recovery](docs/RECOVERY.md). Packing does not confer trust. Publisher JavaScript Worker glue never executes: the pinned trusted Jco pipeline prepares component loaders.
+
+## Boundaries
+
+Opaque `allow-scripts` frames cannot read host DOM or use direct fetch, image, or WebSocket egress under the tested CSP. Self-navigation can still send a request before teardown; iframe CPU is not reliably isolated. These residuals are demonstrated and recorded. Workers have declared finite memory maxima, bounded queues and wall-clock termination.
+
+Offline editing requires a successfully installed production service worker. AI and new repository resolution need the runtime and network. Browser suspension and eviction are expected; export important documents to a file outside browser storage. No always-on execution or automatic multi-device document sync is promised.
+
+License: MIT. Original handoff contracts and history are preserved.

@@ -1,26 +1,66 @@
 {
-  "name":"pwacloud", "version":"0.1.0-dev", "private":true, "type":"module", "license":"MIT",
-  "packageManager":"pnpm@11.19.0", "engines":{"node":">=24.19.0 <25"},
-  "scripts":{
-    "dev":"tsx scripts/dev.ts", "build":"tsx scripts/build.ts", "build:guest":"tsx scripts/build-guest.ts",
-    "start":"tsx apps/personal-runtime/src/main.ts", "typecheck":"tsc --noEmit", "lint":"tsx scripts/lint.ts",
-    "test":"pnpm test:unit", "test:unit":"tsx --test tests/unit/*.test.ts tests/production/*.test.ts",
-    "test:integration":"tsx --test tests/integration/*.test.ts", "test:e2e":"playwright test",
-    "test:security":"tsx --test tests/hostile/*.test.ts", "test:a11y":"playwright test --grep accessibility",
-    "test:spikes":"playwright test tests/e2e/spikes.spec.ts",
-    "verify:all":"pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm build && pnpm test:e2e",
-    "verify:release":"tsx scripts/verify-evidence.ts", "typecheck:reference":"tsc -p tsconfig.reference.json",
-    "audit:handoff":"python -X utf8 scripts/audit_handoff.py", "validate:contracts":"python -X utf8 scripts/validate_contracts.py",
-    "verify:release-evidence":"tsx scripts/verify-evidence.ts", "cli":"tsx packages/cli/src/main.ts"
+  "name": "pwacloud",
+  "version": "0.1.0-dev",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=24.19.0 <25"
   },
-  "dependencies":{
-    "@ionic/react":"9.0.6", "react":"19.3.0", "react-dom":"19.3.0", "lit":"3.3.3",
-    "ajv":"8.20.0", "ajv-formats":"3.0.1", "idb":"8.0.3", "fflate":"0.8.3",
-    "fastify":"5.12.5", "@fastify/static":"10.1.5", "@fastify/cookie":"11.1.2", "jose":"6.2.12", "@sigstore/verify":"4.1.2", "@sigstore/bundle":"5.0.0"
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "build": "tsx scripts/build.ts",
+    "build:guest": "tsx scripts/build-guest.ts",
+    "start": "tsx scripts/start-demo.ts",
+    "start:personal": "tsx apps/personal-runtime/src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsx scripts/lint.ts",
+    "test": "pnpm test:unit",
+    "test:unit": "tsx --test tests/unit/*.test.ts tests/production/*.test.ts",
+    "test:integration": "tsx --test tests/integration/*.test.ts",
+    "test:e2e": "playwright test",
+    "test:security": "tsx --test tests/hostile/*.test.ts",
+    "test:a11y": "playwright test --grep accessibility",
+    "test:spikes": "playwright test tests/e2e/spikes.spec.ts",
+    "verify:all": "pnpm lint && pnpm typecheck && pnpm build && pnpm test:unit && pnpm test:integration && pnpm test:security && pnpm test:e2e",
+    "verify:release": "tsx scripts/verify-evidence.ts",
+    "typecheck:reference": "tsc -p tsconfig.reference.json",
+    "audit:handoff": "python -X utf8 scripts/audit_handoff.py",
+    "validate:contracts": "python -X utf8 scripts/validate_contracts.py",
+    "verify:release-evidence": "tsx scripts/verify-evidence.ts",
+    "cli": "tsx packages/cli/src/main.ts"
   },
-  "devDependencies":{
-    "typescript":"7.0.2", "tsx":"4.23.15", "vite":"8.3.2", "esbuild":"0.28.2",
-    "@bytecodealliance/jco":"1.34.0", "@playwright/test":"1.62.1", "@axe-core/playwright":"4.13.0",
-    "@types/react":"19.3.0", "@types/react-dom":"19.2.3", "@types/node":"26.6.3"
+  "dependencies": {
+    "@ionic/react": "9.0.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "lit": "3.3.3",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "idb": "8.0.3",
+    "fflate": "0.8.3",
+    "zod": "4.6.5",
+    "fastify": "5.12.5",
+    "@fastify/static": "10.1.5",
+    "@fastify/cookie": "11.1.2",
+    "jose": "6.2.12",
+    "@sigstore/verify": "4.1.2",
+    "@sigstore/bundle": "5.0.0",
+    "@sigstore/tuf": "5.0.0",
+    "@sigstore/protobuf-specs": "0.5.2"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "typescript-compiler-api": "npm:typescript@6.0.3",
+    "tsx": "4.23.15",
+    "vite": "8.3.2",
+    "esbuild": "0.28.2",
+    "@bytecodealliance/jco": "1.34.0",
+    "@playwright/test": "1.62.1",
+    "@axe-core/playwright": "4.13.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.2.3",
+    "@types/node": "26.6.3"
   }
 }

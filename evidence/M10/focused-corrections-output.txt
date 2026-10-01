@@ -1,0 +1,66 @@
+[WebServer] (node:51848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+[WebServer] (node:1824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:54432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:57388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (9.5s)
+  ok 2 [chromium] › tests\e2e\app.spec.ts:71:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.0s)
+  ok 3 [chromium] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (9.8s)
+  ok 4 [chromium] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (469ms)
+(node:3848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [webkit] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (18.0s)
+  ok 6 [webkit] › tests\e2e\app.spec.ts:71:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.2s)
+  ok 7 [webkit] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (11.5s)
+  x  8 [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (5.5s)
+
+
+  1) [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#status')
+    Expected substring: "PASS: all5 cancellation stages"
+    Received string:    ""
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('#status')
+        14 × locator resolved to <output id="status"></output>
+           - unexpected value ""
+
+
+      1 | import {test,expect} from '@playwright/test';
+      2 | test('RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin',async({page})=>{test.setTimeout(25000);await page.goto('/spikes/lifecycle.html?mode=crash');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: three real hanging Workers',{timeout:20000});await expect(page.locator('iframe')).toHaveCount(0);});
+    > 3 | test('PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery',async({page})=>{await page.goto('/spikes/lifecycle.html');await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toContainText('PASS: all5 cancellation stages');});
+        |                                                                                                                                                                                                                                                      ^
+      4 | test('PKG-04 UPD-02 actual page termination at every journal stage restores the old installation',async({context})=>{
+      5 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'];const databases=stages.map(()=>crypto.randomUUID());
+      6 |  await Promise.all(stages.map(async(stage,index)=>{const page=await context.newPage();await page.goto(`/spikes/lifecycle.html?mode=terminate&stage=${stage}&database=${databases[index]}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('STALLED: '+stage);await page.close();}));
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:3:246
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results\lifecycle-PKG-04-UPD-01-UP-e096c-ndexedDB-lifecycle-recovery-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery 
+  7 passed (1.0m)

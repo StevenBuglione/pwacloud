@@ -1,0 +1,57 @@
+$ tsx --test tests/integration/*.test.ts
+✖ production server negotiates real compressed critical assets with exact decoded bytes under transfer budgets (187.8275ms)
+✔ RUN-05 actual component transformation has no host imports and bounded real core memories (134.4887ms)
+✔ RUN-05 real unknown-import component is detected before worker execution (18.6276ms)
+✔ GitHub resolver verifies release assets tag source and repository through same artifact boundary (24.6865ms)
+✔ OCI exact pinned manifest digest and five layers produce identical verified package (8.1466ms)
+✔ signed catalogue verifies exact bytes freshness publisher revocation and transparent filters (6.0288ms)
+✔ whole dependency graph requires explicit compatible selection and rejects cycles before activation (3.4437ms)
+✔ fixture cryptography uses raw WebCrypto signatures rather than mocked success (2.3059ms)
+✔ verified same-account selection and new registration cannot reset durable account admission or revive disconnected selection (526.9237ms)
+✔ HTTPS signed installation prepares a real component using trusted Jco and refuses cached weaker limits or host imports (3404.8099ms)
+✔ local receipt issuer protects and reuses its own key but never admits missing public Sigstore evidence (552.6504ms)
+✔ runtime-owned trust endpoint requires app session and rejects null Origin (121.2981ms)
+✔ personal-mode public trust excludes demo authority and rejects private key material (11.9873ms)
+✔ runtime session enforces exact Origin, CSRF, null-origin denial and host-only HttpOnly cookie (154.6015ms)
+✔ runtime verifies signed package bytes before granting declared permission and rejects forged principal (34.8924ms)
+✔ AI-06 durable admission deduplicates concurrent submits and never refunds a cancelled request (431.2022ms)
+✔ AI-07 FND-04 real HTTP synthetic SSE reconnect replays journal without duplicate provider execution (4085.5514ms)
+✔ last SSE disconnect cancels after bounded grace and retains journal plus admitted usage (64.7596ms)
+✔ AI revocation stops delivery, stale generation, subscription and subsequent inference (13.7815ms)
+✔ delayed signed registration cannot restore AI consent after a concurrent revocation (77.1606ms)
+✔ registration CAS preserves uninstall tombstones and serializes competing consent approvals (25.9375ms)
+✔ local output delivery and elapsed limits retain durable admitted usage without claiming refunds (81.9061ms)
+✔ runtime restart preserves interrupted journal and refuses automatic resubmission (143.6039ms)
+✔ AI-10 hosted, VM, insecure phone and flag-only HTTPS modes fail closed (0.7278ms)
+✔ pairing uses real TLS listener, one-use expiry, attempt limits and only app session authority (190.3363ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 24
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6227.1908
+
+✖ failing tests:
+
+test at tests\integration\compression.test.ts:6:1
+✖ production server negotiates real compressed critical assets with exact decoded bytes under transfer budgets (187.8275ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'gzip'
+  
+      at TestContext.<anonymous> (D:\Users\steve\Documents\ChatGPT\pwacloud\tests\integration\compression.test.ts:9:267)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'gzip',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+[ELIFECYCLE] Command failed with exit code 1.

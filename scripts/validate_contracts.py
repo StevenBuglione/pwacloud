@@ -7,10 +7,10 @@ import json,re
 from jsonschema import Draft202012Validator,FormatChecker
 R=Path(__file__).resolve().parents[1]
 checks=0
-def load(p):return json.loads((R/p).read_text())
+def load(p):return json.loads((R/p).read_text(encoding='utf-8'))
 validators={}
 for path in (R/'contracts').glob('*.schema.json'):
-    schema=json.loads(path.read_text());Draft202012Validator.check_schema(schema)
+    schema=json.loads(path.read_text(encoding='utf-8'));Draft202012Validator.check_schema(schema)
     validators[path.name]=Draft202012Validator(schema,format_checker=FormatChecker());checks+=1
 manifest_validator=validators['plugin-manifest.schema.json']
 def safe_path(path):
@@ -44,7 +44,7 @@ def valid_manifest(d):
     return True
 fixtures=list((R/'examples/manifests').glob('*.json'))
 for p in fixtures:
-    assert valid_manifest(json.loads(p.read_text())),p.name;checks+=1
+    assert valid_manifest(json.loads(p.read_text(encoding='utf-8'))),p.name;checks+=1
 base=load('examples/manifests/notebook.json')
 mutations=[
  ('unknown top-level',lambda d:d.update({'arbitraryCode':'x'})),

@@ -26,3 +26,11 @@ artifacts/
 .cache/
 *.tsbuildinfo
 *.log
+evidence/**/trace.zip
+evidence/**/trace-*.zip
+evidence/**/.playwright-artifacts*/
+evidence/**/resources/
+evidence/**/*.network
+evidence/**/*.trace
+evidence/**/*.stacks
+evidence/release.current.json

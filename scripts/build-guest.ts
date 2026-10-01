@@ -7,3 +7,5 @@ copyFileSync('examples/guest/target/wasm32-unknown-unknown/release/pwacloud_note
 const jco = 'node_modules/@bytecodealliance/jco/dist/jco.js';
 execFileSync(process.execPath,[jco,'new','artifacts/guest/core.wasm','-o','artifacts/guest/component.wasm'],{stdio:'inherit'});
 execFileSync(process.execPath,[jco,'transpile','artifacts/guest/component.wasm','-o','artifacts/guest/generated','--name','guest','--no-nodejs-compat'],{stdio:'inherit'});
+execFileSync('cargo',['build','--locked','--manifest-path','examples/guest/Cargo.toml','--target','wasm32-unknown-unknown','--release','--features','fault-injection'],{stdio:'inherit',env});
+execFileSync(process.execPath,[jco,'new','examples/guest/target/wasm32-unknown-unknown/release/pwacloud_notebook_guest.wasm','-o','artifacts/guest/hang-component.wasm'],{stdio:'inherit'});
