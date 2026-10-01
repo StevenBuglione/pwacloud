@@ -67,9 +67,11 @@
     },
     {
       "id": "M8",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-final-integrated-browser-validation-pending",
+      "implementationCommit": "93a365235598e45ce0a9ea67f45581e18baeae34",
+      "evidence": [
+        "evidence/M8/summary.md"
+      ]
     },
     {
       "id": "M9",

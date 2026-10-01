@@ -1,0 +1,21 @@
+✔ agent cancellation during pending approval ignores late approval and never enters durable admission or executes a write (6.4699ms)
+✔ agent cancellation after a read stops subsequent write approval and execution (0.5417ms)
+✔ agent rechecks cancellation when a durable admission invokes its deferred write (0.5021ms)
+✔ agent validates a whole bounded batch before effects and refuses malformed IDs tool escalation and injected authority (0.7965ms)
+✔ agent denied approval leaves no admitted write and exact argument snapshots resist caller mutation (1.2397ms)
+✔ injected admission survives recreated runner instances and never retries an ambiguous failed write (0.8145ms)
+✔ agent deadlines stop hung approval and registration rejects duplicate tools and invalid budgets (17.8403ms)
+✔ agent payload and depth budgets reject hostile data before approval (0.5846ms)
+✔ an admission callback cannot invoke the same write twice (0.3012ms)
+✔ strict RPC rejects identity injection, unknown params and oversize before dispatch (1.8493ms)
+✔ manifest compatibility and duplicate permissions fail closed (2.6686ms)
+✔ worker scheduler enforces two active tasks and fair waiting admission (5.782ms)
+✔ agent never executes denied writes, injected commands, replay or excessive steps (1.9803ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 593.7624
