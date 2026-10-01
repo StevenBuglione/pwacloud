@@ -29,9 +29,10 @@ CREATE TABLE sessions (
 CREATE TABLE runs (
   id TEXT PRIMARY KEY, workspace_id TEXT NOT NULL, install_id TEXT NOT NULL,
   registration_id TEXT REFERENCES registrations(id),
-  generation INTEGER NOT NULL, idempotency_key TEXT NOT NULL,
+  generation INTEGER NOT NULL, account_generation INTEGER NOT NULL,
+  account_key TEXT NOT NULL DEFAULT 'legacy-unbound', idempotency_key TEXT NOT NULL,
   state TEXT NOT NULL CHECK(state IN ('reserved','running','completed','failed','interrupted','cancelled')),
-  provider_mode TEXT NOT NULL CHECK(provider_mode IN ('mock','chatgpt-plan-local','approved-hosted')),
+  provider_mode TEXT NOT NULL CHECK(provider_mode IN ('demo','chatgpt-plan-local','approved-hosted')),
   created_at INTEGER NOT NULL, last_sequence INTEGER NOT NULL DEFAULT 0,
   UNIQUE(workspace_id, install_id, idempotency_key),
   FOREIGN KEY(workspace_id, install_id) REFERENCES installs(workspace_id,id)
@@ -47,5 +48,7 @@ CREATE TABLE usage_reservations (
   provider_usage_json TEXT
 );
 CREATE INDEX run_owner_time ON runs(workspace_id, install_id, created_at);
+-- The opaque account key binds verified issuer/subject, independently of session generation or client ID.
+CREATE INDEX run_account_time ON runs(account_key, created_at);
 CREATE INDEX grants_capability ON grants(workspace_id, install_id, capability, revoked);
 INSERT INTO schema_migrations VALUES(1, 'implementation-time');

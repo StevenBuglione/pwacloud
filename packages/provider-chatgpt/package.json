@@ -1,0 +1,15 @@
+{
+  "name": "@pwacloud/provider-chatgpt",
+  "version": "0.1.0-dev",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "jose": "6.2.12",
+    "ajv-formats": "3.0.1",
+    "ajv": "8.20.0"
+  }
+}

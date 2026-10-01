@@ -1,0 +1,42 @@
+✔ verified same-account selection and new registration cannot reset durable account admission or revive disconnected selection (506.7061ms)
+✔ HTTPS signed installation prepares a real component using trusted Jco and refuses cached weaker limits or host imports (2290.5828ms)
+✔ local receipt issuer protects and reuses its own key but never admits missing public Sigstore evidence (566.5672ms)
+✔ runtime-owned trust endpoint requires app session and rejects null Origin (129.1935ms)
+✔ personal-mode public trust excludes demo authority and rejects private key material (12.9084ms)
+✔ runtime session enforces exact Origin, CSRF, null-origin denial and host-only HttpOnly cookie (144.9806ms)
+✔ runtime verifies signed package bytes before granting declared permission and rejects forged principal (33.7599ms)
+✔ AI-06 durable admission deduplicates concurrent submits and never refunds a cancelled request (446.3385ms)
+✔ AI-07 FND-04 real HTTP synthetic SSE reconnect replays journal without duplicate provider execution (4084.43ms)
+✔ last SSE disconnect cancels after bounded grace and retains journal plus admitted usage (65.8057ms)
+✔ AI revocation stops delivery, stale generation, subscription and subsequent inference (16.887ms)
+✔ delayed signed registration cannot restore AI consent after a concurrent revocation (83.1036ms)
+✔ registration CAS preserves uninstall tombstones and serializes competing consent approvals (24.0026ms)
+✔ local output delivery and elapsed limits retain durable admitted usage without claiming refunds (73.7859ms)
+✔ runtime restart preserves interrupted journal and refuses automatic resubmission (142.6166ms)
+✔ AI-10 hosted, VM, insecure phone and flag-only HTTPS modes fail closed (0.6335ms)
+✔ pairing uses real TLS listener, one-use expiry, attempt limits and only app session authority (366.7764ms)
+✔ AI-01 synthetic OAuth fixture binds issued ID, PKCE, nonce and one-use state (112.1695ms)
+✔ AI-01 missing issued client ID, expired state and denial consume no provider request (98.0795ms)
+✔ AI-01 signed synthetic token with wrong nonce is rejected (33.7399ms)
+✔ AI-01 signed synthetic token with wrong issuer is rejected (36.4125ms)
+✔ AI-01 signed synthetic token with wrong audience is rejected (15.0619ms)
+✔ AI-01 expired, missing-expiration and invalid-signature synthetic ID tokens are rejected (187.82ms)
+✔ AI-01 returning registration rejects different issued ID and verified account (44.1618ms)
+✔ AI-02 protected local store encrypts synthetic credentials and round-trips via actual OS protection (568.9743ms)
+✔ AI-02 concurrent synthetic refreshes serialize and atomically retain rotating credentials (77.4348ms)
+✔ AI-02 disconnect during a synthetic refresh cannot restore cleared credentials (92.8031ms)
+✔ AI-02 changed identity on synthetic refresh cannot replace the selected credential record (39.5681ms)
+✔ AI-03 catalog preserves visible slugs and request shaper omits unsupported plan parameters (0.8128ms)
+✔ AI-08 identity-only token cannot enumerate inference models or silently select billing fallback (41.5972ms)
+✔ AI-07 provider fixtures decode UTF-8 fragmented SSE and require terminal completion (64.3228ms)
+✔ synthetic provider stream cancellation aborts before a completed event (65.1833ms)
+✔ AI-08 provider denial, revoked token, quota and routing failure remain typed with no other endpoint (217.2301ms)
+✔ provider SSE parser rejects invalid UTF-8, overlong and truncated events (0.3212ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6286.9046
