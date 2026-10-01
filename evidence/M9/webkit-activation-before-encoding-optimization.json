@@ -1,0 +1,28 @@
+{
+  "environment": "Windows Playwright 360 CSS-pixel emulation; physical-device budget remains unverified",
+  "samples": [
+    1028,
+    1028,
+    1021,
+    1015,
+    1021,
+    1036,
+    1022,
+    1012,
+    1017,
+    1010,
+    1021,
+    1019,
+    1037,
+    1008,
+    1008,
+    1038,
+    1007,
+    1023,
+    1010,
+    1038
+  ],
+  "p95Ms": 1038,
+  "targetP95Ms": 1000,
+  "maximumRichFrames": 1
+}

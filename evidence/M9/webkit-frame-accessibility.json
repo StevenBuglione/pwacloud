@@ -1,0 +1,2593 @@
+{
+  "environment": "Windows Playwright emulation; no physical device or screen-reader certification",
+  "width": 360,
+  "textScale": 2,
+  "reducedMotion": true,
+  "reports": [
+    {
+      "plugin": "Notebook",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ],
+          "description": "Ensure ARIA attributes are not prohibited for an element's role",
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=playwright",
+          "nodes": [
+            {
+              "any": [],
+              "all": [],
+              "none": [
+                {
+                  "id": "aria-prohibited-attr",
+                  "data": {
+                    "role": null,
+                    "nodeName": "div",
+                    "messageKey": "noRoleSingular",
+                    "prohibited": [
+                      "aria-label"
+                    ]
+                  },
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+                }
+              ],
+              "impact": "serious",
+              "html": "<div class=\"toolbar\" aria-label=\"Formatting\">",
+              "target": [
+                "iframe",
+                "div[aria-label=\"Formatting\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute."
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "24.0pt (32px)",
+                    "fontWeight": "bold",
+                    "messageKey": "shortTextContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+                      "target": [
+                        ".brand-mark"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element content is too short to determine if it is actual text content"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+              "target": [
+                ".brand-mark"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            }
+          ]
+        }
+      ],
+      "passes": [
+        {
+          "id": "aria-allowed-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "aria-allowed-role",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-conditional-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "aria-deprecated-role",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-body",
+          "nodes": [
+            [
+              "body"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-focus",
+          "nodes": [
+            [
+              ".brand-mark"
+            ]
+          ]
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "aria-required-attr",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-roles",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "avoid-inline-spacing",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "button-name",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "main > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(2)"
+            ]
+          ]
+        },
+        {
+          "id": "bypass",
+          "nodes": [
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              ".muted"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3) > select"
+            ],
+            [
+              "iframe",
+              "main > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "label:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              ".editor-label"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "document-title",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "empty-heading",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "form-field-multiple-labels",
+          "nodes": [
+            [
+              "iframe",
+              "label:nth-child(3) > select"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title-unique",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "heading-order",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "html-lang-valid",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "label-title-only",
+          "nodes": [
+            [
+              "iframe",
+              "label:nth-child(3) > select"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "label",
+          "nodes": [
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-banner-is-top-level",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-main-is-top-level",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-banner",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-main",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "nodes": [
+            [
+              "header"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport-large",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "nested-interactive",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3) > select > option"
+            ],
+            [
+              "iframe",
+              "main > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "option[value=\"paragraph\"]"
+            ],
+            [
+              "iframe",
+              "option[value=\"heading\"]"
+            ],
+            [
+              "iframe",
+              "option[value=\"bullet\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(2)"
+            ]
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "region",
+          "nodes": [
+            [
+              "#root"
+            ],
+            [
+              "ion-app"
+            ],
+            [
+              ".shell"
+            ],
+            [
+              "header"
+            ],
+            [
+              ".brand"
+            ],
+            [
+              ".brand > div"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              ".plugin-chrome"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              ".frame-area"
+            ],
+            [
+              "iframe"
+            ],
+            [
+              "iframe",
+              "#root"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              ".muted"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3) > select"
+            ],
+            [
+              "iframe",
+              "label:nth-child(3) > select > option"
+            ],
+            [
+              "iframe",
+              "main > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "label:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ],
+            [
+              "iframe",
+              "option[value=\"paragraph\"]"
+            ],
+            [
+              "iframe",
+              "option[value=\"heading\"]"
+            ],
+            [
+              "iframe",
+              "option[value=\"bullet\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Formatting\"] > button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(7)"
+            ],
+            [
+              "iframe",
+              ".editor-label"
+            ],
+            [
+              "iframe",
+              "textarea"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(9) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "select-name",
+          "nodes": [
+            [
+              "iframe",
+              "label:nth-child(3) > select"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Block format\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "plugin": "Feed Reader",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "24.0pt (32px)",
+                    "fontWeight": "bold",
+                    "messageKey": "shortTextContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+                      "target": [
+                        ".brand-mark"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element content is too short to determine if it is actual text content"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+              "target": [
+                ".brand-mark"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            }
+          ]
+        }
+      ],
+      "passes": [
+        {
+          "id": "aria-allowed-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "aria-allowed-role",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-conditional-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "aria-deprecated-role",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-body",
+          "nodes": [
+            [
+              "body"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-focus",
+          "nodes": [
+            [
+              ".brand-mark"
+            ]
+          ]
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "aria-required-attr",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-roles",
+          "nodes": [
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "avoid-inline-spacing",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "button-name",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button"
+            ]
+          ]
+        },
+        {
+          "id": "bypass",
+          "nodes": [
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              "main > .muted"
+            ],
+            [
+              "iframe",
+              "button"
+            ],
+            [
+              "iframe",
+              "span"
+            ],
+            [
+              "iframe",
+              "label"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "p:nth-child(5)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "document-title",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "empty-heading",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "form-field-multiple-labels",
+          "nodes": [
+            [
+              "iframe",
+              "input"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title-unique",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "heading-order",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "html-lang-valid",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "label-title-only",
+          "nodes": [
+            [
+              "iframe",
+              "input"
+            ]
+          ]
+        },
+        {
+          "id": "label",
+          "nodes": [
+            [
+              "iframe",
+              "input"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-banner-is-top-level",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-main-is-top-level",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-banner",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-main",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "nodes": [
+            [
+              "header"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport-large",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "nested-interactive",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button"
+            ]
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "region",
+          "nodes": [
+            [
+              "#root"
+            ],
+            [
+              "ion-app"
+            ],
+            [
+              ".shell"
+            ],
+            [
+              "header"
+            ],
+            [
+              ".brand"
+            ],
+            [
+              ".brand > div"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              ".plugin-chrome"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              ".frame-area"
+            ],
+            [
+              "iframe"
+            ],
+            [
+              "iframe",
+              "#root"
+            ],
+            [
+              "iframe",
+              "pwacloud-feed"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              "main > .muted"
+            ],
+            [
+              "iframe",
+              ".toolbar"
+            ],
+            [
+              "iframe",
+              "button"
+            ],
+            [
+              "iframe",
+              "span"
+            ],
+            [
+              "iframe",
+              "label"
+            ],
+            [
+              "iframe",
+              "input"
+            ],
+            [
+              "iframe",
+              "p:nth-child(5)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "plugin": "Canvas Board",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ],
+          "description": "Ensure ARIA attributes are not prohibited for an element's role",
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=playwright",
+          "nodes": [
+            {
+              "any": [],
+              "all": [],
+              "none": [
+                {
+                  "id": "aria-prohibited-attr",
+                  "data": {
+                    "role": null,
+                    "nodeName": "div",
+                    "messageKey": "noRoleSingular",
+                    "prohibited": [
+                      "aria-label"
+                    ]
+                  },
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+                }
+              ],
+              "impact": "serious",
+              "html": "<div class=\"toolbar\" aria-label=\"Pan without dragging\"><button>Pan left</button><button>Pan right</button><button>Pan up</button><button>Pan down</button><button>Reset view</button></div>",
+              "target": [
+                "iframe",
+                "div[aria-label=\"Pan without dragging\"]"
+              ],
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute."
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "24.0pt (32px)",
+                    "fontWeight": "bold",
+                    "messageKey": "shortTextContent",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+                      "target": [
+                        ".brand-mark"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element content is too short to determine if it is actual text content"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<span aria-hidden=\"true\" class=\"brand-mark\">P</span>",
+              "target": [
+                ".brand-mark"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "messageKey": "nonBmp"
+                  },
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Element content contains only non-text characters"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<button aria-label=\"Zoom out\">−</button>",
+              "target": [
+                "iframe",
+                "button[aria-label=\"Zoom out\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "contrastRatio": 0,
+                    "fontSize": "24.0pt (32px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgOverlap",
+                    "expectedContrastRatio": "3:1"
+                  },
+                  "relatedNodes": [],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined because it is overlapped by another element"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<label>Selected card<select><option value=\"\">Choose a card</option></select></label>",
+              "target": [
+                "iframe",
+                "label"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            }
+          ]
+        }
+      ],
+      "passes": [
+        {
+          "id": "aria-allowed-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"]"
+            ]
+          ]
+        },
+        {
+          "id": "aria-allowed-role",
+          "nodes": [
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-conditional-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"]"
+            ]
+          ]
+        },
+        {
+          "id": "aria-deprecated-role",
+          "nodes": [
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-body",
+          "nodes": [
+            [
+              "body"
+            ]
+          ]
+        },
+        {
+          "id": "aria-hidden-focus",
+          "nodes": [
+            [
+              ".brand-mark"
+            ]
+          ]
+        },
+        {
+          "id": "aria-prohibited-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ]
+          ]
+        },
+        {
+          "id": "aria-required-attr",
+          "nodes": [
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-roles",
+          "nodes": [
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr-value",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"]"
+            ]
+          ]
+        },
+        {
+          "id": "aria-valid-attr",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"]"
+            ]
+          ]
+        },
+        {
+          "id": "avoid-inline-spacing",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "button-name",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(5)"
+            ]
+          ]
+        },
+        {
+          "id": "bypass",
+          "nodes": [
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              ".muted"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "select"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "document-title",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "empty-heading",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "form-field-multiple-labels",
+          "nodes": [
+            [
+              "iframe",
+              "select"
+            ]
+          ]
+        },
+        {
+          "id": "frame-tested",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title-unique",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "frame-title",
+          "nodes": [
+            [
+              "iframe"
+            ]
+          ]
+        },
+        {
+          "id": "heading-order",
+          "nodes": [
+            [
+              "h1"
+            ],
+            [
+              "iframe",
+              "h1"
+            ]
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "nodes": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "html-lang-valid",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "label-title-only",
+          "nodes": [
+            [
+              "iframe",
+              "select"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-banner-is-top-level",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-main-is-top-level",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-banner",
+          "nodes": [
+            [
+              "header"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-no-duplicate-main",
+          "nodes": [
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "nodes": [
+            [
+              "header"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              "iframe",
+              "main"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport-large",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "meta-viewport",
+          "nodes": [
+            [
+              "meta[name=\"viewport\"]"
+            ]
+          ]
+        },
+        {
+          "id": "nested-interactive",
+          "nodes": [
+            [
+              ".icon-button"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "option"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(5)"
+            ]
+          ]
+        },
+        {
+          "id": "page-has-heading-one",
+          "nodes": [
+            [
+              "html"
+            ],
+            [
+              "iframe",
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "region",
+          "nodes": [
+            [
+              "#root"
+            ],
+            [
+              "ion-app"
+            ],
+            [
+              ".shell"
+            ],
+            [
+              "header"
+            ],
+            [
+              ".brand"
+            ],
+            [
+              ".brand > div"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".connection"
+            ],
+            [
+              ".icon-button"
+            ],
+            [
+              "#main-content"
+            ],
+            [
+              ".plugin-chrome"
+            ],
+            [
+              "button:nth-child(1)"
+            ],
+            [
+              ".plugin-chrome > button:nth-child(2)"
+            ],
+            [
+              ".plugin-chrome > span"
+            ],
+            [
+              ".frame-area"
+            ],
+            [
+              "iframe"
+            ],
+            [
+              "iframe",
+              "#root"
+            ],
+            [
+              "iframe",
+              "main"
+            ],
+            [
+              "iframe",
+              "h1"
+            ],
+            [
+              "iframe",
+              ".muted"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(3) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              ".toolbar:nth-child(4) > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom out\"]"
+            ],
+            [
+              "iframe",
+              "output"
+            ],
+            [
+              "iframe",
+              "button[aria-label=\"Zoom in\"]"
+            ],
+            [
+              "iframe",
+              "svg"
+            ],
+            [
+              "iframe",
+              "rect"
+            ],
+            [
+              "iframe",
+              "label"
+            ],
+            [
+              "iframe",
+              "select"
+            ],
+            [
+              "iframe",
+              "option"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"]"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(1)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(2)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(3)"
+            ],
+            [
+              "iframe",
+              "button:nth-child(4)"
+            ],
+            [
+              "iframe",
+              "div[aria-label=\"Pan without dragging\"] > button:nth-child(5)"
+            ],
+            [
+              "iframe",
+              ".status"
+            ]
+          ]
+        },
+        {
+          "id": "select-name",
+          "nodes": [
+            [
+              "iframe",
+              "select"
+            ]
+          ]
+        },
+        {
+          "id": "svg-img-alt",
+          "nodes": [
+            [
+              "iframe",
+              "svg"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

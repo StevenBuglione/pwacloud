@@ -1,0 +1,1 @@
+{"name":"@pwacloud/minimal-host","version":"0.1.0-dev","private":true,"type":"module","dependencies":{"@pwacloud/storage":"workspace:*","@pwacloud/controller":"workspace:*","@pwacloud/registry-client":"workspace:*","@pwacloud/package-verifier":"workspace:*","zod":"4.6.5"}}

@@ -1,0 +1,14 @@
+{
+  "name": "@pwacloud/sdk-react",
+  "version": "0.1.0-dev",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "zod": "4.6.5"
+  }
+}

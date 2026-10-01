@@ -1,0 +1,29 @@
+{
+  "environment": "Windows Playwright 360 CSS-pixel emulation; physical-device budget remains unverified",
+  "measurement": "Host activation mark to app animation-frame readiness mark after persisted data and DOM are ready; aligned time origins; Playwright visibility still asserted independently",
+  "samples": [
+    158.10009765625,
+    156.89990234375,
+    160.89990234375,
+    161.7998046875,
+    152.300048828125,
+    152.7001953125,
+    159.400146484375,
+    157.599853515625,
+    155.099853515625,
+    155.300048828125,
+    171,
+    170.099853515625,
+    156.10009765625,
+    171.2001953125,
+    158.199951171875,
+    172,
+    171.300048828125,
+    159.5,
+    154.300048828125,
+    153
+  ],
+  "p95Ms": 171.300048828125,
+  "targetP95Ms": 1000,
+  "maximumRichFrames": 1
+}

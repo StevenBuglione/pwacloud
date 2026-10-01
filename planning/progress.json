@@ -44,9 +44,11 @@
     },
     {
       "id": "M5",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-final-integrated-browser-validation-pending",
+      "implementationCommit": "e940f8ca35f5b3daa60ec918b74633696e4b0999",
+      "evidence": [
+        "evidence/M5/summary.md"
+      ]
     },
     {
       "id": "M6",
