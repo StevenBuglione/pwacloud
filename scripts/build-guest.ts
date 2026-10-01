@@ -1,0 +1,9 @@
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, copyFileSync } from 'node:fs';
+const env = {...process.env, RUSTFLAGS:'-C link-arg=--max-memory=67108864'};
+execFileSync('cargo',['build','--manifest-path','examples/guest/Cargo.toml','--target','wasm32-unknown-unknown','--release'],{stdio:'inherit',env});
+mkdirSync('artifacts/guest',{recursive:true});
+copyFileSync('examples/guest/target/wasm32-unknown-unknown/release/pwacloud_notebook_guest.wasm','artifacts/guest/core.wasm');
+const jco = 'node_modules/@bytecodealliance/jco/dist/jco.js';
+execFileSync(process.execPath,[jco,'new','artifacts/guest/core.wasm','-o','artifacts/guest/component.wasm'],{stdio:'inherit'});
+execFileSync(process.execPath,[jco,'transpile','artifacts/guest/component.wasm','-o','artifacts/guest/generated','--name','guest','--no-nodejs-compat'],{stdio:'inherit'});

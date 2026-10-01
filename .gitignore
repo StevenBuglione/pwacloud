@@ -20,3 +20,9 @@ credentials/
 .DS_Store
 __pycache__/
 *.pyc
+target/
+generated/
+artifacts/
+.cache/
+*.tsbuildinfo
+*.log

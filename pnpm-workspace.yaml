@@ -1,0 +1,14 @@
+packages:
+  - packages/*
+  - apps/*
+  - examples/plugins/*
+  - examples/minimal-host
+allowBuilds:
+  esbuild: true
+minimumReleaseAgeExclude:
+  - vite@8.3.2
+strictPeerDependencies: true
+engineStrict: true
+saveExact: true
+overrides:
+  '@bytecodealliance/jco': '1.34.0'

@@ -1,0 +1,11 @@
+import Fastify from 'fastify';
+import {readFile} from 'node:fs/promises';
+const app=Fastify();let observed:string[]=[];
+app.get('/health',()=>({mode:'demo',provider:'mock'}));
+app.get('/probe/log',()=>observed);
+app.post('/probe/reset',()=>{observed=[];return {};});
+app.all('/probe/:kind',(r)=>{observed.push(r.url);return 'Observed navigation: residual outbound request before frame teardown';});
+app.get('/spikes',async(_,reply)=>reply.type('text/html').send(await readFile('artifacts/spikes/index.html')));
+app.get('/spikes/:file',async(r,reply)=>{const file=(r.params as {file:string}).file;if(!/^(react|lit|host)\.js$/.test(file))return reply.code(404).send();return reply.type('text/javascript').send(await readFile(`artifacts/spikes/${file}`));});
+app.get('/guest/:file',async(r,reply)=>{const file=(r.params as {file:string}).file;if(!/^[a-z0-9.-]+$/.test(file))return reply.code(404).send();return reply.type(file.endsWith('.wasm')?'application/wasm':file.endsWith('.json')?'application/json':'text/javascript').send(await readFile(`artifacts/guest/browser/${file}`));});
+await app.listen({host:'127.0.0.1',port:4173});
