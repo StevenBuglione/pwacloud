@@ -1,7 +1,7 @@
 import {resolveOciWithTransport} from './oci';
 import Ajv2020 from 'ajv/dist/2020.js';
 import { PlatformError } from '../../contracts/src/index';
-import { decodeBase64,encodeInstallPacket,parseJson,sha256,verifyPackage,type PackageInput,type TrustRoot,type VerificationOptions } from '../../package-verifier/src/index';
+import { decodeBase64,encodeInstallPacket,parseJson,verifyPackage,type PackageInput,type TrustRoot,type VerificationOptions } from '../../package-verifier/src/index';
 import { canonicalRepository } from './index';
 import { secureFetch,type SecureFetchOptions,type SecureResponse } from './secure-fetch';
 import type { AttestedRelease } from '../../package-verifier/src/provenance';
