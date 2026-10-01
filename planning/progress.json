@@ -11,9 +11,11 @@
     },
     {
       "id": "M1",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-final-browser-validation-pending",
+      "implementationCommit": "b99bc91024f2e0e1eb5788b721a2424a5fd6e94f",
+      "evidence": [
+        "evidence/M1/summary.md"
+      ]
     },
     {
       "id": "M2",

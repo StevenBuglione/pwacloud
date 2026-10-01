@@ -50,12 +50,12 @@
       "scope": {
         "rules": [
           {
-            "origin": "https://feeds.example.com",
+            "origin": "https://www.nasa.gov",
             "methods": [
               "GET"
             ],
             "pathPrefixes": [
-              "/public"
+              "/feed/"
             ]
           }
         ]

@@ -1,0 +1,41 @@
+import { createRoot } from 'react-dom/client';
+import { useEffect, useRef, useState } from 'react';
+import { z } from 'zod';
+import { usePluginClient } from '../../../../packages/sdk-react/src/index.ts';
+
+type BoardObject={id:string;x:number;y:number;text:string;color:string};
+type Board={objects:BoardObject[];zoom:number;panX:number;panY:number};
+const boardSchema=z.strictObject({zoom:z.number().min(.5).max(2),panX:z.number().min(-1000).max(1000),panY:z.number().min(-1000).max(1000),objects:z.array(z.strictObject({id:z.string(),x:z.number().min(0).max(640),y:z.number().min(0).max(720),text:z.string().max(150),color:z.enum(['mint','sand','blue'])})).max(100)});
+function valid(value:unknown):value is Board{return boardSchema.safeParse(value).success;}
+function CanvasBoard(){
+  const {client,error}=usePluginClient();
+  const [board,setBoard]=useState<Board>({objects:[],zoom:1,panX:0,panY:0});
+  const latestBoard=useRef(board);latestBoard.current=board;
+  const [selected,setSelected]=useState('');
+  const [status,setStatus]=useState('Opening local board…');
+  const [ready,setReady]=useState(false);
+  const [tool,setTool]=useState<'select'|'pan'>('select');
+  const pointer=useRef<{x:number;y:number;id:string}|null>(null);
+  const queue=useRef(Promise.resolve());
+  const opened=useRef(false);
+  useEffect(()=>{if(!client)return;void Promise.all([client.call('storage.get',{key:'board/current'}),client.call('storage.get',{key:'host/checkpoint'})]).then(([value,checkpoint])=>{if(valid(value))setBoard(value);if(typeof checkpoint==='object'&&checkpoint!==null&&'dirty' in checkpoint&&checkpoint.dirty===true&&'draft' in checkpoint&&valid(checkpoint.draft)){setBoard(checkpoint.draft);opened.current=true;}setReady(true);setStatus('Board ready');}).catch(reason=>setStatus(String(reason)));},[client]);
+  useEffect(()=>{if(!client||!ready)return;if(!opened.current){opened.current=true;return;}setStatus('Saving locally…');void client.call('ui.checkpoint',{value:{dirty:true,draft:board}}).catch(reason=>setStatus(`Draft checkpoint failed: ${String(reason)}`));const timer=setTimeout(()=>{const write=queue.current.catch(()=>undefined).then(async()=>{await client.call('storage.put',{key:'board/current',value:board});if(latestBoard.current===board)await client.call('ui.checkpoint',{value:{dirty:false}});});queue.current=write;void write.then(()=>{if(latestBoard.current===board)setStatus('Board saved on this device');}).catch(reason=>setStatus(`Not saved: ${String(reason)}`));},150);return()=>clearTimeout(timer);},[client,board,ready]);
+  const item=board.objects.find(object=>object.id===selected);
+  const patch=(fields:Partial<BoardObject>)=>setBoard(previous=>({...previous,objects:previous.objects.map(object=>object.id===selected?{...object,...fields}:object)}));
+  const add=(text='New card')=>{if(board.objects.length>=100){setStatus('Board limit: 100 cards');return;}const id=crypto.randomUUID();setBoard(previous=>({...previous,objects:[...previous.objects,{id,x:24+previous.objects.length%3*80,y:24+Math.floor(previous.objects.length/3)*80%600,text:text.slice(0,150),color:'mint'}]}));setSelected(id);};
+  const importNote=async()=>{
+    try{
+      const value=await client?.call('services.invoke',{bindingId:'selected-note',method:'read',args:{}});
+      if(typeof value!=='object'||value===null||!('text' in value)||typeof value.text!=='string')throw new Error('Invalid selected document');
+      const title='title' in value&&typeof value.title==='string'?value.title:'Selected note';add(`${title}\n${value.text}`);setStatus('Selected note imported after host approval');
+    }catch(reason){setStatus(`Note import denied or unavailable: ${reason instanceof Error?reason.message:'permission unavailable'}`);}
+  };
+  const colors:Record<string,string>={mint:'#d4ede4',sand:'#f4e5c2',blue:'#d7e8f5'};
+  return <main aria-label="Canvas Board app"><h1>Canvas Board</h1><p className="muted">Local cards · selected notes require host approval</p><div className="toolbar"><button onClick={()=>add()}>Add card</button><button onClick={()=>void importNote()}>Import selected note</button></div><div className="toolbar"><button aria-pressed={tool==='select'} onClick={()=>setTool('select')}>Select / move</button><button aria-pressed={tool==='pan'} onClick={()=>setTool('pan')}>Pan board</button><button aria-label="Zoom out" disabled={board.zoom<=.5} onClick={()=>setBoard({...board,zoom:Math.max(.5,board.zoom-.25)})}>−</button><output aria-label="Zoom">{Math.round(board.zoom*100)}%</output><button aria-label="Zoom in" disabled={board.zoom>=2} onClick={()=>setBoard({...board,zoom:Math.min(2,board.zoom+.25)})}>+</button></div>
+    <svg className="board" viewBox={`${board.panX} ${board.panY} ${360/board.zoom} ${320/board.zoom}`} role="img" aria-label="Canvas board. Select cards using the card picker below." onPointerDown={event=>{if(tool==='pan'){pointer.current={x:event.clientX,y:event.clientY,id:'pan'};event.currentTarget.setPointerCapture(event.pointerId);}}} onPointerMove={event=>{const previous=pointer.current;if(!previous)return;const x=(event.clientX-previous.x)/board.zoom,y=(event.clientY-previous.y)/board.zoom;pointer.current={...previous,x:event.clientX,y:event.clientY};if(previous.id==='pan')setBoard(current=>({...current,panX:Math.min(1000,Math.max(-1000,current.panX-x)),panY:Math.min(1000,Math.max(-1000,current.panY-y))}));else setBoard(current=>({...current,objects:current.objects.map(object=>object.id===previous.id?{...object,x:Math.min(640,Math.max(0,object.x+x)),y:Math.min(720,Math.max(0,object.y+y))}:object)}));}} onPointerUp={()=>{pointer.current=null;}} onPointerCancel={()=>{pointer.current=null;}}>
+    <rect x="-1000" y="-1000" width="3000" height="3000" fill="#f5f7f6"/>{board.objects.map(object=><g key={object.id} transform={`translate(${object.x},${object.y})`} onPointerDown={event=>{if(tool==='select'){event.stopPropagation();setSelected(object.id);pointer.current={x:event.clientX,y:event.clientY,id:object.id};event.currentTarget.setPointerCapture(event.pointerId);}}}><rect width="180" height="96" rx="10" fill={colors[object.color]} stroke={selected===object.id?'#165f4d':'#647781'} strokeWidth={selected===object.id?3:1}/><text x="12" y="28" fill="#1d2935" fontSize="14">{object.text.split('\n').slice(0,3).map((line,i)=><tspan key={i} x="12" dy={i?20:0}>{line.slice(0,21)}</tspan>)}</text></g>)}</svg>
+    <label>Selected card<select value={selected} onChange={event=>setSelected(event.target.value)}><option value="">Choose a card</option>{board.objects.map(object=><option key={object.id} value={object.id}>{object.text.slice(0,40)||'Empty card'}</option>)}</select></label>
+    {item&&<section><label>Card text<textarea maxLength={150} value={item.text} onChange={event=>patch({text:event.target.value})}/></label><label>Card color<select value={item.color} onChange={event=>patch({color:event.target.value})}><option value="mint">Mint</option><option value="sand">Sand</option><option value="blue">Blue</option></select></label><div className="toolbar" aria-label="Move selected card"><button onClick={()=>patch({x:Math.max(0,item.x-16)})}>Left</button><button onClick={()=>patch({x:Math.min(640,item.x+16)})}>Right</button><button onClick={()=>patch({y:Math.max(0,item.y-16)})}>Up</button><button onClick={()=>patch({y:Math.min(720,item.y+16)})}>Down</button></div><button className="danger" onClick={()=>{setBoard({...board,objects:board.objects.filter(object=>object.id!==selected)});setSelected('');}}>Delete card</button></section>}
+    <div className="toolbar" aria-label="Pan without dragging"><button onClick={()=>setBoard({...board,panX:Math.max(-1000,board.panX-32)})}>Pan left</button><button onClick={()=>setBoard({...board,panX:Math.min(1000,board.panX+32)})}>Pan right</button><button onClick={()=>setBoard({...board,panY:Math.max(-1000,board.panY-32)})}>Pan up</button><button onClick={()=>setBoard({...board,panY:Math.min(1000,board.panY+32)})}>Pan down</button><button onClick={()=>setBoard({...board,panX:0,panY:0,zoom:1})}>Reset view</button></div><p className="status" role="status">{error||status}</p></main>;
+}
+const root=document.getElementById('root');if(root)createRoot(root).render(<CanvasBoard/>);
