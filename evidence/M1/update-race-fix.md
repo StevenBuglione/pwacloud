@@ -1,0 +1,7 @@
+# Integration fixes after the first full browser run
+
+The root's first full integration run exposed two new app failures. The Notebook document picker had a visible label containing its options; an exact label-text locator failed even though the accessible combobox name was Document. The control now declares that exact accessible name and the test selects the semantic combobox. The immediate-draft persistence assertion remains unchanged.
+
+The service-worker update listener re-read `registration.installing` from its statechange callback. By the installed transition the worker can already be in `registration.waiting`, making `installing` null and losing the update prompt. The listener now captures the concrete Worker, observes its installed transition, checks existing waiting state, and removes its registration/worker listeners during teardown. The browser test now independently asserts a genuine installed waiting worker before looking for the host prompt. Dirty-edit blocking, actual activation/reload and saved-note preservation remain required.
+
+`pnpm typecheck` returned exit 0; local output is retained in `typecheck-update-race-fix.log`. Source fixes were made while the root suite was running; the build and running server were not changed. A fresh root build and focused/full browser confirmation are still required. No assertions or timing budget were removed or weakened.

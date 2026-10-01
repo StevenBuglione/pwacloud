@@ -48,9 +48,12 @@
     },
     {
       "id": "M6",
-      "status": "pending",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "implemented-real-provider-and-phone-gates-blocked",
+      "implementationCommit": "19abc7058b929c0847439f9fff5b832fd0840eee",
+      "evidence": [
+        "evidence/M6/summary.md",
+        "evidence/M6/runtime-review-with-removals.txt"
+      ]
     },
     {
       "id": "M7",

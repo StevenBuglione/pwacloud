@@ -1,0 +1,999 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\steve\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/app.spec.ts"
+    ],
+    "configFile": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\playwright.config.ts",
+    "rootDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm start",
+      "url": "http://127.0.0.1:4173/health",
+      "reuseExistingServer": true,
+      "env": {
+        "PWACLOUD_MODE": "demo",
+        "PWACLOUD_PORT": "4173",
+        "PWACLOUD_DATA": "runtime-data/browser-test"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "app.spec.ts",
+      "file": "app.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M1 phone routes, preferences, real IndexedDB and production offline relaunch",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5162,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:18:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 18
+                    },
+                    "snippet": "  16 | test('M1 phone routes, preferences, real IndexedDB and production offline relaunch',async({page,context})=>{\n  17 |   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));\n> 18 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  19 |   await page.getByRole('button',{name:'Start without an account'}).click();\n  20 |   await page.getByLabel('Quick note text').fill('Synthetic offline note');await page.getByRole('button',{name:'Save quick note'}).click();await expect(page.getByText('Quick note saved on this device',{exact:true})).toBeVisible();\n  21 |   for(const tab of ['Library','Discover','Activity','Home'] as const){await openTab(page,tab);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  16 | test('M1 phone routes, preferences, real IndexedDB and production offline relaunch',async({page,context})=>{\n  17 |   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));\n> 18 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  19 |   await page.getByRole('button',{name:'Start without an account'}).click();\n  20 |   await page.getByLabel('Quick note text').fill('Synthetic offline note');await page.getByRole('button',{name:'Save quick note'}).click();await expect(page.getByText('Quick note saved on this device',{exact:true})).toBeVisible();\n  21 |   for(const tab of ['Library','Discover','Activity','Home'] as const){await openTab(page,tab);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:18:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:09.891Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-32940424aeef421383ee",
+          "file": "app.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5161,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:33:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 33
+                    },
+                    "snippet": "  31 |\n  32 | test('M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload',async({page})=>{\n> 33 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  34 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();\n  35 |   await frame.getByLabel('Title',{exact:true}).fill('Synthetic notebook');await frame.getByLabel('Note text',{exact:true}).fill('one two three');\n  36 |   await frame.getByRole('button',{name:'Bold',exact:true}).click();await frame.getByRole('button',{name:'Preview formatting'}).click();await expect(frame.locator('.preview')).toHaveCSS('font-weight','700');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  31 |\n  32 | test('M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload',async({page})=>{\n> 33 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  34 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();\n  35 |   await frame.getByLabel('Title',{exact:true}).fill('Synthetic notebook');await frame.getByLabel('Note text',{exact:true}).fill('one two three');\n  36 |   await frame.getByRole('button',{name:'Bold',exact:true}).click();await frame.getByRole('button',{name:'Preview formatting'}).click();await expect(frame.locator('.preview')).toHaveCSS('font-weight','700');\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:33:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:15.673Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-da8cef289861f616d8c6",
+          "file": "app.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "M5 Canvas selected note approval, denied escalation, non-drag move and persistence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5147,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:46:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 46
+                    },
+                    "snippet": "  44 |\n  45 | test('M5 Canvas selected note approval, denied escalation, non-drag move and persistence',async({page})=>{\n> 46 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  47 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Title',{exact:true}).fill('Only this synthetic note');await frame.getByLabel('Note text',{exact:true}).fill('Selected synthetic document');await expect(frame.getByText('Saved on this device',{exact:true})).toBeVisible();await closePlugin(page);\n  48 |   await install(page,'Canvas Board',true);await frame.getByRole('button',{name:'Import selected note'}).click();\n  49 |   const approval=page.getByRole('dialog',{name:'Allow selected note once?'});await expect(approval).toContainText('Only this synthetic note');await approval.getByRole('button',{name:'Deny',exact:true}).click();await expect(frame.getByRole('status')).toContainText('denied');await expect(frame.getByLabel('Selected card')).toHaveValue('');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 46
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  44 |\n  45 | test('M5 Canvas selected note approval, denied escalation, non-drag move and persistence',async({page})=>{\n> 46 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  47 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Title',{exact:true}).fill('Only this synthetic note');await frame.getByLabel('Note text',{exact:true}).fill('Selected synthetic document');await expect(frame.getByText('Saved on this device',{exact:true})).toBeVisible();await closePlugin(page);\n  48 |   await install(page,'Canvas Board',true);await frame.getByRole('button',{name:'Import selected note'}).click();\n  49 |   const approval=page.getByRole('dialog',{name:'Allow selected note once?'});await expect(approval).toContainText('Only this synthetic note');await approval.getByRole('button',{name:'Deny',exact:true}).click();await expect(frame.getByRole('status')).toContainText('denied');await expect(frame.getByLabel('Selected card')).toHaveValue('');\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:46:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:21.443Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 46
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-d2373f8c329c90ba376f",
+          "file": "app.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "M5 Lit feed virtual list, broker permission denial and offline snapshot",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5161,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:58:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 58
+                    },
+                    "snippet": "  56 |   let targetRequests=0;const articles=Array.from({length:75},(_,i)=>`<item><guid>synthetic-${i}</guid><title>Synthetic NASA fixture ${i}</title><description>Offline synthetic article ${i}</description></item>`).join('');\n  57 |   await page.route('https://www.nasa.gov/feed/',async route=>{targetRequests++;await route.fulfill({status:200,headers:{'access-control-allow-origin':'*','content-type':'application/rss+xml'},body:`<rss><channel>${articles}</channel></rss>`});});\n> 58 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Feed Reader');const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('permission-denied');expect(targetRequests).toBe(0);\n     |                                                                                           ^\n  59 |   await closePlugin(page);await page.getByRole('button',{name:'Manage Feed Reader'}).click();await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Uninstall',exact:true}).click();await page.getByRole('dialog',{name:'Uninstall Feed Reader?'}).getByRole('button',{name:'Uninstall app',exact:true}).click();\n  60 |   await install(page,'Feed Reader',true);await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('Saved 75 articles');expect(targetRequests).toBe(1);await expect(frame.locator('.article-row')).toHaveCount(12);await frame.getByRole('button',{name:'Next articles'}).click();await expect(frame.locator('.article-row').first()).toContainText('Synthetic NASA fixture 10');\n  61 |   await context.setOffline(true);await closePlugin(page);await page.getByRole('button',{name:/Feed Reader Mobile reading/}).click();await expect(frame.getByRole('status')).toContainText('last saved feed');await expect(frame.locator('.article-row')).toHaveCount(12);await frame.locator('.article-row').first().click();await expect(frame.getByRole('heading',{name:'Synthetic NASA fixture 0'})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 58
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  56 |   let targetRequests=0;const articles=Array.from({length:75},(_,i)=>`<item><guid>synthetic-${i}</guid><title>Synthetic NASA fixture ${i}</title><description>Offline synthetic article ${i}</description></item>`).join('');\n  57 |   await page.route('https://www.nasa.gov/feed/',async route=>{targetRequests++;await route.fulfill({status:200,headers:{'access-control-allow-origin':'*','content-type':'application/rss+xml'},body:`<rss><channel>${articles}</channel></rss>`});});\n> 58 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Feed Reader');const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('permission-denied');expect(targetRequests).toBe(0);\n     |                                                                                           ^\n  59 |   await closePlugin(page);await page.getByRole('button',{name:'Manage Feed Reader'}).click();await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Uninstall',exact:true}).click();await page.getByRole('dialog',{name:'Uninstall Feed Reader?'}).getByRole('button',{name:'Uninstall app',exact:true}).click();\n  60 |   await install(page,'Feed Reader',true);await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('Saved 75 articles');expect(targetRequests).toBe(1);await expect(frame.locator('.article-row')).toHaveCount(12);await frame.getByRole('button',{name:'Next articles'}).click();await expect(frame.locator('.article-row').first()).toContainText('Synthetic NASA fixture 10');\n  61 |   await context.setOffline(true);await closePlugin(page);await page.getByRole('button',{name:/Feed Reader Mobile reading/}).click();await expect(frame.getByRole('status')).toContainText('last saved feed');await expect(frame.locator('.article-row')).toHaveCount(12);await frame.locator('.article-row').first().click();await expect(frame.getByRole('heading',{name:'Synthetic NASA fixture 0'})).toBeVisible();\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:58:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:27.210Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-8c7f38c1604cb9762774",
+          "file": "app.spec.ts",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "M9 minimal non-Ionic embedding uses independently verified package",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5146,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Minimal host ready\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Minimal host ready\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:66:71",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 71,
+                      "line": 66
+                    },
+                    "snippet": "  64 |\n  65 | test('M9 minimal non-Ionic embedding uses independently verified package',async({page})=>{\n> 66 |   await page.goto('/minimal/');await expect(page.getByRole('status')).toContainText('Minimal host ready');await page.getByRole('button',{name:'Review Notebook',exact:true}).click();await expect(page.getByRole('heading',{name:'Review Notebook'})).toBeVisible();await page.getByRole('button',{name:'Install reviewed app'}).click();await page.getByRole('button',{name:'Open Notebook'}).click();const frame=page.frameLocator('iframe');await expect(frame.getByRole('heading',{name:'Notebook',exact:true})).toBeVisible();await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Note text',{exact:true}).fill('minimal host uses packages');await frame.getByRole('button',{name:'Analyze with Wasm'}).click();await expect(frame.getByLabel('Wasm analysis')).toContainText('\"words\":4');await page.getByRole('button',{name:'Close app',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);\n     |                                                                       ^\n  67 | });\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 71,
+                        "line": 66
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"Minimal host ready\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  64 |\n  65 | test('M9 minimal non-Ionic embedding uses independently verified package',async({page})=>{\n> 66 |   await page.goto('/minimal/');await expect(page.getByRole('status')).toContainText('Minimal host ready');await page.getByRole('button',{name:'Review Notebook',exact:true}).click();await expect(page.getByRole('heading',{name:'Review Notebook'})).toBeVisible();await page.getByRole('button',{name:'Install reviewed app'}).click();await page.getByRole('button',{name:'Open Notebook'}).click();const frame=page.frameLocator('iframe');await expect(frame.getByRole('heading',{name:'Notebook',exact:true})).toBeVisible();await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Note text',{exact:true}).fill('minimal host uses packages');await frame.getByRole('button',{name:'Analyze with Wasm'}).click();await expect(frame.getByLabel('Wasm analysis')).toContainText('\"words\":4');await page.getByRole('button',{name:'Close app',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);\n     |                                                                       ^\n  67 | });\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:66:71"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:32.970Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 71,
+                    "line": 66
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-094f8a2023f5f24edd21",
+          "file": "app.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "M9 automated accessibility host 360px light/dark and enlarged text",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5150,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:70:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 70
+                    },
+                    "snippet": "  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n> 70 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  71 |   for(const tab of ['Home','Library','Discover','Activity'] as const){await openTab(page,tab);const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);}\n  72 |   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByLabel('Color scheme').selectOption('dark');await page.getByLabel('Text size').selectOption('1.5');const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);await page.screenshot({path:`evidence/M9/${test.info().project.name}-settings-dark-large.png`,fullPage:true});\n  73 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 70
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n> 70 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  71 |   for(const tab of ['Home','Library','Discover','Activity'] as const){await openTab(page,tab);const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);}\n  72 |   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByLabel('Color scheme').selectOption('dark');await page.getByLabel('Text size').selectOption('1.5');const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);await page.screenshot({path:`evidence/M9/${test.info().project.name}-settings-dark-large.png`,fullPage:true});\n  73 | });\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:70:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:38.723Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 70
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-909ded7d6d7c64b4ddb0",
+          "file": "app.spec.ts",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "M1 phone routes, preferences, real IndexedDB and production offline relaunch",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5284,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:18:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 18
+                    },
+                    "snippet": "  16 | test('M1 phone routes, preferences, real IndexedDB and production offline relaunch',async({page,context})=>{\n  17 |   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));\n> 18 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  19 |   await page.getByRole('button',{name:'Start without an account'}).click();\n  20 |   await page.getByLabel('Quick note text').fill('Synthetic offline note');await page.getByRole('button',{name:'Save quick note'}).click();await expect(page.getByText('Quick note saved on this device',{exact:true})).toBeVisible();\n  21 |   for(const tab of ['Library','Discover','Activity','Home'] as const){await openTab(page,tab);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  16 | test('M1 phone routes, preferences, real IndexedDB and production offline relaunch',async({page,context})=>{\n  17 |   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));\n> 18 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |                                                                                           ^\n  19 |   await page.getByRole('button',{name:'Start without an account'}).click();\n  20 |   await page.getByLabel('Quick note text').fill('Synthetic offline note');await page.getByRole('button',{name:'Save quick note'}).click();await expect(page.getByText('Quick note saved on this device',{exact:true})).toBeVisible();\n  21 |   for(const tab of ['Library','Discover','Activity','Home'] as const){await openTab(page,tab);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:18:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:44.472Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M1-phone-routes-prefer-9e03e-production-offline-relaunch-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-6f0e365fd6f84438b2e7",
+          "file": "app.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5263,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:33:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 33
+                    },
+                    "snippet": "  31 |\n  32 | test('M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload',async({page})=>{\n> 33 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  34 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();\n  35 |   await frame.getByLabel('Title',{exact:true}).fill('Synthetic notebook');await frame.getByLabel('Note text',{exact:true}).fill('one two three');\n  36 |   await frame.getByRole('button',{name:'Bold',exact:true}).click();await frame.getByRole('button',{name:'Preview formatting'}).click();await expect(frame.locator('.preview')).toHaveCSS('font-weight','700');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  31 |\n  32 | test('M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload',async({page})=>{\n> 33 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  34 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();\n  35 |   await frame.getByLabel('Title',{exact:true}).fill('Synthetic notebook');await frame.getByLabel('Note text',{exact:true}).fill('one two three');\n  36 |   await frame.getByRole('button',{name:'Bold',exact:true}).click();await frame.getByRole('button',{name:'Preview formatting'}).click();await expect(frame.locator('.preview')).toHaveCSS('font-weight','700');\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:33:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:50.355Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Notebook-rich-editi-56a8a-Worker-and-persisted-reload-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-6a3c41851a6aee9b8b2f",
+          "file": "app.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "M5 Canvas selected note approval, denied escalation, non-drag move and persistence",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5269,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:46:91",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 91,
+                      "line": 46
+                    },
+                    "snippet": "  44 |\n  45 | test('M5 Canvas selected note approval, denied escalation, non-drag move and persistence',async({page})=>{\n> 46 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  47 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Title',{exact:true}).fill('Only this synthetic note');await frame.getByLabel('Note text',{exact:true}).fill('Selected synthetic document');await expect(frame.getByText('Saved on this device',{exact:true})).toBeVisible();await closePlugin(page);\n  48 |   await install(page,'Canvas Board',true);await frame.getByRole('button',{name:'Import selected note'}).click();\n  49 |   const approval=page.getByRole('dialog',{name:'Allow selected note once?'});await expect(approval).toContainText('Only this synthetic note');await approval.getByRole('button',{name:'Deny',exact:true}).click();await expect(frame.getByRole('status')).toContainText('denied');await expect(frame.getByLabel('Selected card')).toHaveValue('');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 91,
+                        "line": 46
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Local workspace ready', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Local workspace ready', { exact: true })\u001b[22m\n\n\n  44 |\n  45 | test('M5 Canvas selected note approval, denied escalation, non-drag move and persistence',async({page})=>{\n> 46 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Notebook');\n     |                                                                                           ^\n  47 |   const frame=page.frameLocator('iframe');await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Title',{exact:true}).fill('Only this synthetic note');await frame.getByLabel('Note text',{exact:true}).fill('Selected synthetic document');await expect(frame.getByText('Saved on this device',{exact:true})).toBeVisible();await closePlugin(page);\n  48 |   await install(page,'Canvas Board',true);await frame.getByRole('button',{name:'Import selected note'}).click();\n  49 |   const approval=page.getByRole('dialog',{name:'Allow selected note once?'});await expect(approval).toContainText('Only this synthetic note');await approval.getByRole('button',{name:'Deny',exact:true}).click();await expect(frame.getByRole('status')).toContainText('denied');await expect(frame.getByLabel('Selected card')).toHaveValue('');\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:46:91"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:38:56.188Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Canvas-selected-not-60001-n-drag-move-and-persistence-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 91,
+                    "line": 46
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-8dd6cafad7d705f3d762",
+          "file": "app.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "M5 Lit feed virtual list, broker permission denial and offline snapshot",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2325,
+                  "error": {
+                    "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:58:14",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 14,
+                      "line": 58
+                    },
+                    "snippet": "  56 |   let targetRequests=0;const articles=Array.from({length:75},(_,i)=>`<item><guid>synthetic-${i}</guid><title>Synthetic NASA fixture ${i}</title><description>Offline synthetic article ${i}</description></item>`).join('');\n  57 |   await page.route('https://www.nasa.gov/feed/',async route=>{targetRequests++;await route.fulfill({status:200,headers:{'access-control-allow-origin':'*','content-type':'application/rss+xml'},body:`<rss><channel>${articles}</channel></rss>`});});\n> 58 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Feed Reader');const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('permission-denied');expect(targetRequests).toBe(0);\n     |              ^\n  59 |   await closePlugin(page);await page.getByRole('button',{name:'Manage Feed Reader'}).click();await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Uninstall',exact:true}).click();await page.getByRole('dialog',{name:'Uninstall Feed Reader?'}).getByRole('button',{name:'Uninstall app',exact:true}).click();\n  60 |   await install(page,'Feed Reader',true);await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('Saved 75 articles');expect(targetRequests).toBe(1);await expect(frame.locator('.article-row')).toHaveCount(12);await frame.getByRole('button',{name:'Next articles'}).click();await expect(frame.locator('.article-row').first()).toContainText('Synthetic NASA fixture 10');\n  61 |   await context.setOffline(true);await closePlugin(page);await page.getByRole('button',{name:/Feed Reader Mobile reading/}).click();await expect(frame.getByRole('status')).toContainText('last saved feed');await expect(frame.locator('.article-row')).toHaveCount(12);await frame.locator('.article-row').first().click();await expect(frame.getByRole('heading',{name:'Synthetic NASA fixture 0'})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 14,
+                        "line": 58
+                      },
+                      "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n\n\n  56 |   let targetRequests=0;const articles=Array.from({length:75},(_,i)=>`<item><guid>synthetic-${i}</guid><title>Synthetic NASA fixture ${i}</title><description>Offline synthetic article ${i}</description></item>`).join('');\n  57 |   await page.route('https://www.nasa.gov/feed/',async route=>{targetRequests++;await route.fulfill({status:200,headers:{'access-control-allow-origin':'*','content-type':'application/rss+xml'},body:`<rss><channel>${articles}</channel></rss>`});});\n> 58 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await install(page,'Feed Reader');const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('permission-denied');expect(targetRequests).toBe(0);\n     |              ^\n  59 |   await closePlugin(page);await page.getByRole('button',{name:'Manage Feed Reader'}).click();await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Uninstall',exact:true}).click();await page.getByRole('dialog',{name:'Uninstall Feed Reader?'}).getByRole('button',{name:'Uninstall app',exact:true}).click();\n  60 |   await install(page,'Feed Reader',true);await frame.getByRole('button',{name:'Refresh feed'}).click();await expect(frame.getByRole('status')).toContainText('Saved 75 articles');expect(targetRequests).toBe(1);await expect(frame.locator('.article-row')).toHaveCount(12);await frame.getByRole('button',{name:'Next articles'}).click();await expect(frame.locator('.article-row').first()).toContainText('Synthetic NASA fixture 10');\n  61 |   await context.setOffline(true);await closePlugin(page);await page.getByRole('button',{name:/Feed Reader Mobile reading/}).click();await expect(frame.getByRole('status')).toContainText('last saved feed');await expect(frame.locator('.article-row')).toHaveCount(12);await frame.locator('.article-row').first().click();await expect(frame.getByRole('heading',{name:'Synthetic NASA fixture 0'})).toBeVisible();\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:58:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:39:02.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M5-Lit-feed-virtual-li-a6890-denial-and-offline-snapshot-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 14,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-55396567eb312b0bc32c",
+          "file": "app.spec.ts",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "M9 minimal non-Ionic embedding uses independently verified package",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2287,
+                  "error": {
+                    "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/minimal/\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/minimal/\", waiting until \"load\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:66:14",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 14,
+                      "line": 66
+                    },
+                    "snippet": "  64 |\n  65 | test('M9 minimal non-Ionic embedding uses independently verified package',async({page})=>{\n> 66 |   await page.goto('/minimal/');await expect(page.getByRole('status')).toContainText('Minimal host ready');await page.getByRole('button',{name:'Review Notebook',exact:true}).click();await expect(page.getByRole('heading',{name:'Review Notebook'})).toBeVisible();await page.getByRole('button',{name:'Install reviewed app'}).click();await page.getByRole('button',{name:'Open Notebook'}).click();const frame=page.frameLocator('iframe');await expect(frame.getByRole('heading',{name:'Notebook',exact:true})).toBeVisible();await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Note text',{exact:true}).fill('minimal host uses packages');await frame.getByRole('button',{name:'Analyze with Wasm'}).click();await expect(frame.getByLabel('Wasm analysis')).toContainText('\"words\":4');await page.getByRole('button',{name:'Close app',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);\n     |              ^\n  67 | });\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 14,
+                        "line": 66
+                      },
+                      "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/minimal/\", waiting until \"load\"\u001b[22m\n\n\n  64 |\n  65 | test('M9 minimal non-Ionic embedding uses independently verified package',async({page})=>{\n> 66 |   await page.goto('/minimal/');await expect(page.getByRole('status')).toContainText('Minimal host ready');await page.getByRole('button',{name:'Review Notebook',exact:true}).click();await expect(page.getByRole('heading',{name:'Review Notebook'})).toBeVisible();await page.getByRole('button',{name:'Install reviewed app'}).click();await page.getByRole('button',{name:'Open Notebook'}).click();const frame=page.frameLocator('iframe');await expect(frame.getByRole('heading',{name:'Notebook',exact:true})).toBeVisible();await expect(frame.getByText('Local notes ready',{exact:true})).toBeVisible();await frame.getByLabel('Note text',{exact:true}).fill('minimal host uses packages');await frame.getByRole('button',{name:'Analyze with Wasm'}).click();await expect(frame.getByLabel('Wasm analysis')).toContainText('\"words\":4');await page.getByRole('button',{name:'Close app',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);\n     |              ^\n  67 | });\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:66:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:39:04.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-minimal-non-Ionic-e-9fc64-ependently-verified-package-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 14,
+                    "line": 66
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-9a08f26ff7ae0aad9712",
+          "file": "app.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "M9 automated accessibility host 360px light/dark and enlarged text",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2291,
+                  "error": {
+                    "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:70:14",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                      "column": 14,
+                      "line": 70
+                    },
+                    "snippet": "  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n> 70 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |              ^\n  71 |   for(const tab of ['Home','Library','Discover','Activity'] as const){await openTab(page,tab);const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);}\n  72 |   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByLabel('Color scheme').selectOption('dark');await page.getByLabel('Text size').selectOption('1.5');const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);await page.screenshot({path:`evidence/M9/${test.info().project.name}-settings-dark-large.png`,fullPage:true});\n  73 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                        "column": 14,
+                        "line": 70
+                      },
+                      "message": "Error: page.goto: Could not connect to server\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/\", waiting until \"load\"\u001b[22m\n\n\n  68 |\n  69 | test('M9 automated accessibility host 360px light/dark and enlarged text',async({page})=>{\n> 70 |   await page.goto('/');await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();\n     |              ^\n  71 |   for(const tab of ['Home','Library','Discover','Activity'] as const){await openTab(page,tab);const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);}\n  72 |   await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByLabel('Color scheme').selectOption('dark');await page.getByLabel('Text size').selectOption('1.5');const result=await new AxeBuilder({page}).analyze();expect(result.violations).toEqual([]);await page.screenshot({path:`evidence/M9/${test.info().project.name}-settings-dark-large.png`,fullPage:true});\n  73 | });\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts:70:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T21:39:07.746Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\app-M9-automated-accessibi-8b0c7-ight-dark-and-enlarged-text-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\app.spec.ts",
+                    "column": 14,
+                    "line": 70
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-f878cfae4c4b86fe8bab",
+          "file": "app.spec.ts",
+          "line": 69,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-01T21:38:09.310Z",
+    "duration": 60857.436,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 12,
+    "flaky": 0
+  }
+}
