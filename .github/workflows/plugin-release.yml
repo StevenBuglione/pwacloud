@@ -25,6 +25,7 @@ jobs:
           node-version: 24.19.0
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm audit
       - run: rustup toolchain install 1.93.0 --profile minimal --target wasm32-unknown-unknown
       - run: pnpm build
       - run: pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test:integration && pnpm test:security

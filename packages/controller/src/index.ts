@@ -1,5 +1,5 @@
 import {PlatformError,validateManifest,validateRequest,isEnvelope,isReceipt,type Principal,type Request} from '../../contracts/src/index.ts';
-import {sha256,encodeInstallPacket,type VerifiedPackage} from '../../package-verifier/src/index.ts';
+import {sha256,encodeInstallPacket,assertRevocationPolicy,validateRevocationPolicy,type VerifiedPackage,type RevocationPolicy} from '../../package-verifier/src/index.ts';
 import {mountIsolatedUI,type FrameSession} from '../../runtime-ui/src/index.ts';
 import {GuestWorker} from '../../runtime-web/src/index.ts';
 import {processGuestEvent} from '../../runtime-web/src/bridge.ts';
@@ -13,6 +13,7 @@ export type HostOptions={storage:PluginStorage;registries?:{resolve:(repository:
   onInstallStage?:(stage:'staging'|'artifact'|'snapshot'|'migration'|'commit',id:string)=>Promise<void>;
   onNavigate?:(pluginId:string,route:string)=>void;
   aiTransport?:AiTransport;diagnostics?:(event:{type:string;plugin?:string;message:string})=>void;dependencySelections?:ReadonlyMap<string,string>;
+  revocationPolicy?:()=>RevocationPolicy|undefined;
   onBindingRequest?:(consumerId:string,providerId:string,key:string)=>Promise<boolean>;network?:(install:InstalledPlugin,url:string,method:string,signal:AbortSignal)=>Promise<unknown>};
 export class WorkerScheduler {
   private active=0;private queue:(()=>void)[]=[];
@@ -35,6 +36,8 @@ async function checkAssets(pkg:VerifiedPackage){for(const file of pkg.envelope.f
 function checkGrants(pkg:VerifiedPackage,grants:string[]){const allowed=new Set(pkg.manifest.permissions.map(p=>p.id));if(new Set(grants).size!==grants.length||grants.some(id=>!allowed.has(id))||pkg.manifest.permissions.some(p=>p.required&&!grants.includes(p.id)))throw new PlatformError('consent-required');}
 export function createPluginHost(options:HostOptions){
   const {storage}=options;const owner=crypto.randomUUID();const scheduler=new WorkerScheduler();
+  let knownRevocation:RevocationPolicy|undefined;
+  function checkRevocation(pkg:VerifiedPackage){const incoming=options.revocationPolicy?.();if(incoming){const policy=validateRevocationPolicy(incoming);if(knownRevocation&&policy.sequence<knownRevocation.sequence)throw new PlatformError('stale-revocation');knownRevocation={...policy,revokedDigests:[...policy.revokedDigests]};}if(knownRevocation)assertRevocationPolicy(pkg,knownRevocation);}
   let active:FrameSession|undefined;const guests=new Map<string,GuestWorker>();const crashes=new Map<string,{count:number;until:number}>();
   const diagnose=(type:string,plugin:string,message:string)=>options.diagnostics?.({type,plugin,message});
   let broker:CapabilityBroker;
@@ -76,7 +79,7 @@ export function createPluginHost(options:HostOptions){
   }
   broker=new CapabilityBroker(storage,{...options,analyze});
   async function install(pkg:VerifiedPackage,grants:string[],signal?:AbortSignal,recoverySnapshot?:string){
-    validateManifest(pkg.manifest);checkGrants(pkg,grants);await checkAssets(pkg);if(Date.parse(pkg.receipt.expiresAt)<=Date.now())throw new PlatformError('expired-receipt');
+    validateManifest(pkg.manifest);checkGrants(pkg,grants);checkRevocation(pkg);await checkAssets(pkg);if(Date.parse(pkg.receipt.expiresAt)<=Date.now())throw new PlatformError('expired-receipt');
     const installed=await storage.listInstalls(),selections=new Map<string,string>();for(const item of installed.filter(entry=>entry.enabled)){const bindings=validateDependencyBindings(item.dependencyBindings??[]);if(item.manifest.requires.length!==bindings.length)throw new PlatformError('dependency-lock-missing');for(const binding of bindings){if(!item.manifest.requires.includes(binding.interface)||!installed.some(provider=>provider.enabled&&provider.manifest.id===binding.provider&&provider.digest===binding.providerDigest))throw new PlatformError('stale-dependency-lock');selections.set(`${item.manifest.id}:${binding.interface}`,binding.provider);}}for(const [key,provider] of options.dependencySelections??[])selections.set(key,provider);
     if(installed.some(item=>item.enabled&&item.manifest.id!==pkg.manifest.id&&item.dependencyBindings?.some(binding=>binding.provider===pkg.manifest.id&&binding.providerDigest!==pkg.envelope.archive.sha256)))throw new PlatformError('dependency-provider-changed');
     const graph=resolveDependencyGraph([...installed.filter(item=>item.enabled&&item.manifest.id!==pkg.manifest.id).map(item=>({digest:item.digest,manifest:item.manifest})),{digest:pkg.envelope.archive.sha256,manifest:pkg.manifest}],selections);
@@ -99,6 +102,7 @@ export function createPluginHost(options:HostOptions){
       await options.aiTransport?.register?.(next,pkg,true);
       if(signal?.aborted)throw new PlatformError('cancelled');
       await options.onInstallStage?.('commit',id);if(signal?.aborted)throw new PlatformError('cancelled');
+      checkRevocation(pkg);
       await storage.commitInstall(id,next,{name,owner,fence:lease.fence},old?.revision??0,migrated?{namespace:id,backup:migrated,quota:pkg.manifest.permissions.find(p=>p.capability==='storage.kv')?.scope.quotaBytes??1048576}:undefined);
       broker.invalidate(id);if(active?.principal.plugin===id){active.close();active=undefined;}
       diagnose(old?'updated':'installed',id,`${pkg.manifest.name} ${pkg.manifest.version} ready`);return next;

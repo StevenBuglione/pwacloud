@@ -1,0 +1,34 @@
+First argument must use the object destructuring pattern: _fixtures
+
+   at install.spec.ts:16
+
+  14 | let assertionsCompleted=false,engineStatus='failed',runId='';
+  15 | async function atomicJson(path:string,value:unknown){const temporary=`${path}.${process.pid}.tmp`;await writeFile(temporary,JSON.stringify(value,null,2)+'\n');await rename(temporary,path);}
+> 16 | test.beforeAll(async(_fixtures,testInfo)=>{const configured:unknown=testInfo.config.metadata.publicRunId;if(typeof configured!=='string'||!/^[a-f0-9-]{36}$/.test(configured))throw new Error('Fresh public verification run metadata was unavailable');runId=configured;});
+     |      ^
+  17 | test.afterEach(async(_fixtures,testInfo)=>{engineStatus=testInfo.status??'failed';});
+  18 | test.afterAll(async(_fixtures,testInfo)=>{
+  19 |   await mkdir('evidence/M3',{recursive:true});const result:EngineResult={engine:testInfo.project.name,status:engineStatus==='passed'&&assertionsCompleted?'passed':'failed',runId,hostCommit:expectedHostCommit,tag:expectedTag,sourceCommit:expectedCommit,completedAt:new Date().toISOString(),assertionsCompleted};
+First argument must use the object destructuring pattern: _fixtures
+
+   at install.spec.ts:17
+
+  15 | async function atomicJson(path:string,value:unknown){const temporary=`${path}.${process.pid}.tmp`;await writeFile(temporary,JSON.stringify(value,null,2)+'\n');await rename(temporary,path);}
+  16 | test.beforeAll(async(_fixtures,testInfo)=>{const configured:unknown=testInfo.config.metadata.publicRunId;if(typeof configured!=='string'||!/^[a-f0-9-]{36}$/.test(configured))throw new Error('Fresh public verification run metadata was unavailable');runId=configured;});
+> 17 | test.afterEach(async(_fixtures,testInfo)=>{engineStatus=testInfo.status??'failed';});
+     |      ^
+  18 | test.afterAll(async(_fixtures,testInfo)=>{
+  19 |   await mkdir('evidence/M3',{recursive:true});const result:EngineResult={engine:testInfo.project.name,status:engineStatus==='passed'&&assertionsCompleted?'passed':'failed',runId,hostCommit:expectedHostCommit,tag:expectedTag,sourceCommit:expectedCommit,completedAt:new Date().toISOString(),assertionsCompleted};
+  20 |   await atomicJson(`evidence/M3/${testInfo.project.name}-public-status.json`,result);
+First argument must use the object destructuring pattern: _fixtures
+
+   at install.spec.ts:18
+
+  16 | test.beforeAll(async(_fixtures,testInfo)=>{const configured:unknown=testInfo.config.metadata.publicRunId;if(typeof configured!=='string'||!/^[a-f0-9-]{36}$/.test(configured))throw new Error('Fresh public verification run metadata was unavailable');runId=configured;});
+  17 | test.afterEach(async(_fixtures,testInfo)=>{engineStatus=testInfo.status??'failed';});
+> 18 | test.afterAll(async(_fixtures,testInfo)=>{
+     |      ^
+  19 |   await mkdir('evidence/M3',{recursive:true});const result:EngineResult={engine:testInfo.project.name,status:engineStatus==='passed'&&assertionsCompleted?'passed':'failed',runId,hostCommit:expectedHostCommit,tag:expectedTag,sourceCommit:expectedCommit,completedAt:new Date().toISOString(),assertionsCompleted};
+  20 |   await atomicJson(`evidence/M3/${testInfo.project.name}-public-status.json`,result);
+  21 |   const results:EngineResult[]=[];for(const engine of ['chromium','webkit']){try{const value:unknown=JSON.parse(await readFile(`evidence/M3/${engine}-public-status.json`,'utf8'));if(isEngineResult(value)&&value.runId===runId&&value.hostCommit===expectedHostCommit&&value.engine===engine&&value.tag===expectedTag&&value.sourceCommit===expectedCommit)results.push(value);}catch(error){if(!(error instanceof Error&&'code'in error&&error.code==='ENOENT'))throw error;}}
+

@@ -1,0 +1,43 @@
+$ tsx scripts/build.ts
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.32s
+
+  Transpiled JS Component Files:
+
+ - artifacts/guest/generated/guest.core.wasm                             108 KiB
+ - artifacts/guest/generated/guest.d.ts                                 0.26 KiB
+ - artifacts/guest/generated/guest.js                                    115 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-lifecycle.d.ts  0.47 KiB
+ - artifacts/guest/generated/interfaces/pwacloud-plugin-types.d.ts      1.72 KiB
+
+   Compiling pwacloud-notebook-guest v0.1.0 (D:\Users\steve\Documents\ChatGPT\pwacloud\examples\guest)
+    Finished `release` profile [optimized] target(s) in 1.15s
+{"id":"notebook","archiveBytes":816045,"sha256":"d678ac3a8a0c3a652cb0d3b9c00a8d9fd536c6df23ebe3753bd82efb50beae69","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"feed-reader","archiveBytes":487513,"sha256":"5587c600bf43d040063373352dde9a59fc3d110b80c785966802148dd91c71f2","trust":"DEMO ONLY - no Sigstore attestation"}
+{"id":"canvas-board","archiveBytes":697515,"sha256":"16995e006929da85d2667eb3b5bfaa1b9717e7ad8c372693cd3852912702e06a","trust":"DEMO ONLY - no Sigstore attestation"}
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 399 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/shell/index.html                         0.77 kB │ gzip:   0.43 kB
+dist/shell/assets/index-C7pdC0ic.css         19.72 kB │ gzip:   4.74 kB
+dist/shell/assets/p-ZjP4CjeZ-DJ1DGIsW.js      0.09 kB │ gzip:   0.09 kB
+dist/shell/assets/p-BUVGbkSc-BO_5Nt7Z.js      0.45 kB │ gzip:   0.31 kB
+dist/shell/assets/p-yjLe0sN2-CwYN2NPJ.js      0.57 kB │ gzip:   0.41 kB
+dist/shell/assets/p-C_NQIzjP-Ct1ZkScC.js      1.56 kB │ gzip:   0.79 kB
+dist/shell/assets/p-D4NOsSCE-B-XeWzZO.js      4.65 kB │ gzip:   2.02 kB
+dist/shell/assets/p-BriaEJK8-Bxir1Z1P.js     36.58 kB │ gzip:  13.87 kB
+dist/shell/assets/index-kz7GcfBw.js       1,658.06 kB │ gzip: 387.49 kB
+
+✓ built in 355ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 1000 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+warning: in the working copy of 'apps/personal-runtime/README.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'contracts/openapi.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'packages/controller/src/index.ts', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tests/fixtures/lifecycle-host.ts', CRLF will be replaced by LF the next time Git touches it
+{"status":"built","shell":"dist/shell","minimalHost":"dist/minimal","guest":"artifacts/guest/browser","fixtures":"artifacts/packages","shellRevision":"3814a00e47acb1f7"}

@@ -1,0 +1,10 @@
+{
+  "engine": "webkit",
+  "status": "passed",
+  "runId": "93438771-bf01-4ee4-8e5b-17062647bd36",
+  "hostCommit": "2364a6813c2319b604bab76beff448aa3c26bab7",
+  "tag": "plugin-v0.1.0-reference.5",
+  "sourceCommit": "bb53ae6e4ae6fc42057c5f172561ab39adbde68a",
+  "completedAt": "2026-10-01T23:59:29.472Z",
+  "assertionsCompleted": true
+}

@@ -1,0 +1,159 @@
+verify	Run pnpm test:e2e	﻿2026-10-01T23:45:15.0631486Z ##[group]Run pnpm test:e2e
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0631828Z [36;1mpnpm test:e2e[0m
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0694667Z shell: /usr/bin/bash -e {0}
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0694993Z env:
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0695313Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0695825Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.15/x64
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0696402Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib/pkgconfig
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0696989Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0697504Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0698057Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.15/x64
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0698574Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.15/x64/lib
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.0699014Z ##[endgroup]
+verify	Run pnpm test:e2e	2026-10-01T23:45:15.5220475Z $ playwright test
+verify	Run pnpm test:e2e	2026-10-01T23:45:16.5889486Z [WebServer] $ tsx scripts/start-demo.ts
+verify	Run pnpm test:e2e	2026-10-01T23:45:18.4089098Z 
+verify	Run pnpm test:e2e	2026-10-01T23:45:18.4089897Z Running 56 tests using 1 worker
+verify	Run pnpm test:e2e	2026-10-01T23:45:18.4090370Z 
+verify	Run pnpm test:e2e	2026-10-01T23:45:19.8266050Z   ✓   1 [chromium] › tests/e2e/agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (786ms)
+verify	Run pnpm test:e2e	2026-10-01T23:45:21.3918410Z   ✓   2 [chromium] › tests/e2e/app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (1.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:26.0747043Z   ✓   3 [chromium] › tests/e2e/app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (4.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:28.5389518Z   ✓   4 [chromium] › tests/e2e/app.spec.ts:72:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:32.3237385Z   ✓   5 [chromium] › tests/e2e/app.spec.ts:82:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (3.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:33.2574801Z   ✓   6 [chromium] › tests/e2e/app.spec.ts:93:1 › UI-03 host keyboard order and tab activation work without pointer input (924ms)
+verify	Run pnpm test:e2e	2026-10-01T23:45:38.1186306Z   ✓   7 [chromium] › tests/e2e/app.spec.ts:98:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (4.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:42.0096131Z   ✓   8 [chromium] › tests/e2e/app.spec.ts:111:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (3.9s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:43.4554373Z   ✓   9 [chromium] › tests/e2e/app.spec.ts:123:1 › M9 minimal non-Ionic embedding uses independently verified package (1.4s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:46.8694807Z   ✓  10 [chromium] › tests/e2e/app.spec.ts:127:1 › M9 automated accessibility host 360px light/dark and enlarged text (3.4s)
+verify	Run pnpm test:e2e	2026-10-01T23:45:51.6548412Z   ✓  11 [chromium] › tests/e2e/app.spec.ts:133:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (4.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:00.6014506Z   ✓  12 [chromium] › tests/e2e/app.spec.ts:148:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (8.9s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:01.3028967Z   ✓  13 [chromium] › tests/e2e/app.spec.ts:164:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (691ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:05.0551374Z   ✓  14 [chromium] › tests/e2e/app.spec.ts:172:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (3.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:05.8391286Z   ✓  15 [chromium] › tests/e2e/boundaries.spec.ts:3:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (718ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:08.5799528Z   ✓  16 [chromium] › tests/e2e/boundaries.spec.ts:15:1 › RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay (2.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:10.2985477Z   ✓  17 [chromium] › tests/e2e/boundaries.spec.ts:25:1 › RUN-03 inactive installed host and production scheduler bound actual Wasm Workers (1.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:10.9965957Z   ✓  18 [chromium] › tests/e2e/hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (680ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:11.8313453Z   ✓  19 [chromium] › tests/e2e/hostile.spec.ts:6:1 › RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority (823ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:12.4002849Z   ✓  20 [chromium] › tests/e2e/hostile.spec.ts:9:1 › RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies (557ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:22.7019091Z   ✓  21 [chromium] › tests/e2e/lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (10.3s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:23.3462685Z   ✓  22 [chromium] › tests/e2e/lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (635ms)
+verify	Run pnpm test:e2e	2026-10-01T23:46:36.5642520Z   ✓  23 [chromium] › tests/e2e/lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (13.2s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:40.2855989Z   ✓  24 [chromium] › tests/e2e/package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (3.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:43.0150679Z   ✓  25 [chromium] › tests/e2e/package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (2.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:50.7013012Z   ✘  26 [chromium] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call (7.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:53.2819475Z   ✓  27 [chromium] › tests/e2e/spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (2.0s)
+verify	Run pnpm test:e2e	2026-10-01T23:46:54.8167022Z   ✓  28 [chromium] › tests/e2e/spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:04.2576338Z   ✓  29 [webkit] › tests/e2e/agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (8.1s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:06.4372178Z   ✓  30 [webkit] › tests/e2e/app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (2.1s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:10.2721856Z   ✓  31 [webkit] › tests/e2e/app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (3.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:11.9709327Z   ✓  32 [webkit] › tests/e2e/app.spec.ts:72:1 › M1 real waiting service-worker update protects an unsaved edit before apply (1.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:15.7094100Z   ✓  33 [webkit] › tests/e2e/app.spec.ts:82:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (3.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:16.7977371Z   ✓  34 [webkit] › tests/e2e/app.spec.ts:93:1 › UI-03 host keyboard order and tab activation work without pointer input (1.1s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:20.6287905Z   ✓  35 [webkit] › tests/e2e/app.spec.ts:98:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (3.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:23.7560373Z   ✓  36 [webkit] › tests/e2e/app.spec.ts:111:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (3.1s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:25.1131063Z   ✓  37 [webkit] › tests/e2e/app.spec.ts:123:1 › M9 minimal non-Ionic embedding uses independently verified package (1.3s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:28.9320243Z   ✓  38 [webkit] › tests/e2e/app.spec.ts:127:1 › M9 automated accessibility host 360px light/dark and enlarged text (3.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:33.9238380Z   ✓  39 [webkit] › tests/e2e/app.spec.ts:133:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (5.0s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:40.1982587Z   ✓  40 [webkit] › tests/e2e/app.spec.ts:148:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (6.3s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:41.1350943Z   ✓  41 [webkit] › tests/e2e/app.spec.ts:164:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (928ms)
+verify	Run pnpm test:e2e	2026-10-01T23:47:44.1649082Z   ✓  42 [webkit] › tests/e2e/app.spec.ts:172:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (3.0s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:44.9275866Z   ✓  43 [webkit] › tests/e2e/boundaries.spec.ts:3:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (701ms)
+verify	Run pnpm test:e2e	2026-10-01T23:47:47.6961541Z   ✓  44 [webkit] › tests/e2e/boundaries.spec.ts:15:1 › RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay (2.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:49.5115105Z   ✓  45 [webkit] › tests/e2e/boundaries.spec.ts:25:1 › RUN-03 inactive installed host and production scheduler bound actual Wasm Workers (1.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:47:50.3226170Z   ✓  46 [webkit] › tests/e2e/hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (798ms)
+verify	Run pnpm test:e2e	2026-10-01T23:47:51.2602866Z   ✓  47 [webkit] › tests/e2e/hostile.spec.ts:6:1 › RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority (926ms)
+verify	Run pnpm test:e2e	2026-10-01T23:47:52.0351742Z   ✓  48 [webkit] › tests/e2e/hostile.spec.ts:9:1 › RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies (762ms)
+verify	Run pnpm test:e2e	2026-10-01T23:48:02.4976251Z   ✓  49 [webkit] › tests/e2e/lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (10.4s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:03.8895902Z   ✓  50 [webkit] › tests/e2e/lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (1.4s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:18.4328614Z   ✓  51 [webkit] › tests/e2e/lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (14.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:22.1599878Z   ✓  52 [webkit] › tests/e2e/package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (3.7s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:25.0055696Z   ✓  53 [webkit] › tests/e2e/package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (2.8s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:32.5794029Z   ✘  54 [webkit] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call (7.4s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:34.3926257Z   ✓  55 [webkit] › tests/e2e/spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (1.2s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.8634943Z   ✓  56 [webkit] › tests/e2e/spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.5s)
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9222188Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9228562Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9240762Z   1) [chromium] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9242576Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9242965Z     Error: expect(locator).toHaveValue(expected) failed
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9243416Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9244056Z     Locator:  locator('iframe').contentFrame().getByLabel('Model')
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9244828Z     Expected: "synthetic-custody"
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9245357Z     Received: ""
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9245753Z     Timeout:  5000ms
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9246010Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9246181Z     Call log:
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9246675Z       - Expect "toHaveValue" with timeout 5000ms
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9247510Z       - waiting for locator('iframe').contentFrame().getByLabel('Model')
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9248501Z         13 × locator resolved to <select>…</select>
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9249134Z            - unexpected value ""
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9249453Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9249467Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9249638Z       40 |  try{
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9257691Z       41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9264612Z     > 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9267811Z          |                                                                                                                                                           ^
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9269542Z       43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9273231Z       44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9279488Z       45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9283516Z         at /home/runner/work/pwacloud/pwacloud/tests/e2e/provider-boundary.spec.ts:42:155
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9284468Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9285332Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9286814Z     test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium/test-failed-1.png
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9288392Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9289219Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9290124Z     Error Context: test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium/error-context.md
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9291069Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9291884Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9293204Z     test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium/trace.zip
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9294556Z     Usage:
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9294755Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9295700Z         pnpm exec playwright show-trace test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium/trace.zip
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9296663Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9297329Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9297833Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9299274Z   2) [webkit] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9300497Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9300823Z     Error: expect(locator).toHaveValue(expected) failed
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9301231Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9301633Z     Locator:  locator('iframe').contentFrame().getByLabel('Model')
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9302343Z     Expected: "synthetic-custody"
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9302681Z     Received: ""
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9302902Z     Timeout:  5000ms
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9303245Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9303336Z     Call log:
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9303625Z       - Expect "toHaveValue" with timeout 5000ms
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9304381Z       - waiting for locator('iframe').contentFrame().getByLabel('Model')
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9304912Z         14 × locator resolved to <select>…</select>
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9305266Z            - unexpected value ""
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9305439Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9305446Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9305530Z       40 |  try{
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9307867Z       41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9311947Z     > 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9313704Z          |                                                                                                                                                           ^
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9315062Z       43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9317474Z       44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9320849Z       45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9323626Z         at /home/runner/work/pwacloud/pwacloud/tests/e2e/provider-boundary.spec.ts:42:155
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9324538Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9325382Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9326815Z     test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit/test-failed-1.png
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9328040Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9328338Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9328799Z     Error Context: test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit/error-context.md
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9329310Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9329711Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9330424Z     test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit/trace.zip
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9330910Z     Usage:
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9331024Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9331526Z         pnpm exec playwright show-trace test-results/provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit/trace.zip
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9332232Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9332599Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9332889Z 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9332973Z   2 failed
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9334222Z     [chromium] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9335770Z     [webkit] › tests/e2e/provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9336516Z   54 passed (3.3m)
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9708924Z [ELIFECYCLE] Command failed with exit code 1.
+verify	Run pnpm test:e2e	2026-10-01T23:48:35.9919100Z ##[error]Process completed with exit code 1.

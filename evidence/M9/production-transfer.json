@@ -1,7 +1,7 @@
 {
   "environment": "Actual Fastify production HTTP compression negotiation, synthetic request, desktop build; physical network remains unverified",
-  "jsGzipBytes": 400264,
-  "criticalAssetsGzipBytes": 404986,
+  "jsGzipBytes": 400724,
+  "criticalAssetsGzipBytes": 405446,
   "assets": [
     {
       "path": "/assets/index-C7pdC0ic.css",
@@ -10,10 +10,10 @@
       "decodedBytes": 19725
     },
     {
-      "path": "/assets/index-SzfOLcL4.js",
+      "path": "/assets/index-DnJlIl6I.js",
       "encoding": "gzip",
-      "transferredBytes": 382572,
-      "decodedBytes": 1653060
+      "transferredBytes": 383033,
+      "decodedBytes": 1654771
     },
     {
       "path": "/assets/p-BriaEJK8-Bxir1Z1P.js",
@@ -22,25 +22,25 @@
       "decodedBytes": 36580
     },
     {
-      "path": "/assets/p-BUVGbkSc-CBjJxJJR.js",
+      "path": "/assets/p-BUVGbkSc-DH8CuLiF.js",
       "encoding": "identity",
       "transferredBytes": 451,
       "decodedBytes": 451
     },
     {
-      "path": "/assets/p-C_NQIzjP-CgPkMDnS.js",
+      "path": "/assets/p-C_NQIzjP-Dlq6oEIm.js",
       "encoding": "gzip",
-      "transferredBytes": 790,
+      "transferredBytes": 789,
       "decodedBytes": 1567
     },
     {
-      "path": "/assets/p-D4NOsSCE-L9_4hw6e.js",
+      "path": "/assets/p-D4NOsSCE-B3tmFeT8.js",
       "encoding": "gzip",
       "transferredBytes": 2020,
       "decodedBytes": 4650
     },
     {
-      "path": "/assets/p-yjLe0sN2-Bjhe8TY_.js",
+      "path": "/assets/p-yjLe0sN2-UMMDay7q.js",
       "encoding": "identity",
       "transferredBytes": 579,
       "decodedBytes": 579

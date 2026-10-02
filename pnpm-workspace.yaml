@@ -12,5 +12,6 @@ engineStrict: true
 saveExact: true
 overrides:
   '@bytecodealliance/jco': '1.34.0'
+  decompress: 'npm:@xhmikosr/decompress@11.1.4'
   playwright: '1.62.1'
   playwright-core: '1.62.1'

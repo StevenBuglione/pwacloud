@@ -1,0 +1,11 @@
+✔ patched toolchain extractor preserves actual weval ZIP plugin strip/filter and exact bytes (922.1598ms)
+✔ patched toolchain extractor rejects actual traversal ZIP before writing outside its output (6.1813ms)
+✔ patched toolchain extractor rejects a plugin-provided escaping symlink before a later write (9.8008ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1130.8449

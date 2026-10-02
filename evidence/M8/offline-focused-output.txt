@@ -1,0 +1,253 @@
+
+[WebServer] (node:26452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:40868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:65484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:58240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+  1) [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Run lifecycle recovery' })
+
+
+      12 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'] as const,pages=await Promise.all(stages.map(()=>context.newPage()));
+      13 |  try{
+    > 14 |   await Promise.all(stages.map(async(stage,index)=>{const page=pages[index]!;await page.goto(`/spikes/lifecycle.html?mode=offline&stage=${stage}&database=offline-${crypto.randomUUID()}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('OFFLINE STALLED: '+stage);}));
+         |                                                                                                                                                                                                                                                           ^
+      15 |   const expires=await Promise.all(pages.map(async page=>z.coerce.number().int().positive().parse(await page.locator('#status').getAttribute('data-expires'))));
+      16 |   await context.setOffline(true);for(const page of pages)expect(await page.evaluate(()=>navigator.onLine)).toBe(false);
+      17 |   await pages[0]!.waitForTimeout(Math.max(0,Math.max(...expires)-Date.now()+100));
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:251
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\test-failed-4.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\test-failed-5.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:49436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+  2) [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Run lifecycle recovery' })
+
+
+      12 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'] as const,pages=await Promise.all(stages.map(()=>context.newPage()));
+      13 |  try{
+    > 14 |   await Promise.all(stages.map(async(stage,index)=>{const page=pages[index]!;await page.goto(`/spikes/lifecycle.html?mode=offline&stage=${stage}&database=offline-${crypto.randomUUID()}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('OFFLINE STALLED: '+stage);}));
+         |                                                                                                                                                                                                                                                           ^
+      15 |   const expires=await Promise.all(pages.map(async page=>z.coerce.number().int().positive().parse(await page.locator('#status').getAttribute('data-expires'))));
+      16 |   await context.setOffline(true);for(const page of pages)expect(await page.evaluate(()=>navigator.onLine)).toBe(false);
+      17 |   await pages[0]!.waitForTimeout(Math.max(0,Math.max(...expires)-Date.now()+100));
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:251
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\test-failed-4.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\test-failed-5.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private-evidence\M8-offline-focused\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+    [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+[WebServer] (node:11888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+
+
+[WebServer] (node:48368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 2 tests using 1 worker
+
+(node:66088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+  1) [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#status')
+    Expected: "OFFLINE STALLED: staging"
+    Received: "PASS: all5 cancellation stages, consent, atomic migration, rollback/edit preservation, generation tombstones, export/delete/restore, lease recovery, no external replay, persistent dependency locks"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for locator('#status')
+        3 × locator resolved to <output id="status"></output>
+          - unexpected value ""
+        11 × locator resolved to <output id="status">PASS: all5 cancellation stages, consent, atomic m…</output>
+           - unexpected value "PASS: all5 cancellation stages, consent, atomic migration, rollback/edit preservation, generation tombstones, export/delete/restore, lease recovery, no external replay, persistent dependency locks"
+
+
+      12 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'] as const,pages=await Promise.all(stages.map(()=>context.newPage()));
+      13 |  try{
+    > 14 |   await Promise.all(stages.map(async(stage,index)=>{const page=pages[index]!;await page.goto(`/spikes/lifecycle.html?mode=offline&stage=${stage}&database=offline-${crypto.randomUUID()}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('OFFLINE STALLED: '+stage);}));
+         |                                                                                                                                                                                                                                                                                                         ^
+      15 |   const expires=await Promise.all(pages.map(async page=>z.coerce.number().int().positive().parse(await page.locator('#status').getAttribute('data-expires'))));
+      16 |   await context.setOffline(true);for(const page of pages)expect(await page.evaluate(()=>navigator.onLine)).toBe(false);
+      17 |   await pages[0]!.waitForTimeout(Math.max(0,Math.max(...expires)-Date.now()+100));
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:297
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:3
+
+    Error Context: artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+(node:32176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+  2) [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#status')
+    Expected: "OFFLINE STALLED: artifact"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 5000ms
+      - waiting for locator('#status')
+        14 × locator resolved to <output id="status"></output>
+           - unexpected value ""
+
+
+      12 |  test.setTimeout(60000);const stages=['staging','artifact','snapshot','migration','commit'] as const,pages=await Promise.all(stages.map(()=>context.newPage()));
+      13 |  try{
+    > 14 |   await Promise.all(stages.map(async(stage,index)=>{const page=pages[index]!;await page.goto(`/spikes/lifecycle.html?mode=offline&stage=${stage}&database=offline-${crypto.randomUUID()}`);await page.getByRole('button',{name:'Run lifecycle recovery'}).click();await expect(page.locator('#status')).toHaveText('OFFLINE STALLED: '+stage);}));
+         |                                                                                                                                                                                                                                                                                                         ^
+      15 |   const expires=await Promise.all(pages.map(async page=>z.coerce.number().int().positive().parse(await page.locator('#status').getAttribute('data-expires'))));
+      16 |   await context.setOffline(true);for(const page of pages)expect(await page.evaluate(()=>navigator.onLine)).toBe(false);
+      17 |   await pages[0]!.waitForTimeout(Math.max(0,Math.max(...expires)-Date.now()+100));
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:297
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\lifecycle.spec.ts:14:3
+
+    Error Context: artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private-evidence\M8-offline-focused-corrected\lifecycle-PKG-04-actual-of-75de8-a-verified-install-and-data-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+    [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data 
+
+[WebServer] (node:40860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] $ tsx scripts/start-demo.ts
+[WebServer] (node:49868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:56784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:21952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/2] [chromium] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+
+(node:46872) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/2] [webkit] › tests\e2e\lifecycle.spec.ts:11:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+  2 passed (26.8s)

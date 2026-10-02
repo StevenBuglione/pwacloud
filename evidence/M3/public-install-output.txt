@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:10604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\public-release\install.spec.ts:34:1 › PKG-03 actual public Sigstore release resolves installs saves and survives reopen without demo trust (4.7s)
+(node:11136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [webkit] › tests\public-release\install.spec.ts:34:1 › PKG-03 actual public Sigstore release resolves installs saves and survives reopen without demo trust (9.9s)
+
+  2 passed (16.6s)

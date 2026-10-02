@@ -1,8 +1,11 @@
 import {PluginStorage} from '../../packages/storage/src/index.ts';
 import {createPluginHost} from '../../packages/controller/src/index.ts';
-import {createEnvelope,verifyPackage,exactBuffer,sha256,decodeInstallPacket,type VerifiedPackage,type TrustRoot} from '../../packages/package-verifier/src/index.ts';
+import {createEnvelope,verifyPackage,exactBuffer,sha256,decodeInstallPacket,validateRevocationPolicy,type VerifiedPackage,type TrustRoot,type RevocationPolicy} from '../../packages/package-verifier/src/index.ts';
+import {verifyCatalogue,type Catalogue} from '../../apps/catalogue/src/index.ts';
 import {resolveOciWithTransport as resolveOci} from '../../packages/registry-client/src/oci.ts';
-import {validateManifest,type Manifest,type Receipt} from '../../packages/contracts/src/index.ts';
+import {validateManifest,PlatformError,type Manifest,type Receipt} from '../../packages/contracts/src/index.ts';
+import {openDB,type DBSchema} from 'idb';
+import {z} from 'zod';
 import feed from '../../examples/manifests/feed-reader.json';
 import notebook from '../../examples/manifests/notebook.json';
 const status=document.getElementById('status')!;
@@ -15,8 +18,52 @@ async function fixture(overrides:Partial<Manifest>={},ui='document.body.textCont
 }
 function assert(ok:unknown,message:string):asserts ok{if(!ok)throw new Error(message);}
 async function denied(action:()=>Promise<unknown>){let failed=false;try{await action();}catch{failed=true;}assert(failed,'Expected a fail-closed denial');}
+interface LeaseAudit extends DBSchema{leases:{key:string;value:unknown}}
+const packetSchema=z.strictObject({archiveBytes:z.instanceof(Uint8Array),envelopeBytes:z.instanceof(Uint8Array),receiptBytes:z.instanceof(Uint8Array),signature:z.instanceof(Uint8Array),envelopeSignature:z.instanceof(Uint8Array)});
 document.getElementById('run')!.addEventListener('click',async()=>{try{
  const query=new URLSearchParams(location.search),mode=query.get('mode');
+ if(mode==='policy-race'){
+  const storage=await PluginStorage.open('policy-race-'+crypto.randomUUID()),old=await fixture(),next=await fixture({version:'0.2.0'}),id=old.manifest.id;
+  const key=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']),root:TrustRoot={keyId:crypto.randomUUID(),publicKey:await crypto.subtle.exportKey('jwk',key.publicKey),publisherIdentity:'SYNTHETIC HOST CATALOGUE AUTHORITY',policyVersion:'test',demoOnly:true};
+  async function signedPolicy(sequence:number,revokedDigests:string[],minimumSequence:number):Promise<RevocationPolicy>{
+   const catalogue:Catalogue={format:'pwacloud.catalogue.v1',keyId:root.keyId,sequence,issuedAt:new Date(Date.now()-1000).toISOString(),expiresAt:new Date(Date.now()+86400000).toISOString(),revokedDigests,entries:[]};const bytes=encoder.encode(JSON.stringify(catalogue)),signature=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},key.privateKey,exactBuffer(bytes)));
+   const checked=await verifyCatalogue(bytes,signature,[root],{allowDemo:true,minimumSequence});return validateRevocationPolicy({sequence:checked.sequence,issuedAt:checked.issuedAt,expiresAt:checked.expiresAt,revokedDigests:[...checked.revokedDigests]});
+  }
+  let policy=await signedPolicy(0,[],0),armed=false,changed=false;
+  const host=createPluginHost({storage,revocationPolicy:()=>policy,migrate:async()=>JSON.stringify({format:'pwacloud.backup.v1',namespace:id,records:[{key:'document',value:'new package data must not commit'}]}),onInstallStage:async stage=>{
+   if(!armed||stage!=='commit')return;
+   const pending=await storage.getInstall(id);assert(pending?.digest===old.envelope.archive.sha256&&pending.state==='updating'&&!pending.enabled,'Update was not frozen at commit boundary');z.object({digest:z.literal(next.envelope.archive.sha256),fence:z.number().int().positive()}).passthrough().parse(await storage.getJournal(id));assert(policy.sequence===0,'Update did not begin with policy zero');
+   const refresh=new Promise<void>(resolve=>window.addEventListener('refresh-revocation-policy',()=>resolve(),{once:true}));status.textContent='POLICY STALLED: verified update before commit';await refresh;
+   policy=await signedPolicy(1,[next.envelope.archive.sha256],policy.sequence);assert(policy.sequence===1&&policy.revokedDigests.includes(next.envelope.archive.sha256),'Fresh signed policy did not revoke pending package');changed=true;
+  }});
+  await host.install(old,['cache']);await storage.put(id,'document','saved before signed policy refresh',52428800);const original=await storage.getInstall(id);assert(original,'Initial policy-zero installation missing');armed=true;
+  let failure:unknown;try{await host.update(next,['cache']);}catch(error){failure=error;}
+  assert(changed&&failure instanceof PlatformError&&failure.code==='revoked-package','Changed trusted policy did not reject pending commit');await host.recover();const final=await storage.getInstall(id);
+  assert(final?.enabled&&final.state==='ready'&&final.digest===old.envelope.archive.sha256&&final.manifest.version===old.manifest.version&&final.grants.join(',')==='cache','Policy race replaced old package, consent or usable pointer');assert(final.generation>original.generation,'Failed frozen update did not fence old instances');assert(await storage.get(id,'document')==='saved before signed policy refresh','Policy race committed new migration data');assert(await storage.getJournal(id)===undefined,'Policy race retained failed journal');
+  const cached=z.object({packet:packetSchema}).passthrough().parse(await storage.getArtifact(final.digest));const verified=await verifyPackage(cached.packet,[old.root],{allowDemo:true});assert(verified.envelope.archive.sha256===final.digest,'Policy race corrupted signed old package');
+  status.dataset.observation=JSON.stringify({initialSequence:0,currentSequence:policy.sequence,signedCatalogueVerified:true,error:'revoked-package',oldPointerPreserved:true,oldDataPreserved:true,journalCleared:true});host.dispose();storage.close();status.textContent='PASS: fresh signed revocation policy changed before commit; old verified package and data preserved';return;
+ }
+ if(mode==='offline'){
+  const stage=z.enum(['staging','artifact','snapshot','migration','commit']).parse(query.get('stage')),database=z.string().min(1).parse(query.get('database'));
+  const storage=await PluginStorage.open(database),old=await fixture(),next=await fixture({version:'0.2.0'}),id=old.manifest.id,base=createPluginHost({storage});
+  await base.install(old,['cache']);await storage.put(id,'document','before offline transition',52428800);
+  const recover=createPluginHost({storage});let frozenRevision=0,recoveredGeneration=0;
+  const interrupted=createPluginHost({storage,onInstallStage:async current=>{
+   if(current!==stage)return;
+   const journal=z.object({stage:z.literal('staging'),digest:z.literal(next.envelope.archive.sha256),fence:z.number().int().positive()}).passthrough().parse(await storage.getJournal(id));
+   const audit=await openDB<LeaseAudit>(database);const lease=z.strictObject({owner:z.string(),fence:z.number().int().positive(),expires:z.number().int().positive()}).parse(await audit.get('leases','install/'+id));audit.close();assert(lease.fence===journal.fence,'Stalled stage did not retain its actual lease');
+   const waiting=new Promise<void>(resolve=>window.addEventListener('recover-offline',()=>resolve(),{once:true}));status.dataset.expires=String(lease.expires);status.textContent='OFFLINE STALLED: '+stage;await waiting;
+   assert(!navigator.onLine,'Browser did not enter actual offline state');let blocked=false;try{await fetch('/health?offline-stage='+stage,{cache:'no-store'});}catch{blocked=true;}assert(blocked,'Actual browser offline transition did not block HTTP');
+   await recover.recover();const installed=await storage.getInstall(id);assert(installed?.enabled&&installed.state==='ready'&&installed.digest===old.envelope.archive.sha256,'Offline journal recovery did not restore valid old pointer');
+   assert(installed.manifest.version===old.manifest.version&&installed.grants.join(',')==='cache','Offline recovery changed package metadata or consent');assert(await storage.get(id,'document')==='before offline transition','Offline recovery lost old namespace data');assert(await storage.getJournal(id)===undefined,'Offline recovery retained expired journal');
+   const cached=z.object({packet:packetSchema}).passthrough().parse(await storage.getArtifact(installed.digest));const verified=await verifyPackage(cached.packet,[old.root],{allowDemo:true});assert(verified.envelope.archive.sha256===installed.digest&&JSON.stringify(verified.manifest)===JSON.stringify(installed.manifest),'Recovered old installation was not a fully verified package');
+   frozenRevision=installed.revision;recoveredGeneration=installed.generation;
+  },migrate:async()=>JSON.stringify({format:'pwacloud.backup.v1',namespace:id,records:[{key:'document',value:'new migration must not partially appear'}]})});
+  let failure:unknown;try{await interrupted.update(next,['cache']);}catch(error){failure=error;}
+  assert(failure instanceof PlatformError&&failure.code==='stale-fence','Resumed old offline actor did not reject its expired fence');
+  await recover.recover();const final=await storage.getInstall(id);assert(final?.enabled&&final.state==='ready'&&final.digest===old.envelope.archive.sha256&&final.generation===recoveredGeneration&&final.revision===frozenRevision,'Stale actor overwrote recovered installation');assert(await storage.get(id,'document')==='before offline transition','Stale offline migration changed recovered data');assert(await storage.getJournal(id)===undefined,'Stale offline actor resurrected journal');
+  status.dataset.observation=JSON.stringify({stage,offline:true,httpBlocked:true,verifiedOldPackage:true,dataPreserved:true,journalCleared:true,staleFenceDenied:true,generation:final.generation});interrupted.dispose();recover.dispose();base.dispose();storage.close();status.textContent='PASS: actual offline journal recovery '+stage;return;
+ }
  if(mode==='crash'){
   const storage=await PluginStorage.open('crash-'+crypto.randomUUID());let failures=0;
   const ui=`window.addEventListener('pwacloud-ready',async()=>{const port=window.__pwacloudPort;let serial=0;const pending=new Map();port.onmessage=e=>{const p=pending.get(e.data.id);if(p){pending.delete(e.data.id);p(e.data);}};const call=()=>new Promise(resolve=>{const id='fault-'+(++serial);pending.set(id,resolve);port.postMessage({v:1,id,type:'request',method:'commands.invoke',params:{command:'analyze',text:'synthetic crash fixture'}});});const first=await call();if(first.ok||first.error.code!=='timeout')throw Error('No real watchdog timeout');const backoff=await call();if(backoff.ok||backoff.error.code!=='backoff')throw Error('No crash backoff');await new Promise(r=>setTimeout(r,1100));await call();await new Promise(r=>setTimeout(r,2100));await call();});`;

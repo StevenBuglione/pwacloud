@@ -7,7 +7,7 @@ import { resolve } from 'node:path';
 import { EventEmitter } from 'node:events';
 import { createServer,type Server as CallbackServer } from 'node:http';
 import { validateManifest,PlatformError,type Permission } from '../../../packages/contracts/src/index.ts';
-import { verifyInstallPacket,validateTrustRoots,type TrustRoot,type VerifiedPackage } from '../../../packages/package-verifier/src/index.ts';
+import { verifyInstallPacket,validateTrustRoots,validateRevocationPolicy,assertRevocationPolicy,type TrustRoot,type VerifiedPackage,type RevocationPolicy } from '../../../packages/package-verifier/src/index.ts';
 import { secureFetch } from '../../../packages/registry-client/src/secure-fetch.ts';
 import { networkAllowed } from '../../../src/reference/policy.ts';
 import { ChatGptPlanProvider,DemoProvider,ProviderError,schema,type InferenceProvider,type ProviderEvent } from '../../../packages/provider-chatgpt/src/index.ts';
@@ -19,6 +19,7 @@ export type RuntimeConfig={
   shellRoot?:string;minimalRoot?:string;artifactRoot?:string;trustRoots?:readonly TrustRoot[];provider?:InferenceProvider;
   registryResolver?:(repository:string,version?:string)=>Promise<unknown>;
   prepareGuest?:(pkg:VerifiedPackage)=>Promise<void>;
+  revocationPolicy?:()=>RevocationPolicy|undefined|Promise<RevocationPolicy|undefined>;
   requestLimitPerHour?:number;accountConcurrency?:number;maximumOutputBytes?:number;maximumElapsedMs?:number;disconnectGraceMs?:number;now?:()=>number;
   /** Supplied only by the reviewed local release gate, never from an HTTP request or ordinary mode flag. */
   pluginScopeAuthorization?:()=>Promise<boolean>;
@@ -52,6 +53,8 @@ export async function createRuntime(config:RuntimeConfig={}){
   if(!candidate||candidate.mode!==mode)throw new ProviderError('policy-blocked','Mode requires its explicit local provider.');
   const provider:InferenceProvider=candidate;
   const now=config.now??Date.now;const database=openDatabase(config.databasePath??':memory:');const events=new EventEmitter();events.setMaxListeners(128);
+  let knownRevocation:RevocationPolicy|undefined;
+  async function revocationPolicy(){const incoming=await config.revocationPolicy?.();if(incoming){const checked=validateRevocationPolicy(incoming);if(knownRevocation&&checked.sequence<knownRevocation.sequence)throw new PlatformError('stale-revocation');knownRevocation={...checked,revokedDigests:[...checked.revokedDigests]};}return knownRevocation;}
   const active=new Map<string,AbortController>();const tasks=new Map<string,Promise<void>>();const pairingAttempts=new Map<string,{count:number;expiresAt:number}>();
   const disconnectTimers=new Map<string,ReturnType<typeof setTimeout>>();let providerSelectionEpoch=0;
   let streamCount=0;
@@ -174,8 +177,9 @@ export async function createRuntime(config:RuntimeConfig={}){
   app.delete('/v1/session',async(request,reply)=>{const owner=session(request,true);database.prepare('UPDATE sessions SET revoked=1 WHERE id_hash=?').run(owner.id_hash);for(const raw of database.prepare("SELECT * FROM runs WHERE session_hash=? AND state IN ('reserved','running')").all(owner.id_hash))cancelRun(parseRun(raw).id,'revoked');reply.clearCookie(cookieName,{path:'/'});return {signedOut:true};});
   app.get('/v1/provider/status',async request=>{session(request);return {...provider.status(),pluginInferenceAuthorized:mode==='demo'||Boolean(config.pluginScopeAuthorization&&await config.pluginScopeAuthorization())};});
   app.get('/v1/trust',async request=>{session(request);const roots=(config.trustRoots??[]).filter(root=>!root.demoOnly||(mode==='demo'&&isLoopback(host)));return roots.length?validateTrustRoots(roots):[];});
+  app.get('/v1/catalogue/policy',async request=>{session(request);const policy=await revocationPolicy();return policy?{state:Date.parse(policy.issuedAt)<=now()&&Date.parse(policy.expiresAt)>now()?'current':'expired',policy}:{state:'unknown'};});
   app.get('/v1/provider/models',async request=>{session(request);return provider.models();});
-  const approveInstall=async(request:FastifyRequest)=>{const owner=session(request,true);const body=parseInstallInput(request.body);const verified=await verifyInstallPacket(body.packet,config.trustRoots??[],{allowDemo:mode==='demo'&&isLoopback(host)});if(verified.manifest.service){if(!config.prepareGuest)throw new ProviderError('unsupported-capability','Trusted guest preparation is not configured.');await config.prepareGuest(verified);}session(request,true);return registerInstallation(owner.workspace_id,verified,body.grants,body.expectedGeneration);};
+  const approveInstall=async(request:FastifyRequest)=>{const owner=session(request,true);const body=parseInstallInput(request.body);const verified=await verifyInstallPacket(body.packet,config.trustRoots??[],{allowDemo:mode==='demo'&&isLoopback(host),revocationPolicy:await revocationPolicy(),now:new Date(now())});if(verified.manifest.service){if(!config.prepareGuest)throw new ProviderError('unsupported-capability','Trusted guest preparation is not configured.');await config.prepareGuest(verified);}session(request,true);await revocationPolicy();if(knownRevocation)assertRevocationPolicy(verified,knownRevocation,new Date(now()));return registerInstallation(owner.workspace_id,verified,body.grants,body.expectedGeneration);};
   app.post('/v1/installs',approveInstall);app.post('/v1/install/approve',approveInstall);
   app.get('/v1/installs',async request=>{const owner=session(request);return database.prepare('SELECT * FROM installs WHERE workspace_id=? AND state=?').all(owner.workspace_id,'active').map(raw=>{const install=parseInstall(raw);return {installId:install.id,pluginId:install.plugin_id,digest:install.digest,generation:install.generation,manifest:validateManifest(JSON.parse(install.manifest_json))};});});
   app.get('/v1/installs/:id/registration',async request=>{const owner=session(request),{id}=parseId(request.params);const raw=database.prepare('SELECT * FROM installs WHERE workspace_id=? AND id=?').get(owner.workspace_id,id);if(!raw)throw new ProviderError('not-found','Installation has never been registered.',false,404);const install=parseInstall(raw);const grants=database.prepare('SELECT * FROM grants WHERE workspace_id=? AND install_id=? AND revoked=0').all(owner.workspace_id,id).map(parseGrant).filter(item=>install.state==='active'&&install.receipt_expires_at>now()&&install.account_generation===owner.generation&&item.generation===install.generation&&item.account_generation===owner.generation&&(item.expires_at===null||item.expires_at>now())).map(item=>item.id).sort();return {installId:install.id,generation:install.generation,state:install.state,digest:install.digest,grants};});
@@ -183,7 +187,7 @@ export async function createRuntime(config:RuntimeConfig={}){
   app.delete('/v1/installs/:id',async request=>{const owner=session(request,true),{id}=parseId(request.params),input=parseDeleteInstall(request.body??{});const next=transaction(database,()=>{const raw=database.prepare('SELECT * FROM installs WHERE workspace_id=? AND id=?').get(owner.workspace_id,id);if(!raw)throw new ProviderError('not-found','Installation has never been registered.',false,404);const install=parseInstall(raw);if(input.expectedGeneration!==install.generation)throw new ProviderError('conflict','Installation changed before removal; review the current registration.',false,409);if(install.state==='uninstalled')return install.generation;const generation=install.generation+1;database.prepare('DELETE FROM grants WHERE workspace_id=? AND install_id=?').run(owner.workspace_id,id);database.prepare("UPDATE installs SET state='uninstalled',generation=? WHERE workspace_id=? AND id=?").run(generation,owner.workspace_id,id);return generation;});cancelInstallation(owner.workspace_id,id);return {uninstalled:true,generation:next};});
   const resolveInstall=async(request:FastifyRequest)=>{
     session(request,request.method==='POST');const parseResolve=schema<{repository:string;version?:string}>({type:'object',additionalProperties:false,required:['repository'],properties:{repository:{type:'string',minLength:1,maxLength:2048},version:{type:'string',minLength:1,maxLength:128}}});const input=parseResolve(request.method==='POST'?request.body:request.query);
-    if(!config.registryResolver)throw new ProviderError('provider-unavailable','Release resolver is not configured.',false,503);return config.registryResolver(input.repository,input.version);
+    if(!config.registryResolver)throw new ProviderError('provider-unavailable','Release resolver is not configured.',false,503);const packet=await config.registryResolver(input.repository,input.version);await verifyInstallPacket(packet,config.trustRoots??[],{allowDemo:mode==='demo'&&isLoopback(host),revocationPolicy:await revocationPolicy(),now:new Date(now())});return packet;
   };
   app.get('/v1/registry/resolve',resolveInstall);app.post('/v1/registry/resolve',resolveInstall);app.post('/v1/installs/resolve',resolveInstall);
   app.post('/v1/runs',async(request,reply)=>{

@@ -1,0 +1,8 @@
+{
+  "commit": "2364a6813c2319b604bab76beff448aa3c26bab7",
+  "startedAt": "2026-10-01T23:58:03.9295267Z",
+  "finishedAt": "2026-10-02T00:03:24.5207785Z",
+  "exitCode": 0,
+  "command": "pnpm verify:all",
+  "environment": "Windows x64 Node 24.19.0; Chromium/WebKit 360x800"
+}

@@ -23,3 +23,7 @@ The tested fixture archives in production revision `917ba79b6cb1afab` were:
 | Canvas Board | 697515 | `0434c93c6d854b019e81371a44186dd2f64f3cc1ebb144dcd80c2994097c98d0` |
 
 These are **demo-only fixture signatures**, not Sigstore publication or a safety certification. The subsequent New-note durability source fix requires a fresh build and its newly added assertion; later archive digests must be recorded by that build. Screenshots named for each browser and app are retained in this directory. Physical screen-reader, touch and device eviction gates remain separate.
+
+## Integrated qualification records
+
+Historical slice results above retain their original scope. The complete baseline2364a6813c2319b604bab76beff448aa3c26bab7 passed188 unit,25 integration,20 hostile and56 browser checks locally and in clean Ubuntu Actions run36943590577. Later offline/revocation additions must match their own production build and run. Current source commit, command exit codes and full outputs are recorded centrally in `evidence/M10/local-verification.json`, `ci-current.json` after capture, `verify-all-final-output.txt`, `evidence/browser-results.json`, and `evidence/VERIFICATION.md`. All57 exact contracts and remaining external gates are mapped in `evidence/ACCEPTANCE-DISPOSITION.md`. No historical result certifies later edits.

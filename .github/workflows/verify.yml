@@ -28,6 +28,7 @@ jobs:
         with:
           python-version: '3.13'
       - run: pnpm install --frozen-lockfile
+      - run: pnpm audit
       - run: rustup toolchain install 1.93.0 --profile minimal --target wasm32-unknown-unknown
       - run: python -m pip install -r requirements-dev.txt
       - run: pnpm audit:handoff && pnpm validate:contracts

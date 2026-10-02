@@ -2,7 +2,7 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { Verifier,toSignedEntity,type TrustMaterial } from '@sigstore/verify';
 import { bundleFromJSON,isBundleWithDsseEnvelope } from '@sigstore/bundle';
 import { PlatformError,isEnvelope,type ReleaseEnvelope,type Receipt } from '../../contracts/src/index';
-import { parseJson,sha256,exactBuffer,verifyPackage,type TrustRoot,type PackageInput,type VerifiedPackage } from './index';
+import { parseJson,sha256,exactBuffer,verifyPackage,assertRevocationPolicy,type TrustRoot,type PackageInput,type VerifiedPackage,type RevocationPolicy } from './index';
 type Statement={_type:string;subject:{name:string;digest:{sha256:string}}[];predicateType:string;predicate:{buildDefinition:{buildType:string;externalParameters:{workflow:{repository:string;ref:string;path:string}};resolvedDependencies:{uri:string;digest:{gitCommit:string}}[]};runDetails:{builder:{id:string}}}};
 export type ProvenancePolicy={issuer:'https://token.actions.githubusercontent.com';workflowIdentity:string;builderId:string;repository:string;sourceCommit:string;workflowPath:string;sourceRef:string};
 const ajv=new Ajv2020({strict:true});
@@ -28,13 +28,15 @@ export function verifySigstoreBlob(bundle:unknown,bytes:Uint8Array,trust:TrustMa
   try {const parsed=bundleFromJSON(bundle);if(isBundleWithDsseEnvelope(parsed)) throw new Error();const signer=new Verifier(trust,{tlogThreshold:1,ctlogThreshold:1}).verify(toSignedEntity(parsed,Buffer.from(bytes)),{subjectAlternativeName:policy.workflowIdentity,extensions:{issuer:policy.issuer}});if(signer.identity?.subjectAlternativeName!==policy.workflowIdentity || signer.identity.extensions?.issuer!==policy.issuer) throw new Error();} catch {throw new PlatformError('invalid-sigstore-signature');}
 }
 export type AttestedRelease={archiveBytes:Uint8Array;envelopeBytes:Uint8Array;archiveBundle:unknown;envelopeBundle:unknown;provenanceBundle:unknown};
-export async function issueVerificationReceipt(input:AttestedRelease,trust:TrustMaterial,policy:ProvenancePolicy,issuer:{root:TrustRoot;signingKey:CryptoKey;revocationSequence:number;revokedDigests:readonly string[];now?:Date;lifetimeMs?:number}):Promise<VerifiedPackage> {
+export async function issueVerificationReceipt(input:AttestedRelease,trust:TrustMaterial,policy:ProvenancePolicy,issuer:{root:TrustRoot;signingKey:CryptoKey;revocationSequence:number;revokedDigests:readonly string[];revocationPolicy?:RevocationPolicy;now?:Date;lifetimeMs?:number}):Promise<VerifiedPackage> {
   const envelope=parseJson(input.envelopeBytes);if(!isEnvelope(envelope)) throw new PlatformError('invalid-envelope');
   if(issuer.root.demoOnly || issuer.root.publisherIdentity!==policy.workflowIdentity || issuer.signingKey.type!=='private' || issuer.signingKey.algorithm.name!=='ECDSA') throw new PlatformError('invalid-receipt-issuer');
-  if(input.archiveBytes.length!==envelope.archive.bytes || await sha256(input.archiveBytes)!==envelope.archive.sha256 || issuer.revokedDigests.includes(envelope.archive.sha256)) throw new PlatformError('digest-mismatch');
+  if(issuer.revokedDigests.includes(envelope.archive.sha256))throw new PlatformError('revoked-package');
+  if(input.archiveBytes.length!==envelope.archive.bytes || await sha256(input.archiveBytes)!==envelope.archive.sha256) throw new PlatformError('digest-mismatch');
   verifySigstoreBlob(input.archiveBundle,input.archiveBytes,trust,policy);verifySigstoreBlob(input.envelopeBundle,input.envelopeBytes,trust,policy);verifySigstoreProvenance(input.provenanceBundle,trust,envelope,policy,await sha256(input.envelopeBytes));
   const lifetime=issuer.lifetimeMs??86400000;if(!Number.isSafeInteger(lifetime) || lifetime<1 || lifetime>7*86400000 || !Number.isSafeInteger(issuer.revocationSequence) || issuer.revocationSequence<0) throw new PlatformError('invalid-receipt-policy');const now=issuer.now??new Date();
   const receipt:Receipt={format:'pwacloud.verification.v1',keyId:issuer.root.keyId,pluginId:envelope.pluginId,version:envelope.version,archiveSha256:envelope.archive.sha256,manifestSha256:envelope.manifestSha256,publisherIdentity:policy.workflowIdentity,policyVersion:issuer.root.policyVersion,verifiedAt:now.toISOString(),expiresAt:new Date(now.getTime()+lifetime).toISOString(),revocationSequence:issuer.revocationSequence};const receiptBytes=new TextEncoder().encode(JSON.stringify(receipt));
+  if(issuer.revocationPolicy)assertRevocationPolicy({receipt,envelope},issuer.revocationPolicy,now);
   const signature=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},issuer.signingKey,exactBuffer(receiptBytes))),envelopeSignature=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},issuer.signingKey,exactBuffer(input.envelopeBytes)));
-  const packet:PackageInput={archiveBytes:input.archiveBytes,envelopeBytes:input.envelopeBytes,receiptBytes,signature,envelopeSignature};return verifyPackage(packet,[issuer.root],{now,revocationSequence:issuer.revocationSequence,revokedDigests:issuer.revokedDigests,expectedRepository:policy.repository});
+  const packet:PackageInput={archiveBytes:input.archiveBytes,envelopeBytes:input.envelopeBytes,receiptBytes,signature,envelopeSignature};return verifyPackage(packet,[issuer.root],{now,revocationSequence:issuer.revocationSequence,revokedDigests:issuer.revokedDigests,revocationPolicy:issuer.revocationPolicy,expectedRepository:policy.repository});
 }

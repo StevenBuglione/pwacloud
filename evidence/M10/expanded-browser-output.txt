@@ -1,0 +1,160 @@
+$ playwright test
+[WebServer] (node:67160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+[WebServer] (node:18772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:56236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 56 tests using 1 worker
+
+(node:56904) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (644ms)
+  ok  2 [chromium] › tests\e2e\app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (3.1s)
+  ok  3 [chromium] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (9.7s)
+  ok  4 [chromium] › tests\e2e\app.spec.ts:72:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.0s)
+  ok  5 [chromium] › tests\e2e\app.spec.ts:82:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (2.4s)
+  ok  6 [chromium] › tests\e2e\app.spec.ts:93:1 › UI-03 host keyboard order and tab activation work without pointer input (541ms)
+  ok  7 [chromium] › tests\e2e\app.spec.ts:98:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (3.0s)
+  ok  8 [chromium] › tests\e2e\app.spec.ts:111:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (2.6s)
+  ok  9 [chromium] › tests\e2e\app.spec.ts:123:1 › M9 minimal non-Ionic embedding uses independently verified package (916ms)
+  ok 10 [chromium] › tests\e2e\app.spec.ts:127:1 › M9 automated accessibility host 360px light/dark and enlarged text (2.2s)
+  ok 11 [chromium] › tests\e2e\app.spec.ts:133:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (3.3s)
+  ok 12 [chromium] › tests\e2e\app.spec.ts:148:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (6.0s)
+  ok 13 [chromium] › tests\e2e\app.spec.ts:164:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (526ms)
+  ok 14 [chromium] › tests\e2e\app.spec.ts:172:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (2.7s)
+  ok 15 [chromium] › tests\e2e\boundaries.spec.ts:3:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (472ms)
+  ok 16 [chromium] › tests\e2e\boundaries.spec.ts:15:1 › RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay (2.2s)
+  ok 17 [chromium] › tests\e2e\boundaries.spec.ts:25:1 › RUN-03 inactive installed host and production scheduler bound actual Wasm Workers (1.6s)
+  ok 18 [chromium] › tests\e2e\hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (627ms)
+  ok 19 [chromium] › tests\e2e\hostile.spec.ts:6:1 › RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority (812ms)
+  ok 20 [chromium] › tests\e2e\hostile.spec.ts:9:1 › RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies (479ms)
+  ok 21 [chromium] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (9.8s)
+  ok 22 [chromium] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (482ms)
+  ok 23 [chromium] › tests\e2e\lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (11.9s)
+  ok 24 [chromium] › tests\e2e\package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (3.0s)
+  ok 25 [chromium] › tests\e2e\package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (2.4s)
+  x  26 [chromium] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call (7.3s)
+(node:54040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 27 [chromium] › tests\e2e\spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (1.2s)
+  ok 28 [chromium] › tests\e2e\spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.3s)
+(node:60104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 29 [webkit] › tests\e2e\agent.spec.ts:5:1 › AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission (2.6s)
+  ok 30 [webkit] › tests\e2e\app.spec.ts:34:1 › M1 phone routes, preferences, real IndexedDB and production offline relaunch (7.0s)
+  ok 31 [webkit] › tests\e2e\app.spec.ts:54:1 › M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload (19.1s)
+  ok 32 [webkit] › tests\e2e\app.spec.ts:72:1 › M1 real waiting service-worker update protects an unsaved edit before apply (2.2s)
+  ok 33 [webkit] › tests\e2e\app.spec.ts:82:1 › M1 independent tab state, host Settings return, internal Back, route reload and pinned tools (8.8s)
+  ok 34 [webkit] › tests\e2e\app.spec.ts:93:1 › UI-03 host keyboard order and tab activation work without pointer input (1.6s)
+  ok 35 [webkit] › tests\e2e\app.spec.ts:98:1 › M5 Canvas selected note approval, denied escalation, non-drag move and persistence (11.4s)
+  ok 36 [webkit] › tests\e2e\app.spec.ts:111:1 › Deterministic HTTP broker interception › M5 Lit feed virtual list, broker permission denial and offline snapshot (10.3s)
+  ok 37 [webkit] › tests\e2e\app.spec.ts:123:1 › M9 minimal non-Ionic embedding uses independently verified package (3.1s)
+  ok 38 [webkit] › tests\e2e\app.spec.ts:127:1 › M9 automated accessibility host 360px light/dark and enlarged text (4.1s)
+  ok 39 [webkit] › tests\e2e\app.spec.ts:133:1 › M9 accessibility inside all isolated frames at 200% text and reduced motion (9.3s)
+  ok 40 [webkit] › tests\e2e\app.spec.ts:148:1 › M9 twenty cached activations retain one rich frame and meet emulated p95 budget (27.0s)
+  ok 41 [webkit] › tests\e2e\app.spec.ts:164:1 › Deterministic provider-mode response boundary › M6 a real-mode app session cannot be labeled synthetic demo authorization (1.6s)
+  ok 42 [webkit] › tests\e2e\app.spec.ts:172:1 › M6 explicitly labeled demo streaming saves output and revocation blocks access (9.6s)
+  ok 43 [webkit] › tests\e2e\boundaries.spec.ts:3:1 › APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries (2.3s)
+  ok 44 [webkit] › tests\e2e\boundaries.spec.ts:15:1 › RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay (3.9s)
+  ok 45 [webkit] › tests\e2e\boundaries.spec.ts:25:1 › RUN-03 inactive installed host and production scheduler bound actual Wasm Workers (1.8s)
+  ok 46 [webkit] › tests\e2e\hostile.spec.ts:2:1 › RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports (1.3s)
+  ok 47 [webkit] › tests\e2e\hostile.spec.ts:6:1 › RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority (1.6s)
+  ok 48 [webkit] › tests\e2e\hostile.spec.ts:9:1 › RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies (1.1s)
+  ok 49 [webkit] › tests\e2e\lifecycle.spec.ts:2:1 › RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin (11.6s)
+  ok 50 [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery (14.7s)
+  ok 51 [webkit] › tests\e2e\lifecycle.spec.ts:4:1 › PKG-04 UPD-02 actual page termination at every journal stage restores the old installation (14.2s)
+  ok 52 [webkit] › tests\e2e\package.spec.ts:11:3 › CLI react scaffold installs and renders through the actual opaque loader at 360px (4.3s)
+  ok 53 [webkit] › tests\e2e\package.spec.ts:11:3 › CLI lit scaffold installs and renders through the actual opaque loader at 360px (3.5s)
+  x  54 [webkit] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call (9.6s)
+(node:62340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 55 [webkit] › tests\e2e\spikes.spec.ts:2:1 › FND-02 opaque React and Lit bundles, real CSP and navigation residual (1.9s)
+  ok 56 [webkit] › tests\e2e\spikes.spec.ts:13:1 › FND-03 real Component Model artifact in Worker and watchdog (1.6s)
+
+
+  1) [chromium] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  locator('iframe').contentFrame().getByLabel('Model')
+    Expected: "synthetic-custody"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 5000ms
+      - waiting for locator('iframe').contentFrame().getByLabel('Model')
+        13 × locator resolved to <select>…</select>
+           - unexpected value ""
+
+
+      40 |  try{
+      41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();
+    > 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');
+         |                                                                                                                                                           ^
+      43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);
+      44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);
+      45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\provider-boundary.spec.ts:42:155
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  locator('iframe').contentFrame().getByLabel('Model')
+    Expected: "synthetic-custody"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 5000ms
+      - waiting for locator('iframe').contentFrame().getByLabel('Model')
+        13 × locator resolved to <select>…</select>
+           - unexpected value ""
+
+
+      40 |  try{
+      41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();
+    > 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');
+         |                                                                                                                                                           ^
+      43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);
+      44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);
+      45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();
+        at D:\Users\steve\Documents\ChatGPT\pwacloud\tests\e2e\provider-boundary.spec.ts:42:155
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+    [webkit] › tests\e2e\provider-boundary.spec.ts:21:1 › AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call 
+  54 passed (4.7m)
+[ELIFECYCLE] Command failed with exit code 1.

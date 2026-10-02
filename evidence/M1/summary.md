@@ -17,3 +17,7 @@ The TypeScript service worker precaches built shell and trusted guest assets, in
 The final app specification also includes the real waiting-service-worker update case, the explicit real-mode/demo boundary case and an immediate New-note draft durability assertion. Those additions and the corrected readiness instrumentation require the root's final build and browser suite; they are not claimed passed by the earlier 20-case record.
 
 This is Windows Playwright evidence. It does not prove physical phone installation, software keyboard behavior, edge gestures, screen-reader operation, an eligible ChatGPT account, or hosted authorization. The final integration commit and authoritative case dispositions belong to the root progress and release evidence records.
+
+## Integrated qualification records
+
+Historical slice results above retain their original scope. The complete baseline2364a6813c2319b604bab76beff448aa3c26bab7 passed188 unit,25 integration,20 hostile and56 browser checks locally and in clean Ubuntu Actions run36943590577. Later offline/revocation additions must match their own production build and run. Current source commit, command exit codes and full outputs are recorded centrally in `evidence/M10/local-verification.json`, `ci-current.json` after capture, `verify-all-final-output.txt`, `evidence/browser-results.json`, and `evidence/VERIFICATION.md`. All57 exact contracts and remaining external gates are mapped in `evidence/ACCEPTANCE-DISPOSITION.md`. No historical result certifies later edits.

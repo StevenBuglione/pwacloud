@@ -1151,6 +1151,69 @@
           }
         ]
       }
+    },
+    "/v1/catalogue/policy": {
+      "get": {
+        "operationId": "cataloguePolicyStatus",
+        "description": "Authenticated signed-catalogue policy freshness. Unknown means no trusted catalogue has ever been configured; it is not a current revocation assertion. Known expired metadata remains recorded and blocks new admissions.",
+        "security": [
+          {
+            "appSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CataloguePolicyStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No valid application session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Missing, revoked, stale or unapproved capability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Admission limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1353,6 +1416,75 @@
             "minimum": 1
           }
         }
+      },
+      "RevocationPolicy": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sequence",
+          "issuedAt",
+          "expiresAt",
+          "revokedDigests"
+        ],
+        "properties": {
+          "sequence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "issuedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "revokedDigests": {
+            "type": "array",
+            "maxItems": 4096,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      },
+      "CataloguePolicyStatus": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state"
+            ],
+            "properties": {
+              "state": {
+                "const": "unknown"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "policy"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "current",
+                  "expired"
+                ]
+              },
+              "policy": {
+                "$ref": "#/components/schemas/RevocationPolicy"
+              }
+            }
+          }
+        ]
       }
     }
   }

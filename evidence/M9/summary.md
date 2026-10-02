@@ -15,3 +15,7 @@ The final instrumentation measures from the host activation mark to Notebook's a
 A trusted host encoding optimization uses bounded cached base64 and chunked encoding while retaining fresh principals, nonces, ports and per-mount asset verification. The production build now emits actual compressed static representations rather than relying only on a Vite gzip estimate. Final server transfer checks belong to the root integration evidence.
 
 No result here claims a real iPhone, Android, VoiceOver, TalkBack, OS eviction or live ChatGPT entitlement. Raw traces are retained locally and ignored because even a synthetic browser run can contain app-session cookies or CSRF values. Public evidence must remain redacted, and final case dispositions must be tied to the final integration commit.
+
+## Integrated qualification records
+
+Historical slice results above retain their original scope. The complete baseline2364a6813c2319b604bab76beff448aa3c26bab7 passed188 unit,25 integration,20 hostile and56 browser checks locally and in clean Ubuntu Actions run36943590577. Later offline/revocation additions must match their own production build and run. Current source commit, command exit codes and full outputs are recorded centrally in `evidence/M10/local-verification.json`, `ci-current.json` after capture, `verify-all-final-output.txt`, `evidence/browser-results.json`, and `evidence/VERIFICATION.md`. All57 exact contracts and remaining external gates are mapped in `evidence/ACCEPTANCE-DISPOSITION.md`. No historical result certifies later edits.

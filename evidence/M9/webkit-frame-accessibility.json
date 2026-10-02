@@ -123,6 +123,10 @@
             ],
             [
               "iframe",
+              "select[aria-label=\"Document\"]"
+            ],
+            [
+              "iframe",
               "div[aria-label=\"Formatting\"]"
             ],
             [
@@ -168,6 +172,10 @@
             [
               "iframe",
               "main"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
@@ -235,6 +243,10 @@
             ],
             [
               "iframe",
+              "select[aria-label=\"Document\"]"
+            ],
+            [
+              "iframe",
               "div[aria-label=\"Formatting\"] > button:nth-child(1)"
             ],
             [
@@ -288,6 +300,10 @@
             ],
             [
               "iframe",
+              "select[aria-label=\"Document\"]"
+            ],
+            [
+              "iframe",
               "div[aria-label=\"Formatting\"]"
             ],
             [
@@ -324,6 +340,10 @@
             [
               "iframe",
               "main"
+            ],
+            [
+              "iframe",
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
@@ -453,7 +473,7 @@
             ],
             [
               "iframe",
-              "label:nth-child(3) > select"
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
@@ -538,7 +558,7 @@
           "nodes": [
             [
               "iframe",
-              "label:nth-child(3) > select"
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
@@ -615,7 +635,7 @@
           "nodes": [
             [
               "iframe",
-              "label:nth-child(3) > select"
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
@@ -741,7 +761,7 @@
             ],
             [
               "iframe",
-              "label:nth-child(3) > select > option"
+              "select[aria-label=\"Document\"] > option"
             ],
             [
               "iframe",
@@ -874,11 +894,11 @@
             ],
             [
               "iframe",
-              "label:nth-child(3) > select"
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",
-              "label:nth-child(3) > select > option"
+              "select[aria-label=\"Document\"] > option"
             ],
             [
               "iframe",
@@ -963,7 +983,7 @@
           "nodes": [
             [
               "iframe",
-              "label:nth-child(3) > select"
+              "select[aria-label=\"Document\"]"
             ],
             [
               "iframe",

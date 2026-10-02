@@ -1,0 +1,105 @@
+{
+  "advisories": {
+    "1122670": {
+      "findings": [
+        {
+          "version": "4.2.1",
+          "paths": [
+            ".>@bytecodealliance/jco>@bytecodealliance/componentize-js>@bytecodealliance/weval>decompress"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 1122670,
+      "title": "Decompress: Archive extraction can create files and links outside of the target directory",
+      "module_name": "decompress",
+      "vulnerable_versions": "<=4.2.1",
+      "patched_versions": ">=4.2.2",
+      "severity": "critical",
+      "cwe": "CWE-22, CWE-59, CWE-732",
+      "github_advisory_id": "GHSA-mp2f-45pm-3cg9",
+      "url": "https://github.com/advisories/GHSA-mp2f-45pm-3cg9"
+    },
+    "1130126": {
+      "findings": [
+        {
+          "version": "4.2.1",
+          "paths": [
+            ".>@bytecodealliance/jco>@bytecodealliance/componentize-js>@bytecodealliance/weval>decompress"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 1130126,
+      "title": "decompress: Arbitrary File Write via Archive Extraction (Zip Slip)",
+      "module_name": "decompress",
+      "vulnerable_versions": "<=4.2.1",
+      "patched_versions": ">=4.2.2",
+      "severity": "moderate",
+      "cwe": "CWE-22, CWE-29",
+      "github_advisory_id": "GHSA-h39j-r5qq-r9mm",
+      "url": "https://github.com/advisories/GHSA-h39j-r5qq-r9mm"
+    },
+    "1139405": {
+      "findings": [
+        {
+          "version": "4.2.1",
+          "paths": [
+            ".>@bytecodealliance/jco>@bytecodealliance/componentize-js>@bytecodealliance/weval>decompress"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 1139405,
+      "title": "decompress allows arbitrary hardlink creation during archive extraction",
+      "module_name": "decompress",
+      "vulnerable_versions": "<=4.2.1",
+      "patched_versions": ">=4.2.2",
+      "severity": "moderate",
+      "cwe": "CWE-59",
+      "github_advisory_id": "GHSA-jwp9-9v96-94mx",
+      "url": "https://github.com/advisories/GHSA-jwp9-9v96-94mx"
+    },
+    "1240094": {
+      "findings": [
+        {
+          "version": "4.2.1",
+          "paths": [
+            ".>@bytecodealliance/jco>@bytecodealliance/componentize-js>@bytecodealliance/weval>decompress"
+          ],
+          "dev": true,
+          "optional": false,
+          "bundled": false
+        }
+      ],
+      "id": 1240094,
+      "title": "@xhmikosr/decompress: Path traversal via symlink chain",
+      "module_name": "decompress",
+      "vulnerable_versions": "<=4.2.1",
+      "patched_versions": ">=4.2.2",
+      "severity": "critical",
+      "cwe": "CWE-22, CWE-59",
+      "github_advisory_id": "GHSA-hrh2-vp3x-79xf",
+      "url": "https://github.com/advisories/GHSA-hrh2-vp3x-79xf"
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 0,
+      "critical": 2
+    },
+    "dependencies": 128,
+    "devDependencies": 274,
+    "optionalDependencies": 167,
+    "totalDependencies": 436
+  }
+}

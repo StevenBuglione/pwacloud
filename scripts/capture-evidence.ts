@@ -2,18 +2,25 @@
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
 import type {EvidenceCase,Report} from '../src/reference/evidence.ts';
 
 const commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 const runId=process.argv[2];if(!runId||!/^\d+$/.test(runId))throw new Error('Pass a completed verification Actions run ID.');
-const ci=JSON.parse(execFileSync('gh',['run','view',runId,'--repo','StevenBuglione/pwacloud','--json','status,conclusion,headSha,url,createdAt,updatedAt'],{encoding:'utf8'})) as {status:string;conclusion:string;headSha:string;url:string};
-if(ci.status!=='completed'||ci.conclusion!=='success'||ci.headSha!==commit)throw new Error('CI must have succeeded on the exact current commit.');
+const ci=JSON.parse(execFileSync('gh',['run','view',runId,'--repo','StevenBuglione/pwacloud','--json','status,conclusion,headSha,url,createdAt,updatedAt,workflowName'],{encoding:'utf8'})) as {status:string;conclusion:string;headSha:string;url:string;workflowName:string};
+if(ci.workflowName!=='Production verification'||ci.status!=='completed'||ci.conclusion!=='success'||ci.headSha!==commit)throw new Error('Production verification CI must have succeeded on the exact current commit.');
 writeFileSync('evidence/M10/ci-current.json',JSON.stringify(ci,null,2)+'\n');
 const local=JSON.parse(readFileSync('evidence/M10/local-verification.json','utf8')) as {commit:string;exitCode:number;finishedAt:string};
 const build=JSON.parse(readFileSync('dist/shell/build-info.json','utf8')) as {sourceCommit:string;changedSource:string[]};
 if(local.commit!==commit||local.exitCode!==0||build.sourceCommit!==commit||build.changedSource.length)throw new Error('Local production verification must succeed against this clean source commit.');
 const browser=JSON.parse(readFileSync('evidence/browser-results.json','utf8')) as {stats:{expected:number;unexpected:number;flaky:number;skipped:number}};
-if(browser.stats.expected<44||browser.stats.unexpected||browser.stats.flaky||browser.stats.skipped)throw new Error('Complete default browser suite must pass without retries or skips.');
+type ListedSuite={specs?:{tests:unknown[]}[];suites?:ListedSuite[]};
+const listed=JSON.parse(execFileSync(process.execPath,[resolve('node_modules/@playwright/test/cli.js'),'test','--list','--reporter=json'],{encoding:'utf8'})) as {suites:ListedSuite[]};
+const count=(suites:ListedSuite[]):number=>suites.reduce((total,suite)=>total+(suite.specs??[]).reduce((n,spec)=>n+spec.tests.length,0)+count(suite.suites??[]),0);
+const expectedBrowserChecks=count(listed.suites);
+if(expectedBrowserChecks<56||browser.stats.expected!==expectedBrowserChecks||browser.stats.unexpected||browser.stats.flaky||browser.stats.skipped)throw new Error('Every currently discovered default browser check must pass without retries or skips.');
+const audit=JSON.parse(readFileSync('evidence/M10/dependency-audit.json','utf8')) as {metadata:{vulnerabilities:Record<string,number>}};
+if(Object.values(audit.metadata.vulnerabilities).some(value=>value!==0))throw new Error('The retained dependency audit must have no reported vulnerabilities.');
 const publicReport=JSON.parse(readFileSync('evidence/M3/public-install-results.json','utf8')) as {hostCommit:string;status:string;results:{status:string}[]};
 if(publicReport.hostCommit!==commit||publicReport.status!=='passed'||publicReport.results.length!==2||publicReport.results.some(result=>result.status!=='passed'))throw new Error('Both actual public installation browser checks must pass against this host commit.');
 const requirements=(JSON.parse(readFileSync('planning/acceptance-cases.json','utf8')) as {cases:{id:string;milestone:string;title:string;passCriterion:string;requiresRealProvider:boolean;requiresPhysicalDevice:boolean;requiresExternalAuthorization:boolean}[]}).cases;
@@ -33,7 +40,7 @@ const blocked:Record<string,string>={
  'HST-03':'Hosted terms, tenant isolation and retention cannot be tested as an enabled service while authorization is unresolved.'
 };
 const artifact=(path:string)=>{if(!existsSync(path))throw new Error('Missing evidence: '+path);return{path,sha256:createHash('sha256').update(readFileSync(path)).digest('hex')};};
-const common=['evidence/ACCEPTANCE-DISPOSITION.md','evidence/M10/local-verification.json','evidence/M10/ci-current.json','evidence/M10/verify-all-final-output.txt','evidence/browser-results.json'];
+const common=['evidence/ACCEPTANCE-DISPOSITION.md','evidence/M10/local-verification.json','evidence/M10/ci-current.json','evidence/M10/verify-all-final-output.txt','evidence/browser-results.json','evidence/M10/dependency-audit.json'];
 const cases:EvidenceCase[]=requirements.map(requirement=>({caseId:requirement.id,status:blocked[requirement.id]?'blocked':'passed',commit,testedAt:local.finishedAt,environment:{runtime:'Windows x64 Node 24.19.0; clean Ubuntu 24.04 Actions; Chromium and WebKit at 360x800',provider:requirement.id.startsWith('AI-')?'synthetic':'none',physicalDevice:false,deviceClass:'desktop',details:'Real Component Model Workers and browser IndexedDB; synthetic user data/provider fixtures. Actual public GitHub/Sigstore/TUF verification is separate. '+ci.url},steps:blocked[requirement.id]?['Record the unmet prerequisite without substituting synthetic or emulator results.']:['Build the actual production shell, independently bundled plugins and Rust component.','Run unit, integration, hostile and both browser suites; inspect the case-specific mapping in ACCEPTANCE-DISPOSITION.md.'],observed:blocked[requirement.id]??('Automated acceptance supported by the concrete implementation and checks mapped for '+requirement.id+'. Criterion: '+requirement.passCriterion),artifacts:[...common,...(requirement.id==='PKG-03'?['evidence/M3/public-install-results.json']:[])].map(artifact),reviewer:null,externalAuthorizationVerified:false}));
 const report:Report={version:1,target:'local-alpha',commit,cases};writeFileSync('evidence/release.current.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({commit,passed:cases.filter(row=>row.status==='passed').length,blocked:cases.filter(row=>row.status==='blocked').length,report:'evidence/release.current.json',note:'Mandatory deferred checks remain blocked. Run verify:release with this report to inspect the fail-closed gate.'}));

@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-01T23:04:26.1437411Z",
-  "productStatus": "implemented-development-build-final-validation-in-progress",
-  "repositoryPublished": false,
+  "updatedAt": "2026-10-02T00:09:48.162881Z",
+  "productStatus": "automated-baseline-qualified-final-revocation-and-offline-hardening-in-progress",
+  "repositoryPublished": true,
   "milestones": [
     {
       "id": "M0",
-      "status": "spikes-passed-clean-clone-pending",
+      "status": "automated-baseline-and-clean-ci-passed",
       "implementationCommit": "84919613fef4bb1e8af39e11762bafe8d5269980",
       "evidence": [
         "evidence/M0/spikes.json"
@@ -13,7 +13,7 @@
     },
     {
       "id": "M1",
-      "status": "implemented-final-browser-validation-pending",
+      "status": "automated-baseline-passed-physical-device-qualification-deferred",
       "implementationCommit": "b99bc91024f2e0e1eb5788b721a2424a5fd6e94f",
       "evidence": [
         "evidence/M1/summary.md"
@@ -21,7 +21,7 @@
     },
     {
       "id": "M2",
-      "status": "implemented-final-browser-validation-pending",
+      "status": "automated-baseline-passed",
       "implementationCommit": "59103ecd78f8b9183638be8fca65773e59979e6d",
       "evidence": [
         "evidence/M2/summary.md"
@@ -29,7 +29,7 @@
     },
     {
       "id": "M3",
-      "status": "implemented-live-publication-pending",
+      "status": "signed-public-release-and-both-browser-installs-passed-new-revocation-hardening-in-progress",
       "implementationCommit": "f03ab3897028aa79192b3efb6b4fe8f6bd282971",
       "evidence": [
         "evidence/M3/summary.md",
@@ -38,7 +38,7 @@
     },
     {
       "id": "M4",
-      "status": "implemented-final-browser-validation-pending",
+      "status": "automated-baseline-passed",
       "implementationCommit": "fe6308185686ae86534a18113b32e7f9548b8b63",
       "evidence": [
         "evidence/M4/summary.md"
@@ -46,7 +46,7 @@
     },
     {
       "id": "M5",
-      "status": "implemented-final-integrated-browser-validation-pending",
+      "status": "automated-baseline-passed",
       "implementationCommit": "e940f8ca35f5b3daa60ec918b74633696e4b0999",
       "evidence": [
         "evidence/M5/summary.md"
@@ -54,7 +54,7 @@
     },
     {
       "id": "M6",
-      "status": "implemented-real-provider-and-phone-gates-blocked",
+      "status": "automated-protocol-custody-replay-passed-real-provider-and-phone-deferred",
       "implementationCommit": "19abc7058b929c0847439f9fff5b832fd0840eee",
       "evidence": [
         "evidence/M6/summary.md",
@@ -63,7 +63,7 @@
     },
     {
       "id": "M7",
-      "status": "deterministic-tool-composition-implemented-real-model-sequencing-unverified",
+      "status": "bounded-iterative-tools-and-broker-composition-passed-real-model-sequencing-unverified",
       "implementationCommit": "d0307fc8d65d976063496578c7d0f9fed80ad9e1",
       "evidence": [
         "evidence/M7/summary.md"
@@ -71,7 +71,7 @@
     },
     {
       "id": "M8",
-      "status": "implemented-final-integrated-browser-validation-pending",
+      "status": "automated-baseline-passed-final-offline-and-revocation-regressions-in-progress",
       "implementationCommit": "93a365235598e45ce0a9ea67f45581e18baeae34",
       "evidence": [
         "evidence/M8/summary.md"
@@ -79,7 +79,7 @@
     },
     {
       "id": "M9",
-      "status": "implemented-physical-device-gates-blocked",
+      "status": "desktop-browser-budgets-and-accessibility-passed-physical-device-qualification-deferred",
       "implementationCommit": "c781617a1b0ed464e4c1ac4c4fd80e05811f4624",
       "evidence": [
         "evidence/M9/summary.md"
@@ -87,21 +87,25 @@
     },
     {
       "id": "M10",
-      "status": "clean-ci-and-live-publication-pending-product-alpha-blocked",
-      "implementationCommit": null,
-      "evidence": []
+      "status": "clean-baseline-ci-and-public-reference-release-passed-product-alpha-blocked",
+      "implementationCommit": "2364a6813c2319b604bab76beff448aa3c26bab7",
+      "evidence": [
+        "evidence/M10/summary.md"
+      ]
     },
     {
       "id": "M11",
       "status": "external-authorization-blocked-hosted-disabled",
-      "implementationCommit": null,
-      "evidence": []
+      "implementationCommit": "2364a6813c2319b604bab76beff448aa3c26bab7",
+      "evidence": [
+        "evidence/M11/summary.md"
+      ]
     }
   ],
   "externalPrerequisites": [
     {
       "id": "github-write",
-      "status": "authenticated-target-created-public-source-push-pending"
+      "status": "authorized-public-source-and-signed-reference-release-published"
     },
     {
       "id": "real-user-oauth",
@@ -115,5 +119,56 @@
       "id": "hosted-approval-and-plugin-scope",
       "status": "unresolved"
     }
-  ]
+  ],
+  "repository": "https://github.com/StevenBuglione/pwacloud",
+  "referenceRelease": {
+    "tag": "plugin-v0.1.0-reference.5",
+    "sourceCommit": "bb53ae6e4ae6fc42057c5f172561ab39adbde68a",
+    "url": "https://github.com/StevenBuglione/pwacloud/releases/tag/plugin-v0.1.0-reference.5",
+    "status": "published-sigstore-and-public-install-verified-not-product-alpha"
+  },
+  "verification": {
+    "baselineCommit": "2364a6813c2319b604bab76beff448aa3c26bab7",
+    "localCommand": "pnpm verify:all",
+    "localExitCode": 0,
+    "unit": 188,
+    "integration": 25,
+    "security": 20,
+    "browser": 56,
+    "browserFailures": 0,
+    "browserRetries": 0,
+    "browserSkips": 0,
+    "ciRun": "https://github.com/StevenBuglione/pwacloud/actions/runs/36943590577",
+    "publicInstallEngines": [
+      "chromium",
+      "webkit"
+    ],
+    "currentCommitAndResults": "evidence/M10/local-verification.json and evidence/M10/ci-current.json after the final pipeline",
+    "artifacts": [
+      "evidence/M10/ci-candidate-local-success.json",
+      "evidence/M10/ci-candidate-local-success-output.txt",
+      "evidence/M10/ci-candidate-status.json",
+      "evidence/M10/ci-candidate-browser-success.json",
+      "evidence/M3/public-install-results.json"
+    ]
+  },
+  "latestWork": {
+    "implemented": [
+      "complete actual browser credential custody scan including consumed stream bytes and real exported data",
+      "explicit synthetic catalogue connection and existing-run replay without a second provider request",
+      "signed public reference package verified against real GitHub/Sigstore/TUF in two browser engines"
+    ],
+    "inProgress": [
+      "offline transition at each actual IndexedDB journal stage",
+      "signed catalogue revocation admission at all actual install/update paths",
+      "runnable packaged development ZIP and final exact-commit evidence"
+    ],
+    "failuresRetained": [
+      "evidence/M10/expanded-first-browser-results.json",
+      "evidence/M6/credential-custody-review-wait-failure.txt",
+      "evidence/M6/credential-custody-export-first-failure.txt",
+      "evidence/M6/credential-custody-stream-observer-first-failure.txt"
+    ],
+    "deferredByUser": "Automated checks for now; real account and physical phones remain unverified"
+  }
 }

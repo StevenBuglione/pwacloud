@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "scope": "handoff structure and SQLite constraints only",
+  "checks": 401,
+  "acceptanceCases": 57,
+  "milestones": 12,
+  "sources": 30
+}

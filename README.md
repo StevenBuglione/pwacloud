@@ -28,12 +28,13 @@ Discover also accepts `https://github.com/StevenBuglione/pwacloud`. The local ve
 ```sh
 pnpm exec playwright install chromium webkit
 pnpm verify:all
+pnpm audit
 pnpm audit:handoff
 pnpm validate:contracts
 pnpm verify:release
 ```
 
-Browser binaries use `.cache/browsers`. Clean-checkout CI builds the actual shell, packages and Wasm and retains reports tied to its commit. The release gate deliberately exits nonzero while mandatory provider, physical-device or publication evidence is missing. Automated and synthetic checks cannot satisfy those gates.
+Browser binaries use `.cache/browsers`. Clean-checkout CI builds the actual shell, packages and Wasm and retains reports tied to its commit. The release gate deliberately exits nonzero while mandatory provider and physical-device acceptance evidence is missing. Automated and synthetic checks cannot satisfy those gates.
 
 ## Personal ChatGPT runtime
 
@@ -66,3 +67,6 @@ Opaque `allow-scripts` frames cannot read host DOM or use direct fetch, image, o
 Offline editing requires a successfully installed production service worker. AI and new repository resolution need the runtime and network. Browser suspension and eviction are expected; export important documents to a file outside browser storage. No always-on execution or automatic multi-device document sync is promised.
 
 License: MIT. Original handoff contracts and history are preserved.
+
+
+The reproducible local delivery command is `pnpm exec tsx scripts/package-delivery.ts` after successful clean-source verification and evidence capture. It includes the prebuilt shell/plugins/Wasm and source, plus an integrity manifest and run instructions; it excludes dependencies, runtime databases and credentials. Install the pinned Node dependencies before starting. Demo install receipts expire after seven days; rebuild local fixtures from source before installing after expiry. This unsigned local development ZIP is separate from the signed public reference plugins.

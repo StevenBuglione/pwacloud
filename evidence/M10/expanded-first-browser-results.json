@@ -1,0 +1,2168 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\steve\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\playwright.config.ts",
+    "rootDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Users/steve/Documents/ChatGPT/pwacloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm start",
+      "url": "http://127.0.0.1:4173/health",
+      "reuseExistingServer": false,
+      "env": {
+        "PWACLOUD_MODE": "demo",
+        "PORT": "4173",
+        "PWACLOUD_DATA_DIRECTORY": "runtime-data/browser-test-33964-1790898084380"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "agent.spec.ts",
+      "file": "agent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:27.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00574607846d83245288-dfed9303ab08f75e2a8b",
+          "file": "agent.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "AGT-01 AGT-02 AGT-03 actual broker composition and persistent IndexedDB write admission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2592,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:52.030Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00574607846d83245288-9310c8c7a6610d2d0a95",
+          "file": "agent.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "app.spec.ts",
+      "file": "app.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M1 phone routes, preferences, real IndexedDB and production offline relaunch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3099,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:27.863Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-32940424aeef421383ee",
+          "file": "app.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9694,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:30.970Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-da8cef289861f616d8c6",
+          "file": "app.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "M1 real waiting service-worker update protects an unsaved edit before apply",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:40.671Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-7609ac6973e87ea81f31",
+          "file": "app.spec.ts",
+          "line": 72,
+          "column": 1
+        },
+        {
+          "title": "M1 independent tab state, host Settings return, internal Back, route reload and pinned tools",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2439,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:42.641Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-4b9d96a9397f505eb5c8",
+          "file": "app.spec.ts",
+          "line": 82,
+          "column": 1
+        },
+        {
+          "title": "UI-03 host keyboard order and tab activation work without pointer input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 541,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:45.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-495d489b8838f7054600",
+          "file": "app.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "M5 Canvas selected note approval, denied escalation, non-drag move and persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:45.636Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-d2373f8c329c90ba376f",
+          "file": "app.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "M9 minimal non-Ionic embedding uses independently verified package",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:51.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-094f8a2023f5f24edd21",
+          "file": "app.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "M9 automated accessibility host 360px light/dark and enlarged text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2175,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:52.118Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-909ded7d6d7c64b4ddb0",
+          "file": "app.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "M9 accessibility inside all isolated frames at 200% text and reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3278,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:54.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-36814dfcf5a39205d716",
+          "file": "app.spec.ts",
+          "line": 133,
+          "column": 1
+        },
+        {
+          "title": "M9 twenty cached activations retain one rich frame and meet emulated p95 budget",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:41:57.587Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-d33fe37f99d846fb192c",
+          "file": "app.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "M6 explicitly labeled demo streaming saves output and revocation blocks access",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:04.116Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-c32dd9fb7d01f253c6ca",
+          "file": "app.spec.ts",
+          "line": 172,
+          "column": 1
+        },
+        {
+          "title": "M1 phone routes, preferences, real IndexedDB and production offline relaunch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7015,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:54.766Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-6f0e365fd6f84438b2e7",
+          "file": "app.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "M5 Notebook rich editing, hostile text, undo, Wasm Worker and persisted reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19094,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:01.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-6a3c41851a6aee9b8b2f",
+          "file": "app.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "M1 real waiting service-worker update protects an unsaved edit before apply",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:20.891Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-a28195ca987816ad6ad6",
+          "file": "app.spec.ts",
+          "line": 72,
+          "column": 1
+        },
+        {
+          "title": "M1 independent tab state, host Settings return, internal Back, route reload and pinned tools",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8814,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:23.127Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-1013ae9b2656dffc8716",
+          "file": "app.spec.ts",
+          "line": 82,
+          "column": 1
+        },
+        {
+          "title": "UI-03 host keyboard order and tab activation work without pointer input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1606,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:31.948Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-88bce90aea0fb2503c52",
+          "file": "app.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "M5 Canvas selected note approval, denied escalation, non-drag move and persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:33.562Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-8dd6cafad7d705f3d762",
+          "file": "app.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "M9 minimal non-Ionic embedding uses independently verified package",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3106,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:55.284Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-9a08f26ff7ae0aad9712",
+          "file": "app.spec.ts",
+          "line": 123,
+          "column": 1
+        },
+        {
+          "title": "M9 automated accessibility host 360px light/dark and enlarged text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4071,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:43:58.397Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-f878cfae4c4b86fe8bab",
+          "file": "app.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "M9 accessibility inside all isolated frames at 200% text and reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:02.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-9727f6a90da25a8c2282",
+          "file": "app.spec.ts",
+          "line": 133,
+          "column": 1
+        },
+        {
+          "title": "M9 twenty cached activations retain one rich frame and meet emulated p95 budget",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27036,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:11.828Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-5518554d2e179e985f13",
+          "file": "app.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "M6 explicitly labeled demo streaming saves output and revocation blocks access",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9645,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:40.526Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c31ff144dc4fee3acd0a-ef720cf010a6dcb4118a",
+          "file": "app.spec.ts",
+          "line": 172,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "Deterministic HTTP broker interception",
+          "file": "app.spec.ts",
+          "line": 109,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M5 Lit feed virtual list, broker permission denial and offline snapshot",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2565,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T23:41:48.621Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c31ff144dc4fee3acd0a-fbd87416fc58f28232b7",
+              "file": "app.spec.ts",
+              "line": 111,
+              "column": 1
+            },
+            {
+              "title": "M5 Lit feed virtual list, broker permission denial and offline snapshot",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T23:43:44.928Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c31ff144dc4fee3acd0a-a92e98c79a22bd8a4a11",
+              "file": "app.spec.ts",
+              "line": 111,
+              "column": 1
+            }
+          ]
+        },
+        {
+          "title": "Deterministic provider-mode response boundary",
+          "file": "app.spec.ts",
+          "line": 162,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M6 a real-mode app session cannot be labeled synthetic demo authorization",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 526,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T23:42:03.583Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c31ff144dc4fee3acd0a-e95f6652324ed9285506",
+              "file": "app.spec.ts",
+              "line": 164,
+              "column": 1
+            },
+            {
+              "title": "M6 a real-mode app session cannot be labeled synthetic demo authorization",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1649,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-01T23:44:38.871Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c31ff144dc4fee3acd0a-61ddba73307cab809494",
+              "file": "app.spec.ts",
+              "line": 164,
+              "column": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "boundaries.spec.ts",
+      "file": "boundaries.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:06.921Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-36477b8e7854288e88be",
+          "file": "boundaries.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2214,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:07.400Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-55ebc7f1becdfd44a281",
+          "file": "boundaries.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "RUN-03 inactive installed host and production scheduler bound actual Wasm Workers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1586,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:09.620Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-3f45ea75382eba3e8ada",
+          "file": "boundaries.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "APP-04 RUN-01 RUN-02 RUN-04 actual storage and worker boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:50.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-9f54d88f5ebefe321655",
+          "file": "boundaries.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "RUN-04 actual two-page leader replacement restores real guest checkpoint without external replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3900,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:52.609Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-5bbbc82607c1e0c48126",
+          "file": "boundaries.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "RUN-03 inactive installed host and production scheduler bound actual Wasm Workers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1838,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:56.516Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a0a85330a59013ae9a19-7e3ecc617c761e71592b",
+          "file": "boundaries.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "hostile.spec.ts",
+      "file": "hostile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 627,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:11.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-d70d558864ede20d627e",
+          "file": "hostile.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:11.864Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-b19b5c208844b22110c3",
+          "file": "hostile.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:12.682Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-077749021d91d545cd9e",
+          "file": "hostile.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "RPC-01 RPC-02 hostile forged identity oversized requests and replay close real ports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:58.367Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-bad5d323bbcc7a1c96cb",
+          "file": "hostile.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "RPC-01 copied bootstrap from wrong window and retired actual channel cannot gain authority",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1617,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:44:59.688Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-8ed0690bdd81361f9f2f",
+          "file": "hostile.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "RPC-02 actual in-flight overflow aborts dispatch and SDK dispose cancels pending replies",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1115,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:01.312Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9ee40a79f9fade8885d6-8aec8630f5a429cff519",
+          "file": "hostile.spec.ts",
+          "line": 9,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 25000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:13.172Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-c93efa15fb2d12a16fe8",
+          "file": "lifecycle.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 482,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:23.007Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-e5ca7cafcfb35b007a62",
+          "file": "lifecycle.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-02 actual page termination at every journal stage restores the old installation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11874,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:23.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-d6ecfab487ba992f5957",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "RUN-02 RUN-05 actual hanging guest crashes back off and quarantine the installed plugin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 25000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11590,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:02.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-bb5ad4e2b1f8bd592d39",
+          "file": "lifecycle.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-01 UPD-02 UPD-05 RUN-04 actual IndexedDB lifecycle recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14746,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:14.044Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-82a45c428a5d7a4213c7",
+          "file": "lifecycle.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "PKG-04 UPD-02 actual page termination at every journal stage restores the old installation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14221,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:28.796Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-79ac3d1d0713e2db782d",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "package.spec.ts",
+      "file": "package.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "CLI react scaffold installs and renders through the actual opaque loader at 360px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:35.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea01a303febe52cc7ec6-fbea52e6e92a7a3e704c",
+          "file": "package.spec.ts",
+          "line": 11,
+          "column": 3
+        },
+        {
+          "title": "CLI lit scaffold installs and renders through the actual opaque loader at 360px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2407,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:38.402Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea01a303febe52cc7ec6-95d8bff8483b9117668e",
+          "file": "package.spec.ts",
+          "line": 11,
+          "column": 3
+        },
+        {
+          "title": "CLI react scaffold installs and renders through the actual opaque loader at 360px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:43.059Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea01a303febe52cc7ec6-805ccb9c4cc86ed5fed1",
+          "file": "package.spec.ts",
+          "line": 11,
+          "column": 3
+        },
+        {
+          "title": "CLI lit scaffold installs and renders through the actual opaque loader at 360px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3528,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:47.322Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea01a303febe52cc7ec6-8c83f271dd9b2c28bed9",
+          "file": "package.spec.ts",
+          "line": 11,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "provider-boundary.spec.ts",
+      "file": "provider-boundary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7349,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts:42:155",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                      "column": 155,
+                      "line": 42
+                    },
+                    "snippet": "  40 |  try{\n  41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();\n> 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');\n     |                                                                                                                                                           ^\n  43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);\n  44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);\n  45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                        "column": 155,
+                        "line": 42
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n  40 |  try{\n  41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();\n> 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');\n     |                                                                                                                                                           ^\n  43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);\n  44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);\n  45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts:42:155"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:40.835Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                    "column": 155,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "177ae69befabdd8ac0ff-2b3cead5d89357dcda4a",
+          "file": "provider-boundary.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "AI-02 AI-07 synthetic private credentials stay server-side while an existing Notebook run resumes without another model call",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9612,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts:42:155",
+                    "location": {
+                      "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                      "column": 155,
+                      "line": 42
+                    },
+                    "snippet": "  40 |  try{\n  41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();\n> 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');\n     |                                                                                                                                                           ^\n  43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);\n  44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);\n  45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                        "column": 155,
+                        "line": 42
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe').contentFrame().getByLabel('Model')\nExpected: \u001b[32m\"synthetic-custody\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe').contentFrame().getByLabel('Model')\u001b[22m\n\u001b[2m    13 × locator resolved to <select>…</select>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n  40 |  try{\n  41 |   await runtime.listen();await page.goto(origin);await expect(page.getByText('Local workspace ready',{exact:true})).toBeVisible();await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'Discover',exact:true}).click();await page.getByRole('button',{name:'Review Notebook',exact:true}).click();for(const box of await page.getByRole('dialog').getByRole('checkbox').all())if(await box.isEnabled())await box.check();await page.getByRole('button',{name:'Install reviewed app',exact:true}).click();await page.getByRole('button',{name:'Open Notebook',exact:true}).click();\n> 42 |   const frame=page.frameLocator('iframe');await frame.getByRole('button',{name:'AI composer',exact:true}).click();await expect(frame.getByLabel('Model')).toHaveValue('synthetic-custody');await frame.getByLabel('Prompt').fill('Synthetic custody and replay check');await frame.getByRole('button',{name:'Send',exact:true}).click();await expect(frame.locator('.answer')).toContainText('synthetic-0 ');\n     |                                                                                                                                                           ^\n  43 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await expect(page.locator('iframe')).toHaveCount(0);expect(providerCalls).toBe(1);\n  44 |   await page.getByRole('button',{name:/Notebook Rich local/}).click();await frame.getByRole('button',{name:'AI composer',exact:true}).click();await frame.getByRole('button',{name:'Resume existing run',exact:true}).click();await expect(frame.locator('.answer')).toHaveText(expected);await expect(frame.locator('p[role=status]')).toContainText('AI completed');expect(providerCalls).toBe(1);\n  45 |   await page.getByRole('button',{name:'Back to Library',exact:true}).click();await page.getByRole('button',{name:'Manage Notebook',exact:true}).click();const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export data',exact:true}).click();const download=await downloadPromise,exportPath=await download.path();if(!exportPath)throw new Error('No real export');browserObserved.push(await readFile(exportPath,'utf8'));await page.getByRole('button',{name:'Close app management',exact:true}).click();\n    at D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts:42:155"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:45:50.865Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\test-results\\provider-boundary-AI-02-AI-be19f--without-another-model-call-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Users\\steve\\Documents\\ChatGPT\\pwacloud\\tests\\e2e\\provider-boundary.spec.ts",
+                    "column": 155,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "177ae69befabdd8ac0ff-42859b32dc2da0c41a02",
+          "file": "provider-boundary.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "spikes.spec.ts",
+      "file": "spikes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "FND-02 opaque React and Lit bundles, real CSP and navigation residual",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1237,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:48.970Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abd6ac69d6f7562be560-45cbb9a2fb1fa342304c",
+          "file": "spikes.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "FND-03 real Component Model artifact in Worker and watchdog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:42:50.316Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abd6ac69d6f7562be560-3b8f41731fce87797ce9",
+          "file": "spikes.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "FND-02 opaque React and Lit bundles, real CSP and navigation residual",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:46:01.105Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abd6ac69d6f7562be560-b63a2fffd575e9189332",
+          "file": "spikes.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "FND-03 real Component Model artifact in Worker and watchdog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1641,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-01T23:46:03.118Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "abd6ac69d6f7562be560-b69eae5fe849ec367c99",
+          "file": "spikes.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-01T23:41:24.383Z",
+    "duration": 280727.04199999996,
+    "expected": 54,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

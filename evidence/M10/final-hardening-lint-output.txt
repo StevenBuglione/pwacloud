@@ -1,0 +1,2 @@
+$ tsx scripts/lint.ts
+TypeScript source and package dependency boundary lint passed

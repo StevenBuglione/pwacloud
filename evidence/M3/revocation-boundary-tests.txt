@@ -1,0 +1,15 @@
+✔ runtime independently authenticates catalogue and rejects stale revoked and expired signed install packets (165.2273ms)
+✔ signed catalogue sequence survives source recreation and concurrent refresh; expired cache cannot disappear (35.7496ms)
+✔ runtime rechecks revocation after real-component preparation and before durable registration (40.825ms)
+✔ runtime exposes absent trusted catalogue as unknown instead of inventing revocation assurance (9.2425ms)
+✔ authenticated revocation metadata denies revoked stale expired and invalid policies at package verification (19.8308ms)
+✔ registry resolves current policy after an asynchronous transport instead of preserving reviewed metadata (2.852ms)
+✔ expired catalogue cache can be authenticated without granting admission or accepting forged/future metadata (4.4274ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1152.0431
