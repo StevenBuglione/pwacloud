@@ -1,0 +1,31 @@
+
+[WebServer] (node:56968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ tsx scripts/start-demo.ts
+
+
+[WebServer] (node:33872) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:53016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+
+(node:22816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/8] [chromium] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 signed host revocation policy changed before commit cannot publish pending update
+[2/8] [chromium] › tests\e2e\lifecycle.spec.ts:16:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+[3/8] [chromium] › tests\e2e\revocation.spec.ts:62:3 › UPD-03 signed revocation enforcement in the actual shell › a reviewed update, fixture bytes and pasted repository cannot bypass a retained revoked digest
+[4/8] [chromium] › tests\e2e\revocation.spec.ts:73:3 › UPD-03 signed revocation enforcement in the actual shell › expired signed metadata survives reload and blocks new installs while existing notes remain editable offline
+
+(node:48428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/8] [webkit] › tests\e2e\lifecycle.spec.ts:3:1 › PKG-04 signed host revocation policy changed before commit cannot publish pending update
+[6/8] [webkit] › tests\e2e\lifecycle.spec.ts:16:1 › PKG-04 actual offline transition at all five journal stages preserves a verified install and data
+[7/8] [webkit] › tests\e2e\revocation.spec.ts:62:3 › UPD-03 signed revocation enforcement in the actual shell › a reviewed update, fixture bytes and pasted repository cannot bypass a retained revoked digest
+[8/8] [webkit] › tests\e2e\revocation.spec.ts:73:3 › UPD-03 signed revocation enforcement in the actual shell › expired signed metadata survives reload and blocks new installs while existing notes remain editable offline
+  8 passed (58.6s)

@@ -1,0 +1,14 @@
+[WebServer] (node:65112) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] $ tsx scripts/start-demo.ts
+
+[WebServer] (node:14008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:58204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+TypeError: Module "file:///D:/Users/steve/Documents/ChatGPT/pwacloud/contracts/plugin-manifest.schema.json" needs an import attribute of "type: json"
+    at eval (<anonymous>:1:1)
+

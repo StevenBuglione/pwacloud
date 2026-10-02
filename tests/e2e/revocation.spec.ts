@@ -2,12 +2,15 @@ import {test,expect,type Page} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import {createServer} from 'node:http';
 import {resolve,sep} from 'node:path';
-import {isReceipt} from '../../packages/contracts/src/index.ts';
-import {encodeInstallPacket,exactBuffer,verifyPackage,type PackageInput,type TrustRoot} from '../../packages/package-verifier/src/index.ts';
-import {verifyCatalogue,type Catalogue} from '../../apps/catalogue/src/index.ts';
+import {tsImport} from 'tsx/esm/api';
+import type {PackageInput,TrustRoot} from '../../packages/package-verifier/src/index.ts';
+import type {Catalogue} from '../../apps/catalogue/src/index.ts';
 
 // Synthetic signing keys authenticate controlled negative cases, not public Sigstore provenance.
 async function revocationServer(){
+  const {isReceipt}:typeof import('../../packages/contracts/src/index.ts')=await tsImport('../../packages/contracts/src/index.ts',import.meta.url);
+  const {encodeInstallPacket,exactBuffer,verifyPackage}:typeof import('../../packages/package-verifier/src/index.ts')=await tsImport('../../packages/package-verifier/src/index.ts',import.meta.url);
+  const {verifyCatalogue}:typeof import('../../apps/catalogue/src/index.ts')=await tsImport('../../apps/catalogue/src/index.ts',import.meta.url);
   const root=resolve('dist/shell'),guestRoot=resolve('artifacts/guest/browser'),fixtureRoot=resolve('artifacts/packages');
   const key=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);
   const trust:TrustRoot={keyId:'synthetic-browser-revocation',publicKey:await crypto.subtle.exportKey('jwk',key.publicKey),publisherIdentity:'SYNTHETIC browser revocation fixture; no public provenance',policyVersion:'synthetic-browser-v1'};

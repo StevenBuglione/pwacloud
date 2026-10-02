@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-02T00:09:48.162881Z",
-  "productStatus": "automated-baseline-qualified-final-revocation-and-offline-hardening-in-progress",
+  "updatedAt": "2026-10-02T00:27:05.193483Z",
+  "productStatus": "final-source-sealed-automated-pipeline-in-progress-product-alpha-blocked",
   "repositoryPublished": true,
   "milestones": [
     {
@@ -71,7 +71,7 @@
     },
     {
       "id": "M8",
-      "status": "automated-baseline-passed-final-offline-and-revocation-regressions-in-progress",
+      "status": "all-offline-and-signed-revocation-focused-checks-passed-final-suite-pending",
       "implementationCommit": "93a365235598e45ce0a9ea67f45581e18baeae34",
       "evidence": [
         "evidence/M8/summary.md"
@@ -156,12 +156,15 @@
     "implemented": [
       "complete actual browser credential custody scan including consumed stream bytes and real exported data",
       "explicit synthetic catalogue connection and existing-run replay without a second provider request",
-      "signed public reference package verified against real GitHub/Sigstore/TUF in two browser engines"
+      "signed public reference package verified against real GitHub/Sigstore/TUF in two browser engines",
+      "signed catalogue revocation and monotonic cache at actual resolve/register/receipt/install/commit boundaries",
+      "real offline transitions at all five journal stages and signed policy change before IDB commit",
+      "patched Jco archive dependency with zero reported vulnerabilities and three actual extractor regressions"
     ],
     "inProgress": [
-      "offline transition at each actual IndexedDB journal stage",
-      "signed catalogue revocation admission at all actual install/update paths",
-      "runnable packaged development ZIP and final exact-commit evidence"
+      "final exact-commit complete local/clean-Ubuntu verification",
+      "updated signed reference release with patched inventory and actual public installs",
+      "runnable local delivery ZIP, extraction smoke test and final acceptance capture"
     ],
     "failuresRetained": [
       "evidence/M10/expanded-first-browser-results.json",
@@ -169,6 +172,16 @@
       "evidence/M6/credential-custody-export-first-failure.txt",
       "evidence/M6/credential-custody-stream-observer-first-failure.txt"
     ],
-    "deferredByUser": "Automated checks for now; real account and physical phones remain unverified"
+    "deferredByUser": "Automated checks for now; real account and physical phones remain unverified",
+    "focusedHardening": {
+      "exitCode": 0,
+      "browserChecks": 8,
+      "engines": [
+        "chromium",
+        "webkit"
+      ],
+      "sourceStatus": "working tree based on3e2595dee7579bd831575fdb35cbb361d624a4b8 plus explicit tsImport fixture fix",
+      "output": "evidence/M8/hardening-focused-output.txt"
+    }
   }
 }
